@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { InternalHero } from '@/components/sections/InternalHero';
 import { ChevronRight, Filter } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 const CATEGORIES = [
   'Tất cả',
@@ -116,10 +117,13 @@ export function ProjectsContent({ projects }: ProjectsContentProps) {
                       {project.description}
                     </p>
                     <div className="mt-auto pt-6 border-t border-gray-100">
-                      <button className="flex items-center text-xs font-bold text-viettel-red group/btn uppercase tracking-widest">
+                      <Link 
+                        href={`/projects/${project.id}`}
+                        className="flex items-center text-xs font-bold text-viettel-red group/btn uppercase tracking-widest"
+                      >
                         Xem chi tiết 
                         <ChevronRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-2 transition-transform" />
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </motion.div>

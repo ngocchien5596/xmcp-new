@@ -84,8 +84,9 @@ const PRODUCTS_DATA = [
   }
 ];
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const product = PRODUCTS_DATA.find(p => p.id === params.id);
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const product = PRODUCTS_DATA.find(p => p.id === id);
   if (!product) return { title: 'Sản phẩm | Xi măng Cẩm Phả' };
   
   return {
@@ -94,8 +95,9 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   };
 }
 
-export default function ProductDetailPage({ params }: { params: { id: string } }) {
-  const product = PRODUCTS_DATA.find(p => p.id === params.id);
+export default async function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const product = PRODUCTS_DATA.find(p => p.id === id);
   
   if (!product) {
     notFound();

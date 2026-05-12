@@ -62,8 +62,9 @@ const NEWS_DATA = [
   }
 ];
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const news = NEWS_DATA.find(n => n.id === params.id);
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const news = NEWS_DATA.find(n => n.id === id);
   if (!news) return { title: 'Tin tức | Xi măng Cẩm Phả' };
   
   return {
@@ -72,8 +73,9 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   };
 }
 
-export default function NewsDetailPage({ params }: { params: { id: string } }) {
-  const news = NEWS_DATA.find(n => n.id === params.id);
+export default async function NewsDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const news = NEWS_DATA.find(n => n.id === id);
   
   if (!news) {
     notFound();
