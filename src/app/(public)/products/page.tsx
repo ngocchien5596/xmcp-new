@@ -8,23 +8,23 @@ import Image from 'next/image';
 const PRODUCTS_DATA = [
   {
     id: 1,
-    title: 'V-BI System',
-    description: 'Giải pháp phân tích dữ liệu thông minh giúp doanh nghiệp đưa ra quyết định chính xác dựa trên số liệu thực tế.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop',
+    title: 'Xi măng Cẩm Phả PCB40',
+    description: 'Sản phẩm chủ lực có cường độ nén cao, tính công tác tốt, phù hợp cho các công trình hạ tầng và dân dụng yêu cầu độ bền vững cao.',
+    image: 'https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?q=80&w=800&auto=format&fit=crop',
     delay: 0,
   },
   {
     id: 2,
-    title: 'Digital Core Banking',
-    description: 'Nền tảng ngân hàng số hiện đại, an mật và linh hoạt, hỗ trợ đa kênh giao dịch cho các định chế tài chính.',
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800&auto=format&fit=crop',
+    title: 'Xi măng Bền Sunfat (Type II & V)',
+    description: 'Dòng sản phẩm chuyên dụng cho các công trình ven biển, đập thủy điện hoặc môi trường xâm thực, chống ăn mòn hiệu quả.',
+    image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=800&auto=format&fit=crop',
     delay: 0.1,
   },
   {
     id: 3,
-    title: 'Smart City Platform',
-    description: 'Hệ thống trung tâm điều hành thông minh tích hợp AI, giúp quản lý đô thị hiệu quả và bền vững.',
-    image: 'https://images.unsplash.com/photo-1510511459019-5dee5926ff97?q=80&w=800&auto=format&fit=crop',
+    title: 'Xi măng Cẩm Phả Đa dụng',
+    description: 'Giải pháp tối ưu cho mọi công trình, dễ thi công, giúp tiết kiệm chi phí và đảm bảo tính thẩm mỹ cho bề mặt hoàn thiện.',
+    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=800&auto=format&fit=crop',
     delay: 0.2,
   },
 ];
@@ -35,7 +35,7 @@ export default function ProductsPage() {
       <InternalHero 
         title="SẢN PHẨM &" 
         highlightText="GIẢI PHÁP" 
-        subtitle="Những hệ sinh thái công nghệ thông minh giúp tối ưu hóa hiệu suất và nâng tầm quy trình quản trị doanh nghiệp hiện đại."
+        subtitle="Xi măng Cẩm Phả cung cấp hệ sinh thái vật liệu xây dựng chất lượng cao, đáp ứng mọi tiêu chuẩn kỹ thuật khắt khe nhất."
       />
 
       <section className="py-24 bg-white">

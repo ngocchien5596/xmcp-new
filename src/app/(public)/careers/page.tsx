@@ -12,8 +12,8 @@ const VALUES_DATA = [
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
-    title: 'Môi trường năng động',
-    description: 'Luôn cập nhật và ứng dụng các công nghệ mới nhất trong các dự án quy mô lớn.',
+    title: 'Công nghệ tiên tiến',
+    description: 'Vận hành dây chuyền sản xuất hiện đại nhất Việt Nam với công nghệ lò quay khô từ Nhật Bản.',
     delay: 0,
   },
   {
@@ -23,8 +23,8 @@ const VALUES_DATA = [
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
       </svg>
     ),
-    title: 'Đồng đội tài năng',
-    description: 'Làm việc cùng các chuyên gia hàng đầu, hỗ trợ và cùng nhau phát triển.',
+    title: 'Kỷ luật Quân đội',
+    description: 'Môi trường làm việc chính quy, kỷ luật và tận tâm theo tinh thần của Tập đoàn Viettel.',
     delay: 0.1,
   },
   {
@@ -34,8 +34,8 @@ const VALUES_DATA = [
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.040L3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622l-0.382-3.016z" />
       </svg>
     ),
-    title: 'Lộ trình rõ ràng',
-    description: 'Chính sách đào tạo và lộ trình thăng tiến công bằng cho mọi nhân viên.',
+    title: 'Phúc lợi bền vững',
+    description: 'Chính sách đãi ngộ hấp dẫn, bảo hiểm và các chế độ chăm sóc sức khỏe toàn diện cho nhân viên.',
     delay: 0.2,
   },
 ];
@@ -46,7 +46,7 @@ export default function CareersPage() {
       <InternalHero
         title="CƠ HỘI"
         highlightText="NGHỀ NGHIỆP"
-        subtitle="Gia nhập đội ngũ nhân sự tài năng, cùng nhau kiến tạo tương lai số và phát triển sự nghiệp không giới hạn tại Xi măng Cẩm Phả."
+        subtitle="Gia nhập đội ngũ nhân sự tài năng, cùng nhau kiến tạo những công trình bền vững và phát triển sự nghiệp vững chắc tại Xi măng Cẩm Phả."
       />
 
       <section className="py-24 bg-white">
