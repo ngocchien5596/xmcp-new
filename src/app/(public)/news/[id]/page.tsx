@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { InternalHero } from '@/components/sections/InternalHero';
-import { ChevronLeft, Calendar, User, Share2, Facebook, Twitter, Link } from 'lucide-react';
+import { ChevronLeft, Calendar, User, Share2, Globe, Send, Link as LinkIcon } from 'lucide-react';
 import NextLink from 'next/link';
 
 // Simulated News Data
@@ -123,9 +123,9 @@ export default function NewsDetailPage({ params }: { params: { id: string } }) {
                 <div className="flex-grow"></div>
                 <div className="flex items-center space-x-4">
                   <span className="font-bold text-viettel-dark text-xs uppercase tracking-widest">Chia sẻ:</span>
-                  <button className="p-2 hover:text-viettel-red transition-colors"><Facebook className="w-4 h-4" /></button>
-                  <button className="p-2 hover:text-viettel-red transition-colors"><Twitter className="w-4 h-4" /></button>
-                  <button className="p-2 hover:text-viettel-red transition-colors"><Link className="w-4 h-4" /></button>
+                  <button className="p-2 hover:text-viettel-red transition-colors"><Globe className="w-4 h-4" /></button>
+                  <button className="p-2 hover:text-viettel-red transition-colors"><Send className="w-4 h-4" /></button>
+                  <button className="p-2 hover:text-viettel-red transition-colors"><LinkIcon className="w-4 h-4" /></button>
                 </div>
               </div>
             </header>
