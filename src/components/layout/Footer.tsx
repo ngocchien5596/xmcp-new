@@ -36,7 +36,7 @@ export function Footer() {
             {/* Badges (Defense/ISO) */}
             <div className="flex flex-wrap gap-2 pt-2">
               <div className="px-3 py-1.5 bg-gray-50 border border-gray-200 text-xs font-semibold text-gray-700 rounded shadow-sm">ISO 9001:2015</div>
-              <div class="px-3 py-1.5 bg-gray-50 border border-gray-200 text-xs font-semibold text-gray-700 rounded shadow-sm">ISO 27001:2013</div>
+              <div className="px-3 py-1.5 bg-gray-50 border border-gray-200 text-xs font-semibold text-gray-700 rounded shadow-sm">ISO 27001:2013</div>
             </div>
           </div>
 
