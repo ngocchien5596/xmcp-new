@@ -18,8 +18,8 @@ const NEWS_DATA = [
     id: 1,
     category: 'news',
     categoryLabel: 'Tin tức',
-    title: 'Viettel Software công bố chiến lược AI 2026: Tích hợp trí tuệ nhân tạo vào mọi dịch vụ.',
-    description: 'Trong buổi hội thảo diễn ra sáng nay, Viettel Software đã chính thức công bố lộ trình phát triển AI mới, tập trung vào việc tối ưu hóa quy trình vận hành và nâng cao trải nghiệm khách hàng thông qua AI tạo sinh (Generative AI).',
+    title: 'Xi măng Cẩm Phả công bố chiến lược AI 2026: Tích hợp trí tuệ nhân tạo vào mọi dịch vụ.',
+    description: 'Trong buổi hội thảo diễn ra sáng nay, Xi măng Cẩm Phả đã chính thức công bố lộ trình phát triển AI mới, tập trung vào việc tối ưu hóa quy trình vận hành và nâng cao trải nghiệm khách hàng thông qua AI tạo sinh (Generative AI).',
     image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop',
     date: '20 Tháng 5, 2026',
     author: 'Admin',
@@ -38,7 +38,7 @@ const NEWS_DATA = [
     id: 3,
     category: 'pr',
     categoryLabel: 'Báo chí',
-    title: 'Hợp tác chiến lược giữa Viettel Software và các đối tác Nhật Bản.',
+    title: 'Hợp tác chiến lược giữa Xi măng Cẩm Phả và các đối tác Nhật Bản.',
     description: 'Lễ ký kết thỏa thuận hợp tác phát triển hệ thống Cloud cho các tập đoàn bán lẻ hàng đầu tại thị trường Nhật Bản.',
     image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=600&auto=format&fit=crop',
     date: '12 Tháng 5, 2026',
@@ -47,7 +47,7 @@ const NEWS_DATA = [
     id: 4,
     category: 'news',
     categoryLabel: 'Tin tức',
-    title: 'Viettel Software khai trương trung tâm R&D mới tại Hà Nội.',
+    title: 'Xi măng Cẩm Phả khai trương trung tâm R&D mới tại Hà Nội.',
     description: 'Trung tâm tập trung nghiên cứu các giải pháp Smart City và IoT ứng dụng cho hạ tầng đô thị thông minh.',
     image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop',
     date: '05 Tháng 5, 2026',
@@ -57,21 +57,21 @@ const NEWS_DATA = [
 export default function NewsPage() {
   const [activeTab, setActiveTab] = useState('all');
 
-  const filteredNews = NEWS_DATA.filter(item => 
+  const filteredNews = NEWS_DATA.filter(item =>
     activeTab === 'all' || item.category === activeTab
   );
 
   return (
     <main className="flex-grow">
-      <InternalHero 
-        title="TIN TỨC &" 
-        highlightText="SỰ KIỆN" 
-        subtitle="Cập nhật những thông tin mới nhất về công nghệ, dự án và các hoạt động nổi bật của Viettel Software."
+      <InternalHero
+        title="TIN TỨC &"
+        highlightText="SỰ KIỆN"
+        subtitle="Cập nhật những thông tin mới nhất về công nghệ, dự án và các hoạt động nổi bật của Xi măng Cẩm Phả."
       />
 
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          
+
           {/* Filter Tabs */}
           <RevealOnScroll className="mb-16">
             <div className="flex flex-wrap items-center justify-start gap-8 border-b border-gray-100 pb-1 relative">
@@ -79,13 +79,12 @@ export default function NewsPage() {
                 <button
                   key={cat.id}
                   onClick={() => setActiveTab(cat.id)}
-                  className={`pb-3 text-sm font-bold transition-colors relative ${
-                    activeTab === cat.id ? 'text-viettel-red' : 'text-gray-400 hover:text-viettel-dark'
-                  }`}
+                  className={`pb-3 text-sm font-bold transition-colors relative ${activeTab === cat.id ? 'text-viettel-red' : 'text-gray-400 hover:text-viettel-dark'
+                    }`}
                 >
                   {cat.label}
                   {activeTab === cat.id && (
-                    <motion.div 
+                    <motion.div
                       layoutId="tab-indicator"
                       className="absolute bottom-0 left-0 right-0 h-0.5 bg-viettel-red"
                       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
@@ -109,8 +108,8 @@ export default function NewsPage() {
                 <RevealOnScroll>
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center group cursor-pointer">
                     <div className="overflow-hidden rounded-2xl h-[400px] relative">
-                      <Image 
-                        src={NEWS_DATA[0].image} 
+                      <Image
+                        src={NEWS_DATA[0].image}
                         alt={NEWS_DATA[0].title}
                         fill
                         className="object-cover transform group-hover:scale-105 transition-transform duration-700"
@@ -139,7 +138,7 @@ export default function NewsPage() {
           </AnimatePresence>
 
           {/* News Grid */}
-          <motion.div 
+          <motion.div
             layout
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
           >
@@ -155,8 +154,8 @@ export default function NewsPage() {
                   className="group cursor-pointer"
                 >
                   <div className="overflow-hidden rounded-xl mb-6 h-64 relative">
-                    <Image 
-                      src={item.image} 
+                    <Image
+                      src={item.image}
                       alt={item.title}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-500"

@@ -8,27 +8,33 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const STORIES = [
   {
     id: 1,
-    title: 'Triển khai Core bảo hiểm cho khách hàng ABIC',
-    image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80',
-    category: 'Bảo hiểm'
+    title: 'Cầu Cửa Lục 1 (Cầu Tình Yêu) - Quảng Ninh',
+    image: 'https://images.unsplash.com/photo-1545910668-e3251e39a3f2?auto=format&fit=crop&w=600&q=80',
+    category: 'Hạ tầng Giao thông'
   },
   {
     id: 2,
-    title: 'Triển khai hệ thống Ví điện tử Viettel Money cho Viettel Digital',
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80',
-    category: 'Tài chính số'
+    title: 'Sân bay Phan Thiết - Bình Thuận',
+    image: 'https://images.unsplash.com/photo-1542296332-2e4473faf563?auto=format&fit=crop&w=600&q=80',
+    category: 'Hàng không'
   },
   {
     id: 3,
-    title: 'Triển khai hệ thống định giá tài sản cho khách hàng MBAMC',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80',
-    category: 'Ngân hàng'
+    title: 'Sun World Ocean Park Hạ Long',
+    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80',
+    category: 'Du lịch - Nghỉ dưỡng'
   },
   {
     id: 4,
-    title: 'Chuyển đổi số toàn diện cho doanh nghiệp sản xuất',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80',
-    category: 'Sản xuất'
+    title: 'Cao tốc TP.HCM – Long Thành – Dầu Giây',
+    image: 'https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&w=600&q=80',
+    category: 'Hạ tầng Giao thông'
+  },
+  {
+    id: 5,
+    title: 'Vinhomes Dragon Bay Hạ Long',
+    image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=600&q=80',
+    category: 'Khu Đô thị'
   }
 ];
 
@@ -50,9 +56,9 @@ export function CustomerStoriesSection() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <SectionHeader 
-            title="Câu chuyện khách hàng"
-            subtitle="Đồng hành cùng thành công của các đối tác toàn cầu."
-            ghostText="CÂU CHUYỆN KHÁCH HÀNG"
+            title="Dự án Tiêu biểu"
+            subtitle="Xi măng Cẩm Phả tự hào đồng hành cùng các công trình trọng điểm quốc gia và quốc tế."
+            ghostText="DỰ ÁN TIÊU BIỂU"
             centered={false}
             className="mb-0 flex-grow"
           />

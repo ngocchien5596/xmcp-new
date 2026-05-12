@@ -5,18 +5,16 @@ import { RevealOnScroll } from '@/components/animations/RevealOnScroll';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 
 const CLIENTS = [
-  { name: 'Vietcombank', logo: 'https://logolook.net/wp-content/uploads/2023/10/Vietcombank-Logo.png' },
-  { name: 'Techcombank', logo: 'https://vinadesign.vn/uploads/images/2023/05/logo-techcombank-vinadesign-24-10-36-54.jpg' },
-  { name: 'NCB', logo: 'https://static.wixstatic.com/media/76504a_745915d398f547c89f54784784e54854~mv2.png' },
-  { name: 'MB Ageas', logo: 'https://www.mbageas.life/themes/mbageas/images/logo.png' },
-  { name: 'MB', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/25/Logo_MB_Bank.png' },
-  { name: 'Viettel', logo: 'https://viettel.vn/Content/images/logo_viettel.png' },
-  { name: 'Amazon', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg' },
-  { name: 'Google', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg' },
-  { name: 'Microsoft', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg' },
-  { name: 'IBM', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg' },
-  { name: 'Cisco', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg' },
-  { name: 'Samsung', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Samsung_wordmark.svg' },
+  { name: 'Viettel Group', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/11/Viettel_logo_2021.svg' },
+  { name: 'Vingroup', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Logo_Vingroup.png' },
+  { name: 'Sun Group', logo: 'https://upload.wikimedia.org/wikipedia/vi/a/a2/Logo_Sun_Group.png' },
+  { name: 'Vinaconex', logo: 'https://vinaconex.com.vn/logo.png' },
+  { name: 'Tập đoàn Điện lực Việt Nam (EVN)', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e1/Logo_EVN.svg' },
+  { name: 'Tập đoàn Hòa Bình', logo: 'https://hbcg.vn/img/logo.png' },
+  { name: 'Coteccons', logo: 'https://www.coteccons.vn/wp-content/themes/coteccons/assets/images/logo.png' },
+  { name: 'VEC', logo: 'https://vec.com.vn/assets/images/logo.png' },
+  { name: 'Bộ Quốc phòng', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Logo_Bo_Quoc_phong.svg' },
+  { name: 'QUACERT', logo: 'https://quacert.gov.vn/Content/images/logo.png' },
 ];
 
 export function ClientLogosSection() {

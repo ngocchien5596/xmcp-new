@@ -3,7 +3,7 @@ import { fsMagistral, roboto } from "@/lib/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Viettel Software - Giải pháp Công nghệ thông tin toàn cầu",
+  title: "Xi măng Cẩm Phả - Giải pháp Công nghệ thông tin toàn cầu",
   description: "Cung cấp giải pháp và dịch vụ công nghệ thông tin toàn cầu...",
 };
 

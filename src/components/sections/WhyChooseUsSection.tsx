@@ -6,8 +6,8 @@ export function WhyChooseUsSection() {
     <section className="py-24 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <SectionHeader
-          title="Tại sao chọn Viettel Software?"
-          ghostText="TẠI SAO CHỌN VIETTEL SOFTWARE?"
+          title="Tại sao chọn Xi măng Cẩm Phả?"
+          ghostText="TẠI SAO CHỌN Xi măng Cẩm Phả?"
           className="mb-0"
         />
 

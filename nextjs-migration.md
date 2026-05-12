@@ -1,7 +1,7 @@
-# Kế hoạch chuyển đổi Website Viettel Software sang Next.js
+# Kế hoạch chuyển đổi Website Xi măng Cẩm Phả sang Next.js
 
 ## Overview
-Chuyển đổi toàn bộ website tĩnh hiện tại (HTML/CSS/JS) của Viettel Software sang Next.js 15 App Router. Mục tiêu là tạo ra một kiến trúc module hóa, dễ bảo trì, với hiệu suất cao mà vẫn giữ nguyên giao diện UI/UX và các hiệu ứng animation cao cấp (từ file `main.js` và CSS) như hiện tại. Quá trình chuyển đổi sẽ sử dụng `index.html` làm trang chủ gốc và không thay đổi thư mục `site/` gốc.
+Chuyển đổi toàn bộ website tĩnh hiện tại (HTML/CSS/JS) của Xi măng Cẩm Phả sang Next.js 15 App Router. Mục tiêu là tạo ra một kiến trúc module hóa, dễ bảo trì, với hiệu suất cao mà vẫn giữ nguyên giao diện UI/UX và các hiệu ứng animation cao cấp (từ file `main.js` và CSS) như hiện tại. Quá trình chuyển đổi sẽ sử dụng `index.html` làm trang chủ gốc và không thay đổi thư mục `site/` gốc.
 
 ## Project Type
 **WEB** (Next.js, React web)

@@ -4,61 +4,59 @@ import { motion, Variants } from 'framer-motion';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 
 const SERVICES = [
-// ... (lines 6-64 remain the same)
   {
-    title: 'Dịch vụ gia công, phát triển phần mềm',
+    title: 'Xi măng PCB40',
     items: [
-      'Phát triển Web/Mobile App',
-      'Hệ thống lõi Doanh nghiệp',
-      'Bảo trì và Vận hành',
-      'Nâng cấp hệ thống Legacy',
+      'Cường độ nén cao',
+      'Độ bền kết cấu tối ưu',
+      'Chống thấm vượt trội',
+      'Phù hợp đổ dầm, cột, sàn',
     ],
     icon: (
       <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
       </svg>
     ),
   },
   {
-    title: 'Dịch vụ điện toán đám mây',
+    title: 'Xi măng Hỗn hợp Bền Sunfat',
     items: [
-      'Cloud Migration & Strategy',
-      'Managed Cloud Services',
-      'Cloud Security & Compliance',
-      'Hybrid/Multi-Cloud Solutions',
+      'Kháng xâm thực sunfat mạnh',
+      'Bảo vệ cốt thép tối đa',
+      'Chuyên dụng ven biển, đập',
+      'Ngăn chặn ăn mòn hóa chất',
     ],
     icon: (
       <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 1.612L9.45 5.061L12 3.5l2.55 1.561L12 6.612z" />
       </svg>
     ),
   },
   {
-    title: 'Dịch vụ ứng dụng Công nghệ mới',
+    title: 'Xi măng Đa dụng',
     items: [
-      'AI & Machine Learning',
-      'Blockchain Solutions',
-      'Internet of Things (IoT)',
-      'Robotic Process Automation',
+      'Độ dẻo cao, dễ thi công',
+      'Rút ngắn thời gian tháo khuôn',
+      'Hạn chế tối đa nứt bề mặt',
+      'Tiết kiệm chi phí vật liệu',
     ],
     icon: (
       <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 00-1 1v1a2 2 0 11-4 0v-1a1 1 0 00-1-1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
       </svg>
     ),
   },
   {
-    title: 'Tư vấn, đào tạo, dịch vụ chất lượng',
+    title: 'Xi măng Xây trát Cao cấp',
     items: [
-      'Tư vấn ISO/CMMI Level 5',
-      'Agile Coaching & Training',
-      'Dịch vụ QA/QC Chuyên sâu',
-      'Đào tạo CNTT Doanh nghiệp',
+      'Tối ưu hóa khả năng giữ nước',
+      'Độ bám dính cực tốt',
+      'Bề mặt tường mịn, đẹp',
+      'Hạn chế tình trạng thấm, ố',
     ],
     icon: (
       <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 14l9-5-9-5-9 5 9 5z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 21l-9-5 9-5 9 5-9 5z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
       </svg>
     ),
   },
@@ -91,9 +89,9 @@ export function CoreServicesSection() {
     <section className="py-24 relative overflow-hidden bg-white">
       <div className="container mx-auto px-4 relative z-10">
         <SectionHeader 
-          title="Dịch vụ cốt lõi"
-          subtitle="Hệ sinh thái giải pháp số toàn diện đáp ứng mọi nhu cầu chuyển đổi số của doanh nghiệp."
-          ghostText="DỊCH VỤ CỐT LÕI"
+          title="Sản phẩm tiêu biểu"
+          subtitle="Danh mục sản phẩm xi măng chất lượng cao, đáp ứng mọi yêu cầu kỹ thuật khắt khe của các công trình trọng điểm."
+          ghostText="SẢN PHẨM"
         />
 
         <motion.div 

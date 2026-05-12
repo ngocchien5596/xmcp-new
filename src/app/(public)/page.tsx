@@ -7,7 +7,7 @@ import { NewsSection } from '@/components/sections/NewsSection';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Trang chủ | Viettel Software',
+  title: 'Trang chủ | Xi măng Cẩm Phả',
 };
 
 export default function HomePage() {

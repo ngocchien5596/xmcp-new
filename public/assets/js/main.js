@@ -1,5 +1,5 @@
 /* ========================================================
-   VIETTEL SOFTWARE - GLOBAL INTERACTIONS
+   Xi măng Cẩm Phả - GLOBAL INTERACTIONS
    ======================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -175,7 +175,7 @@ function initWheel() {
 function initTabs() {
     const firstTab = document.querySelector('.tab-btn.active');
     const indicator = document.getElementById('tab-indicator');
-    
+
     if (firstTab && indicator) {
         indicator.style.width = firstTab.offsetWidth + 'px';
         indicator.style.left = firstTab.offsetLeft + 'px';
@@ -187,7 +187,7 @@ function initTabs() {
  * @param {HTMLElement} btn - The tab button clicked
  * @param {string} category - The category to filter
  */
-window.switchTab = function(btn, category) {
+window.switchTab = function (btn, category) {
     // Update active class
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -204,7 +204,7 @@ window.switchTab = function(btn, category) {
     items.forEach(item => {
         item.style.opacity = '0';
         item.style.transform = 'translateY(10px)';
-        
+
         setTimeout(() => {
             if (category === 'all' || item.getAttribute('data-category') === category) {
                 item.style.display = '';
@@ -223,7 +223,7 @@ window.switchTab = function(btn, category) {
  * Stories Carousel navigation
  * @param {string} direction - 'left' or 'right'
  */
-window.slideStories = function(direction) {
+window.slideStories = function (direction) {
     const container = document.getElementById('stories-container');
     if (!container) return;
     const scrollAmount = 400;

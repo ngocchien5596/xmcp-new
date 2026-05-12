@@ -21,41 +21,41 @@ const POSTS = [
     category: 'news',
     categoryLabel: 'Tin tức',
     date: 'Thứ Tư 29, 4/2026',
-    title: 'GIẢI PHÁP ĐƯỢC CỤC TẦN SỐ VÔ TUYẾN ĐIỆN ỨNG DỤNG TRONG XỬ LÝ NHIỄU 4G/5G',
-    description: 'iSpectra là nền tảng thu thập, phân tích và quản lý nhiễu thông tin di động thời gian thực, đáp ứng đầy đủ các tiêu chuẩn...',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop'
+    title: 'BỨT PHÁ SẢN LƯỢNG VÀ KẾT QUẢ KINH DOANH QUÝ I/2026',
+    description: 'Xi măng Cẩm Phả ghi nhận sự tăng trưởng vượt bậc về sản lượng tiêu thụ tại thị trường nội địa và xuất khẩu trong 3 tháng đầu năm...',
+    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=600&auto=format&fit=crop'
   },
   {
     id: 2,
     category: 'blog',
-    categoryLabel: 'Blog',
+    categoryLabel: 'Sự kiện',
     date: 'Thứ Hai 27, 4/2026',
-    title: 'PHÁT TRIỂN HỆ THỐNG QUẢN TRỊ DOANH NGHIỆP TRÊN NỀN TẢNG CLOUD',
-    description: 'Sự dịch chuyển từ On-premise sang Cloud mang lại lợi thế cạnh tranh vượt trội cho doanh nghiệp trong việc tối ưu hóa chi phí...',
-    image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=600&auto=format&fit=crop'
+    title: 'HỘI NGHỊ NGƯỜI LAO ĐỘNG 2026: ĐOÀN KẾT - ĐỔI MỚI - THÀNH CÔNG',
+    description: 'Sự kiện thường niên nhằm vinh danh các cá nhân, tập thể xuất sắc và định hướng chiến lược phát triển bền vững cho giai đoạn mới...',
+    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=600&auto=format&fit=crop'
   },
   {
     id: 3,
     category: 'pr',
-    categoryLabel: 'Báo chí',
+    categoryLabel: 'Cộng đồng',
     date: 'Thứ Sáu 24, 4/2026',
-    title: 'VIETTEL SOFTWARE NHẬN GIẢI THƯỞNG SAO KHUÊ 2026',
-    description: 'Vượt qua nhiều đối thủ nặng ký, giải pháp chuyển đổi số của Viettel Software đã xuất sắc giành giải thưởng danh giá...',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop'
+    title: 'HÀNH TRÌNH NHÂN ĐẠO: TRAO GIỌT MÁU HỒNG - GỬI TRỌN YÊU THƯƠNG',
+    description: 'Hàng trăm cán bộ nhân viên XMCP đã tham gia ngày hội hiến máu tình nguyện, thể hiện trách nhiệm của doanh nghiệp với cộng đồng...',
+    image: 'https://images.unsplash.com/photo-1615461066159-fea0960485d5?q=80&w=600&auto=format&fit=crop'
   }
 ];
 
 export function NewsSection() {
   const [activeTab, setActiveTab] = useState('all');
 
-  const filteredPosts = activeTab === 'all' 
-    ? POSTS 
+  const filteredPosts = activeTab === 'all'
+    ? POSTS
     : POSTS.filter(post => post.category === activeTab);
 
   return (
     <section className="py-24 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        <SectionHeader 
+        <SectionHeader
           title="Tin tức & Sự kiện"
           ghostText="TIN TỨC & SỰ KIỆN"
         />
@@ -73,7 +73,7 @@ export function NewsSection() {
               >
                 {cat.label}
                 {activeTab === cat.id && (
-                  <motion.div 
+                  <motion.div
                     layoutId="tab-indicator"
                     className="absolute bottom-0 left-0 right-0 h-0.5 bg-viettel-red"
                   />
@@ -86,7 +86,7 @@ export function NewsSection() {
           </Link>
         </div>
 
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -110,8 +110,8 @@ export function NewsSection() {
                 animate="visible"
                 variants={{
                   hidden: { opacity: 0, y: 20 },
-                  visible: { 
-                    opacity: 1, 
+                  visible: {
+                    opacity: 1,
                     y: 0,
                     transition: { duration: 0.5 }
                   }
@@ -120,8 +120,8 @@ export function NewsSection() {
                 className="group cursor-pointer news-card"
               >
                 <div className="overflow-hidden rounded-2xl mb-6 h-64 shadow-lg">
-                  <img 
-                    src={post.image} 
+                  <img
+                    src={post.image}
                     alt={post.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />

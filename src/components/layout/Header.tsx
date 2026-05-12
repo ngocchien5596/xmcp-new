@@ -9,9 +9,9 @@ import { Search, Menu, X } from 'lucide-react';
 export const NAV_ITEMS = [
   { href: '/', label: 'Trang chủ' },
   { href: '/about', label: 'Về chúng tôi' },
-  { href: '/services', label: 'Dịch vụ' },
-  { href: '/news', label: 'Tin tức' },
   { href: '/products', label: 'Sản phẩm' },
+  { href: '/projects', label: 'Dự án' },
+  { href: '/news', label: 'Tin tức' },
   { href: '/careers', label: 'Tuyển dụng' },
 ] as const;
 
@@ -49,8 +49,7 @@ export function Header() {
         {/* Col 1: Logo */}
         <div className="flex-shrink-0">
           <Link href="/" className="text-2xl font-bold tracking-tight logo-text">
-            <span className="text-viettel-red transition-colors duration-300">VIETTEL</span>
-            <span className="font-normal"> SOFTWARE</span>
+            <span className="text-viettel-red transition-colors duration-300">XI MĂNG CẨM PHẢ</span>
           </Link>
         </div>
 
@@ -79,13 +78,13 @@ export function Header() {
               "flex items-center bg-gray-100 rounded-full transition-all duration-300 ease-in-out overflow-hidden border border-transparent focus-within:border-viettel-red/30 focus-within:bg-white focus-within:shadow-sm",
               isSearchOpen ? "w-64 px-4 py-1.5 opacity-100" : "w-0 px-0 py-0 opacity-0"
             )}>
-              <input 
-                type="text" 
-                placeholder="Tìm kiếm..." 
+              <input
+                type="text"
+                placeholder="Tìm kiếm..."
                 className="bg-transparent border-none focus:ring-0 text-sm w-full outline-none font-sans"
               />
             </div>
-            <button 
+            <button
               onClick={() => setIsSearchOpen(!isSearchOpen)}
               className="p-2 text-viettel-dark hover:text-viettel-red transition-all duration-300 transform hover:scale-110"
               aria-label="Toggle search"

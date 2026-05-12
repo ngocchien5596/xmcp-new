@@ -9,32 +9,32 @@ const WHEEL_ITEMS = [
   {
     id: 'why-1',
     icon: <Globe />,
-    title: 'Hạ tầng Viễn thông và CNTT Đa quốc gia',
-    description: 'Viettel Software tự hào là thành viên thuộc Viettel Group - Tập đoàn Công nghiệp Viễn thông Quân đội hàng đầu Việt Nam, với mạng lưới viễn thông tại 10 quốc gia, phục vụ hơn 58 triệu khách hàng quốc tế.'
+    title: 'Mạng lưới Toàn cầu',
+    description: 'Tự hào xuất khẩu xi măng tới hơn 20 quốc gia và vùng lãnh thổ, khẳng định vị thế và chất lượng sản phẩm Việt Nam trên bản đồ xây dựng thế giới.'
   },
   {
     id: 'why-2',
     icon: <Users />,
-    title: 'Đội ngũ chuyên gia trình độ cao',
-    description: 'Hơn 1500 chuyên gia CNTT dày dặn kinh nghiệm, sở hữu các chứng chỉ quốc tế uy tín, luôn sẵn sàng đồng hành cùng doanh nghiệp trong mọi dự án phức tạp nhất.'
+    title: 'Trách nhiệm Quân đội',
+    description: 'Là thành viên của Tập đoàn Viettel, chúng tôi kế thừa văn hóa kỷ luật, sự tận tâm và uy tín tuyệt đối trong mọi cam kết với khách hàng và đối tác.'
   },
   {
     id: 'why-3',
     icon: <Zap />,
-    title: 'Giải pháp Công nghệ đột phá',
-    description: 'Chúng tôi không ngừng nghiên cứu và ứng dụng những công nghệ mới nhất như AI, Blockchain, Cloud để tạo ra giá trị khác biệt cho khách hàng.'
+    title: 'Công nghệ Nhật Bản',
+    description: 'Ứng dụng dây chuyền lò quay khô hiện đại nhất từ Nhật Bản, tối ưu hóa nhiệt năng (< 730 Kcal/kg clinker) và giảm thiểu tối đa phát thải môi trường.'
   },
   {
     id: 'why-4',
     icon: <Shield />,
-    title: 'An toàn và Bảo mật thông tin',
-    description: 'Mọi giải pháp đều được xây dựng trên nền tảng an ninh bảo mật nghiêm ngặt, đáp ứng các tiêu chuẩn cao nhất của Bộ Quốc phòng và quốc tế.'
+    title: 'Tiêu chuẩn Quốc tế',
+    description: 'Hệ thống quản lý đạt chuẩn ISO 9001, ISO 14001 và phòng thí nghiệm VILAS 354, đảm bảo chất lượng đồng nhất trong từng lô sản phẩm.'
   },
   {
     id: 'why-5',
     icon: <Layout />,
-    title: 'Dịch vụ chuẩn Quốc tế',
-    description: 'Quy trình sản xuất phần mềm đạt chuẩn CMMI Level 5, ISO 9001, ISO 27001 đảm bảo chất lượng sản phẩm đồng nhất và vượt trội.'
+    title: 'Năng lực Sản xuất',
+    description: 'Sở hữu nhà máy hiện đại tại Quảng Ninh và trạm nghiền lớn tại Bà Rịa - Vũng Tàu với tổng công suất cung ứng đạt 3.8 triệu tấn xi măng mỗi năm.'
   }
 ];
 

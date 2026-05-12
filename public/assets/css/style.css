@@ -1,5 +1,5 @@
 /* ========================================================
-   VIETTEL SOFTWARE - GLOBAL DESIGN SYSTEM
+   Xi măng Cẩm Phả - GLOBAL DESIGN SYSTEM
    ======================================================== */
 
 
@@ -50,10 +50,15 @@ body {
 }
 
 /* Headings & Display elements use FS Magistral */
-h1, h2, h3, h4, h5, h6, 
-.nav-link, 
-.btn, 
-.card-title, 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.nav-link,
+.btn,
+.card-title,
 .font-display,
 .logo-text,
 .counter,
@@ -98,7 +103,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 #main-header.scrolled {
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
 }
@@ -160,7 +165,7 @@ footer a:hover {
 .tech-map-overlay {
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0);
+    background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.15) 1px, transparent 0);
     background-size: 32px 32px;
     opacity: 0.3;
 }
@@ -193,7 +198,7 @@ footer a:hover {
 .service-card:hover {
     background: #F8F8F8;
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     transition-delay: 0s !important;
 }
 
@@ -314,7 +319,7 @@ footer a:hover {
 
 .story-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .story-card-img {
@@ -344,8 +349,14 @@ footer a:hover {
     color: white;
 }
 
-.hide-scrollbar::-webkit-scrollbar { display: none; }
-.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
 
 /* --- Clients --- */
 .client-logo {
@@ -455,7 +466,7 @@ footer a:hover {
     background: white;
     padding: 1.25rem;
     border-radius: 1.25rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     display: flex;
     align-items: center;
     gap: 14px;
@@ -556,6 +567,7 @@ footer a:hover {
     .why-center-box.reveal-up {
         transform: translate(-50%, -50%) translateY(30px) !important;
     }
+
     .why-center-box.reveal-up.active {
         transform: translate(-50%, -50%) translateY(0) !important;
     }
@@ -595,6 +607,7 @@ footer a:hover {
     from {
         transform: translateX(0);
     }
+
     to {
         transform: translateX(calc(-100% - 80px));
     }
@@ -607,6 +620,7 @@ footer a:hover {
 
 /* Accessibility: Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
@@ -615,7 +629,7 @@ footer a:hover {
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
-    
+
     .wheel-item {
         transition: none !important;
     }
