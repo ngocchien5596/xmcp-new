@@ -1,0 +1,198 @@
+'use client';
+
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { InternalHero } from '@/components/sections/InternalHero';
+import { RevealOnScroll } from '@/components/animations/RevealOnScroll';
+import Image from 'next/image';
+
+const CATEGORIES = [
+  { id: 'all', label: 'TẤT CẢ' },
+  { id: 'news', label: 'TIN TỨC' },
+  { id: 'blog', label: 'BLOG CÔNG NGHỆ' },
+  { id: 'pr', label: 'BÁO CHÍ' },
+];
+
+const NEWS_DATA = [
+  {
+    id: 1,
+    category: 'news',
+    categoryLabel: 'Tin tức',
+    title: 'Viettel Software công bố chiến lược AI 2026: Tích hợp trí tuệ nhân tạo vào mọi dịch vụ.',
+    description: 'Trong buổi hội thảo diễn ra sáng nay, Viettel Software đã chính thức công bố lộ trình phát triển AI mới, tập trung vào việc tối ưu hóa quy trình vận hành và nâng cao trải nghiệm khách hàng thông qua AI tạo sinh (Generative AI).',
+    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop',
+    date: '20 Tháng 5, 2026',
+    author: 'Admin',
+    featured: true,
+  },
+  {
+    id: 2,
+    category: 'blog',
+    categoryLabel: 'Blog công nghệ',
+    title: 'Tương lai của Web3 và cơ hội cho doanh nghiệp Việt.',
+    description: 'Tìm hiểu cách công nghệ Blockchain và phi tập trung đang thay đổi cách thức giao dịch thương mại điện tử toàn cầu.',
+    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop',
+    date: '18 Tháng 5, 2026',
+  },
+  {
+    id: 3,
+    category: 'pr',
+    categoryLabel: 'Báo chí',
+    title: 'Hợp tác chiến lược giữa Viettel Software và các đối tác Nhật Bản.',
+    description: 'Lễ ký kết thỏa thuận hợp tác phát triển hệ thống Cloud cho các tập đoàn bán lẻ hàng đầu tại thị trường Nhật Bản.',
+    image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=600&auto=format&fit=crop',
+    date: '12 Tháng 5, 2026',
+  },
+  {
+    id: 4,
+    category: 'news',
+    categoryLabel: 'Tin tức',
+    title: 'Viettel Software khai trương trung tâm R&D mới tại Hà Nội.',
+    description: 'Trung tâm tập trung nghiên cứu các giải pháp Smart City và IoT ứng dụng cho hạ tầng đô thị thông minh.',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop',
+    date: '05 Tháng 5, 2026',
+  },
+];
+
+export default function NewsPage() {
+  const [activeTab, setActiveTab] = useState('all');
+
+  const filteredNews = NEWS_DATA.filter(item => 
+    activeTab === 'all' || item.category === activeTab
+  );
+
+  return (
+    <main className="flex-grow">
+      <InternalHero 
+        title="TIN TỨC &" 
+        highlightText="SỰ KIỆN" 
+        subtitle="Cập nhật những thông tin mới nhất về công nghệ, dự án và các hoạt động nổi bật của Viettel Software."
+      />
+
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          
+          {/* Filter Tabs */}
+          <RevealOnScroll className="mb-16">
+            <div className="flex flex-wrap items-center justify-start gap-8 border-b border-gray-100 pb-1 relative">
+              {CATEGORIES.map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveTab(cat.id)}
+                  className={`pb-3 text-sm font-bold transition-colors relative ${
+                    activeTab === cat.id ? 'text-viettel-red' : 'text-gray-400 hover:text-viettel-dark'
+                  }`}
+                >
+                  {cat.label}
+                  {activeTab === cat.id && (
+                    <motion.div 
+                      layoutId="tab-indicator"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-viettel-red"
+                      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                    />
+                  )}
+                </button>
+              ))}
+            </div>
+          </RevealOnScroll>
+
+          {/* Featured News (Only if tab is 'all' or 'news') */}
+          <AnimatePresence mode="wait">
+            {(activeTab === 'all' || activeTab === 'news') && (
+              <motion.div
+                key="featured"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="mb-20"
+              >
+                <RevealOnScroll>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center group cursor-pointer">
+                    <div className="overflow-hidden rounded-2xl h-[400px] relative">
+                      <Image 
+                        src={NEWS_DATA[0].image} 
+                        alt={NEWS_DATA[0].title}
+                        fill
+                        className="object-cover transform group-hover:scale-105 transition-transform duration-700"
+                      />
+                    </div>
+                    <div>
+                      <span className="inline-block px-3 py-1 bg-red-50 text-viettel-red text-xs font-bold rounded mb-4 tracking-wider">
+                        TIN NỔI BẬT
+                      </span>
+                      <h2 className="text-3xl md:text-4xl font-bold text-viettel-dark mb-6 group-hover:text-viettel-red transition-colors leading-tight">
+                        {NEWS_DATA[0].title}
+                      </h2>
+                      <p className="text-gray-600 mb-8 leading-relaxed text-lg">
+                        {NEWS_DATA[0].description}
+                      </p>
+                      <div className="flex items-center text-sm text-gray-400">
+                        <span className="font-semibold text-viettel-dark">{NEWS_DATA[0].author}</span>
+                        <span className="mx-3 text-gray-300">|</span>
+                        <span>{NEWS_DATA[0].date}</span>
+                      </div>
+                    </div>
+                  </div>
+                </RevealOnScroll>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* News Grid */}
+          <motion.div 
+            layout
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+          >
+            <AnimatePresence>
+              {filteredNews.filter(item => !item.featured || activeTab !== 'all').map((item, index) => (
+                <motion.div
+                  key={item.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.3 }}
+                  className="group cursor-pointer"
+                >
+                  <div className="overflow-hidden rounded-xl mb-6 h-64 relative">
+                    <Image 
+                      src={item.image} 
+                      alt={item.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                  <span className="text-xs font-bold text-viettel-red mb-3 block uppercase tracking-widest">
+                    {item.categoryLabel}
+                  </span>
+                  <h3 className="text-xl font-bold text-viettel-dark mb-3 group-hover:text-viettel-red transition-colors line-clamp-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-gray-500 line-clamp-2 mb-4 leading-relaxed">
+                    {item.description}
+                  </p>
+                  <span className="text-xs text-gray-400 font-medium">{item.date}</span>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+
+          {/* Pagination */}
+          <RevealOnScroll className="mt-20">
+            <div className="flex justify-center space-x-2">
+              <button className="w-10 h-10 flex items-center justify-center rounded border border-gray-200 text-viettel-dark bg-viettel-red text-white font-bold transition-all">1</button>
+              <button className="w-10 h-10 flex items-center justify-center rounded border border-gray-200 text-viettel-dark hover:bg-viettel-red hover:text-white transition-all font-medium">2</button>
+              <button className="w-10 h-10 flex items-center justify-center rounded border border-gray-200 text-viettel-dark hover:bg-viettel-red hover:text-white transition-all font-medium">3</button>
+              <button className="w-10 h-10 flex items-center justify-center rounded border border-gray-200 text-viettel-dark hover:bg-viettel-red hover:text-white transition-all">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </RevealOnScroll>
+
+        </div>
+      </section>
+    </main>
+  );
+}
