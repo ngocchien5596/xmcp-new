@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { InternalHero } from '@/components/sections/InternalHero';
 import { RevealOnScroll } from '@/components/animations/RevealOnScroll';
-import Image from 'next/image';
+import Link from 'next/link';
 
 const CATEGORIES = [
   { id: 'all', label: 'TẤT CẢ' },
@@ -106,13 +106,12 @@ export default function NewsPage() {
                 className="mb-20"
               >
                 <RevealOnScroll>
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center group cursor-pointer">
+                  <Link href={`/news/${NEWS_DATA[0].id}`} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center group">
                     <div className="overflow-hidden rounded-2xl h-[400px] relative">
-                      <Image
+                      <img
                         src={NEWS_DATA[0].image}
                         alt={NEWS_DATA[0].title}
-                        fill
-                        className="object-cover transform group-hover:scale-105 transition-transform duration-700"
+                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                       />
                     </div>
                     <div>
@@ -131,7 +130,7 @@ export default function NewsPage() {
                         <span>{NEWS_DATA[0].date}</span>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </RevealOnScroll>
               </motion.div>
             )}
@@ -151,26 +150,26 @@ export default function NewsPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3 }}
-                  className="group cursor-pointer"
                 >
-                  <div className="overflow-hidden rounded-xl mb-6 h-64 relative">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                  <span className="text-xs font-bold text-viettel-red mb-3 block uppercase tracking-widest">
-                    {item.categoryLabel}
-                  </span>
-                  <h3 className="text-xl font-bold text-viettel-dark mb-3 group-hover:text-viettel-red transition-colors line-clamp-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-gray-500 line-clamp-2 mb-4 leading-relaxed">
-                    {item.description}
-                  </p>
-                  <span className="text-xs text-gray-400 font-medium">{item.date}</span>
+                  <Link href={`/news/${item.id}`} className="group block">
+                    <div className="overflow-hidden rounded-xl mb-6 h-64 relative">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
+                    <span className="text-xs font-bold text-viettel-red mb-3 block uppercase tracking-widest">
+                      {item.categoryLabel}
+                    </span>
+                    <h3 className="text-xl font-bold text-viettel-dark mb-3 group-hover:text-viettel-red transition-colors line-clamp-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-gray-500 line-clamp-2 mb-4 leading-relaxed">
+                      {item.description}
+                    </p>
+                    <span className="text-xs text-gray-400 font-medium">{item.date}</span>
+                  </Link>
                 </motion.div>
               ))}
             </AnimatePresence>

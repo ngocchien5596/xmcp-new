@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { InternalHero } from '@/components/sections/InternalHero';
 import { RevealOnScroll } from '@/components/animations/RevealOnScroll';
-import Image from 'next/image';
+import Link from 'next/link';
 
 const PRODUCTS_DATA = [
   {
@@ -43,16 +43,15 @@ export default function ProductsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {PRODUCTS_DATA.map((product) => (
               <RevealOnScroll key={product.id} delay={product.delay}>
-                <motion.div 
-                  whileHover={{ y: -10 }}
-                  className="group bg-viettel-gray rounded-2xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500"
+                <Link 
+                  href={`/products/${product.id}`}
+                  className="group block bg-viettel-gray rounded-2xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500"
                 >
                   <div className="h-64 overflow-hidden relative">
-                    <Image 
+                    <img 
                       src={product.image} 
                       alt={product.title}
-                      fill
-                      className="object-cover transform group-hover:scale-110 transition-transform duration-700"
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-viettel-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                       <span className="px-6 py-2 bg-white text-viettel-dark font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
@@ -67,14 +66,14 @@ export default function ProductsPage() {
                     <p className="text-gray-600 text-sm mb-6 leading-relaxed">
                       {product.description}
                     </p>
-                    <div className="flex items-center text-viettel-red font-bold text-sm cursor-pointer">
+                    <div className="flex items-center text-viettel-red font-bold text-sm">
                       CHI TIẾT SẢN PHẨM 
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
                     </div>
                   </div>
-                </motion.div>
+                </Link>
               </RevealOnScroll>
             ))}
           </div>
