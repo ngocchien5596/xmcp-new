@@ -7,21 +7,21 @@ import Link from 'next/link';
 
 const PRODUCTS_DATA = [
   {
-    id: 1,
+    id: '1',
     title: 'Xi măng Cẩm Phả PCB40',
     description: 'Sản phẩm chủ lực có cường độ nén cao, tính công tác tốt, phù hợp cho các công trình hạ tầng và dân dụng yêu cầu độ bền vững cao.',
     image: 'https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?q=80&w=800&auto=format&fit=crop',
     delay: 0,
   },
   {
-    id: 2,
+    id: '2',
     title: 'Xi măng Bền Sunfat (Type II & V)',
     description: 'Dòng sản phẩm chuyên dụng cho các công trình ven biển, đập thủy điện hoặc môi trường xâm thực, chống ăn mòn hiệu quả.',
     image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=800&auto=format&fit=crop',
     delay: 0.1,
   },
   {
-    id: 3,
+    id: '3',
     title: 'Xi măng Cẩm Phả Đa dụng',
     description: 'Giải pháp tối ưu cho mọi công trình, dễ thi công, giúp tiết kiệm chi phí và đảm bảo tính thẩm mỹ cho bề mặt hoàn thiện.',
     image: 'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=800&auto=format&fit=crop',
