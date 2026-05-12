@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { Search, Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
 export const NAV_ITEMS = [
   { href: '/', label: 'Trang chủ' },
@@ -48,8 +49,23 @@ export function Header() {
       <div className="container mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between">
         {/* Col 1: Logo */}
         <div className="flex-shrink-0">
-          <Link href="/" className="text-2xl font-bold tracking-tight logo-text">
-            <span className="text-viettel-red transition-colors duration-300">XI MĂNG CẨM PHẢ</span>
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative h-10 w-10 md:h-12 md:w-12 overflow-hidden rounded-lg">
+              <Image 
+                src="/assets/design/logo.jpg" 
+                alt="Xi Măng Cẩm Phả Logo" 
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-lg md:text-xl font-black tracking-tight text-viettel-dark group-hover:text-viettel-red transition-colors duration-300 leading-none">
+                XI MĂNG
+              </span>
+              <span className="text-sm md:text-base font-bold tracking-widest text-viettel-red leading-none mt-0.5">
+                CẨM PHẢ
+              </span>
+            </div>
           </Link>
         </div>
 
