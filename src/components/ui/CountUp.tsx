@@ -8,10 +8,11 @@ interface CountUpProps {
   duration?: number;
   suffix?: string;
   prefix?: string;
+  decimals?: number;
 }
 
-export function CountUp({ end, duration = 2, suffix = '', prefix = '' }: CountUpProps) {
-  const [count, setCount] = useState(0);
+export function CountUp({ end, duration = 2, suffix = '', prefix = '', decimals = 0 }: CountUpProps) {
+  const [displayValue, setDisplayValue] = useState(prefix + (0).toFixed(decimals) + suffix);
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true });
 
@@ -21,14 +22,19 @@ export function CountUp({ end, duration = 2, suffix = '', prefix = '' }: CountUp
       const step = (timestamp: number) => {
         if (!startTime) startTime = timestamp;
         const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
-        setCount(Math.floor(progress * end));
+        const currentCount = progress * end;
+        setDisplayValue(prefix + currentCount.toLocaleString(undefined, {
+          minimumFractionDigits: decimals,
+          maximumFractionDigits: decimals
+        }) + suffix);
+        
         if (progress < 1) {
           window.requestAnimationFrame(step);
         }
       };
       window.requestAnimationFrame(step);
     }
-  }, [isInView, end, duration]);
+  }, [isInView, end, duration, decimals, prefix, suffix]);
 
-  return <span ref={ref}>{prefix}{count.toLocaleString()}{suffix}</span>;
+  return <span ref={ref}>{displayValue}</span>;
 }
