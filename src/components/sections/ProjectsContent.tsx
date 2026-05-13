@@ -45,7 +45,7 @@ export function ProjectsContent({ projects }: ProjectsContentProps) {
       />
 
       {/* Project Filters */}
-      <section className="py-12 bg-white border-b border-gray-100 sticky top-16 z-30 shadow-sm backdrop-blur-md bg-white/90">
+      <section className="py-4 bg-white border-b border-gray-100 sticky top-16 z-30 shadow-sm backdrop-blur-md bg-white/90">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center text-viettel-dark font-bold">

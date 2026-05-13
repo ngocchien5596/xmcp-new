@@ -6,11 +6,14 @@ import { InternalHero } from '@/components/sections/InternalHero';
 import { RevealOnScroll } from '@/components/animations/RevealOnScroll';
 import Link from 'next/link';
 
+import { Filter } from 'lucide-react';
+import { cn } from '@/lib/utils';
+
 const CATEGORIES = [
-  { id: 'all', label: 'TẤT CẢ' },
-  { id: 'news', label: 'TIN TỨC' },
-  { id: 'knowledge', label: 'KIẾN THỨC NGÀNH' },
-  { id: 'pr', label: 'BÁO CHÍ' },
+  { id: 'all', label: 'Tất cả' },
+  { id: 'news', label: 'Tin tức' },
+  { id: 'knowledge', label: 'Kiến thức ngành' },
+  { id: 'pr', label: 'Báo chí' },
 ];
 
 const NEWS_DATA = [
@@ -69,31 +72,37 @@ export default function NewsPage() {
         subtitle="Cập nhật những thông tin mới nhất về công nghệ, dự án và các hoạt động nổi bật của Xi măng Cẩm Phả."
       />
 
-      <section className="py-20 bg-white">
+      {/* News Filters */}
+      <section className="py-4 bg-white border-b border-gray-100 sticky top-16 z-30 shadow-sm backdrop-blur-md bg-white/90">
         <div className="container mx-auto px-4">
-
-          {/* Filter Tabs */}
-          <RevealOnScroll className="mb-16">
-            <div className="flex flex-wrap items-center justify-start gap-8 border-b border-gray-100 pb-1 relative">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center text-viettel-dark font-bold">
+              <Filter className="w-5 h-5 mr-3 text-viettel-red" />
+              LỌC TIN TỨC
+            </div>
+            
+            <div className="flex flex-wrap justify-center gap-3">
               {CATEGORIES.map((cat) => (
                 <button
                   key={cat.id}
                   onClick={() => setActiveTab(cat.id)}
-                  className={`pb-3 text-sm font-bold transition-colors relative ${activeTab === cat.id ? 'text-viettel-red' : 'text-gray-400 hover:text-viettel-dark'
-                    }`}
+                  className={cn(
+                    "px-6 py-2.5 rounded-full text-xs font-bold transition-all duration-300 border uppercase tracking-widest",
+                    activeTab === cat.id 
+                      ? "bg-viettel-red text-white border-viettel-red shadow-lg shadow-red-500/20" 
+                      : "bg-white text-gray-500 border-gray-200 hover:border-viettel-red hover:text-viettel-red"
+                  )}
                 >
                   {cat.label}
-                  {activeTab === cat.id && (
-                    <motion.div
-                      layoutId="tab-indicator"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-viettel-red"
-                      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                    />
-                  )}
                 </button>
               ))}
             </div>
-          </RevealOnScroll>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-viettel-gray/30">
+        <div className="container mx-auto px-4">
 
           {/* Featured News (Only if tab is 'all' or 'news') */}
           <AnimatePresence mode="wait">

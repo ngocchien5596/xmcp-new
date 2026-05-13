@@ -12,11 +12,7 @@ const SERVICES = [
       'Chống thấm vượt trội',
       'Phù hợp đổ dầm, cột, sàn',
     ],
-    icon: (
-      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-      </svg>
-    ),
+    image: '/assets/design/pcb40.png',
   },
   {
     title: 'Xi măng Hỗn hợp Bền Sunfat',
@@ -26,11 +22,7 @@ const SERVICES = [
       'Chuyên dụng ven biển, đập',
       'Ngăn chặn ăn mòn hóa chất',
     ],
-    icon: (
-      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 1.612L9.45 5.061L12 3.5l2.55 1.561L12 6.612z" />
-      </svg>
-    ),
+    image: '/assets/design/pcb40.png', // Using PCB40 as baseline or generic bag if sunfat image is missing
   },
   {
     title: 'Xi măng Đa dụng',
@@ -40,11 +32,7 @@ const SERVICES = [
       'Hạn chế tối đa nứt bề mặt',
       'Tiết kiệm chi phí vật liệu',
     ],
-    icon: (
-      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 00-1 1v1a2 2 0 11-4 0v-1a1 1 0 00-1-1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
-      </svg>
-    ),
+    image: '/assets/design/xi-mang-da-dung.png',
   },
   {
     title: 'Xi măng Xây trát Cao cấp',
@@ -54,11 +42,7 @@ const SERVICES = [
       'Bề mặt tường mịn, đẹp',
       'Hạn chế tình trạng thấm, ố',
     ],
-    icon: (
-      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-      </svg>
-    ),
+    image: '/assets/design/xaytrat.png',
   },
 ];
 
@@ -105,29 +89,53 @@ export function CoreServicesSection() {
             <motion.div
               key={index}
               variants={cardVariants}
-              className="group relative h-[320px] bg-[#EE0000] hover:bg-[#F8F8F8] rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer hover:-translate-y-1 hover:shadow-2xl shadow-sm core-service-card"
+              className="group relative h-[420px] bg-[#FDFDFD] rounded-2xl overflow-hidden transition-all duration-500 cursor-pointer hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] shadow-sm core-service-card border border-gray-100 hover:border-viettel-red/20"
             >
-              <div className="p-10 h-full flex flex-col items-center justify-center group-hover:items-start group-hover:justify-start transition-all duration-300 relative z-10">
-                <div className="w-16 h-16 text-white mb-6 transition-all duration-500 group-hover:absolute group-hover:top-1/2 group-hover:left-1/2 group-hover:-translate-x-1/2 group-hover:-translate-y-1/2 group-hover:w-40 group-hover:h-40 group-hover:scale-150 group-hover:opacity-5 group-hover:text-viettel-red group-hover:mb-0">
-                  {service.icon}
+              {/* Product Image Layer */}
+              <div className="absolute inset-0 flex items-center justify-center p-12 transition-all duration-700 ease-out z-10 group-hover:scale-110 group-hover:opacity-10 group-hover:translate-y-10">
+                <img 
+                  src={service.image} 
+                  alt={service.title}
+                  className="w-full h-full object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)] transition-transform duration-500"
+                />
+              </div>
+
+              {/* Content Layer */}
+              <div className="p-8 h-full flex flex-col relative z-20">
+                <div className="mb-6">
+                  <h3 className="text-viettel-dark group-hover:text-viettel-red text-xl font-bold transition-all duration-300 relative font-sans leading-tight uppercase tracking-tight">
+                    {service.title}
+                    <span className="block w-12 h-[3px] bg-viettel-red mt-3 transition-all duration-500 transform origin-left"></span>
+                  </h3>
                 </div>
 
-                <h3 className="text-white group-hover:text-viettel-red text-xl font-bold text-center group-hover:text-left transition-all duration-300 relative font-sans">
-                  {service.title}
-                  <span className="absolute -bottom-2 left-0 w-10 h-[3px] bg-viettel-red opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                </h3>
-
-                <div className="mt-6 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 w-full font-sans">
-                  <ul className="space-y-2 text-gray-600">
+                <div className="opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500 delay-100 w-full font-sans">
+                  <ul className="space-y-3 text-gray-600">
                     {service.items.map((item, i) => (
-                      <li key={i} className="flex items-start text-sm">
-                        <span className="text-viettel-red mr-2">✓</span>
+                      <li key={i} className="flex items-start text-[13px] leading-tight font-medium">
+                        <span className="text-viettel-red mr-2 mt-0.5 flex-shrink-0">
+                          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </span>
                         {item}
                       </li>
                     ))}
                   </ul>
+                  
+                  <div className="mt-8">
+                    <span className="inline-flex items-center text-viettel-red font-bold text-xs uppercase tracking-wider group/link">
+                      Chi tiết sản phẩm
+                      <svg className="w-4 h-4 ml-1 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
               </div>
+              
+              {/* Background Accent */}
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
             </motion.div>
           ))}
         </motion.div>

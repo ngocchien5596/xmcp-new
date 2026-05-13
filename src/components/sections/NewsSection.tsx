@@ -23,7 +23,7 @@ const POSTS = [
     date: 'Thứ Tư 29, 4/2026',
     title: 'BỨT PHÁ SẢN LƯỢNG VÀ KẾT QUẢ KINH DOANH QUÝ I/2026',
     description: 'Xi măng Cẩm Phả ghi nhận sự tăng trưởng vượt bậc về sản lượng tiêu thụ tại thị trường nội địa và xuất khẩu trong 3 tháng đầu năm...',
-    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=600&auto=format&fit=crop'
+    image: '/assets/design/image1.webp'
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ const POSTS = [
     date: 'Thứ Hai 27, 4/2026',
     title: 'HỘI NGHỊ NGƯỜI LAO ĐỘNG 2026: ĐOÀN KẾT - ĐỔI MỚI - THÀNH CÔNG',
     description: 'Sự kiện thường niên nhằm vinh danh các cá nhân, tập thể xuất sắc và định hướng chiến lược phát triển bền vững cho giai đoạn mới...',
-    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=600&auto=format&fit=crop'
+    image: '/assets/design/hoi-nghi-nguoi-lao-dong.webp'
   },
   {
     id: 3,
@@ -41,7 +41,7 @@ const POSTS = [
     date: 'Thứ Sáu 24, 4/2026',
     title: 'HÀNH TRÌNH NHÂN ĐẠO: TRAO GIỌT MÁU HỒNG - GỬI TRỌN YÊU THƯƠNG',
     description: 'Hàng trăm cán bộ nhân viên XMCP đã tham gia ngày hội hiến máu tình nguyện, thể hiện trách nhiệm của doanh nghiệp với cộng đồng...',
-    image: 'https://images.unsplash.com/photo-1615461066159-fea0960485d5?q=80&w=600&auto=format&fit=crop'
+    image: '/assets/design/hien-mau.webp'
   }
 ];
 

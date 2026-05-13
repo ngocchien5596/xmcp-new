@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { Search, Menu, X } from 'lucide-react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 export const NAV_ITEMS = [
@@ -20,7 +21,18 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const pathname = usePathname();
+  const router = useRouter();
+
+  const handleSearch = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    if (searchQuery.trim()) {
+      router.push(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+      setIsSearchOpen(false);
+      setSearchQuery('');
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,37 +80,58 @@ export function Header() {
 
         {/* Col 2: Navigation Links (Center) */}
         <nav className="hidden md:flex items-center space-x-8 font-medium font-sans">
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                'nav-link transition-colors duration-300 relative py-2',
-                'hover:text-viettel-red',
-                pathname === item.href && 'text-viettel-red font-bold'
-              )}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {NAV_ITEMS.map((item) => {
+            const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  'nav-link transition-colors duration-300 relative py-2 text-sm uppercase tracking-wider',
+                  'hover:text-viettel-red',
+                  isActive ? 'text-viettel-red font-bold' : 'text-viettel-dark/80'
+                )}
+              >
+                {item.label}
+                {isActive && (
+                  <motion.div
+                    layoutId="header-active-link"
+                    className="absolute bottom-0 left-0 right-0 h-[3px] bg-viettel-red rounded-full"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Col 3: Tools & Language Switcher */}
         <div className="hidden md:flex items-center space-x-4">
           {/* Search Functionality */}
           <div className="relative flex items-center">
-            <div className={cn(
-              "flex items-center bg-gray-100 rounded-full transition-all duration-300 ease-in-out overflow-hidden border border-transparent focus-within:border-viettel-red/30 focus-within:bg-white focus-within:shadow-sm",
-              isSearchOpen ? "w-64 px-4 py-1.5 opacity-100" : "w-0 px-0 py-0 opacity-0"
-            )}>
+            <form 
+              onSubmit={handleSearch}
+              className={cn(
+                "flex items-center bg-gray-100 rounded-full transition-all duration-300 ease-in-out overflow-hidden border border-transparent focus-within:border-viettel-red/30 focus-within:bg-white focus-within:shadow-sm",
+                isSearchOpen ? "w-64 px-4 py-1.5 opacity-100" : "w-0 px-0 py-0 opacity-0"
+              )}
+            >
               <input
                 type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Tìm kiếm..."
                 className="bg-transparent border-none focus:ring-0 text-sm w-full outline-none font-sans"
               />
-            </div>
+            </form>
             <button
-              onClick={() => setIsSearchOpen(!isSearchOpen)}
+              onClick={() => {
+                if (isSearchOpen && searchQuery) {
+                  handleSearch();
+                } else {
+                  setIsSearchOpen(!isSearchOpen);
+                }
+              }}
               className="p-2 text-viettel-dark hover:text-viettel-red transition-all duration-300 transform hover:scale-110"
               aria-label="Toggle search"
             >

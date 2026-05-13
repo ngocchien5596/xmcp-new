@@ -11,7 +11,7 @@ const PROJECTS = [
     id: '1',
     title: 'Cầu Cửa Lục 1 (Cầu Tình Yêu) - Quảng Ninh',
     description: 'Công trình trọng điểm với kiến trúc biểu tượng của Quảng Ninh, sử dụng xi măng mác cao cho các cấu kiện đúc sẵn và trụ cầu chịu lực.',
-    image: 'https://images.unsplash.com/photo-1545910668-e3251e39a3f2?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/design/cau-cua-luc.jpg',
     category: 'Hạ tầng Giao thông',
     year: '2023'
   },
@@ -35,7 +35,7 @@ const PROJECTS = [
     id: '4',
     title: 'Cao tốc TP.HCM – Long Thành – Dầu Giây',
     description: 'Tuyến huyết mạch giao thông phía Nam, khẳng định chất lượng xi măng Cẩm Phả trong các hạng mục bê tông nhựa và mặt đường.',
-    image: 'https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/design/cao-toc-long-thanh-dau-giay.webp',
     category: 'Hạ tầng Giao thông',
     year: '2015'
   },

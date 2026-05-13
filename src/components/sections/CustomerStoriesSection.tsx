@@ -10,7 +10,7 @@ const STORIES = [
   {
     id: 1,
     title: 'Cầu Cửa Lục 1 (Cầu Tình Yêu) - Quảng Ninh',
-    image: 'https://images.unsplash.com/photo-1545910668-e3251e39a3f2?auto=format&fit=crop&w=600&q=80',
+    image: '/assets/design/cau-cua-luc.jpg',
     category: 'Hạ tầng Giao thông'
   },
   {
@@ -28,7 +28,7 @@ const STORIES = [
   {
     id: 4,
     title: 'Cao tốc TP.HCM – Long Thành – Dầu Giây',
-    image: 'https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&w=600&q=80',
+    image: '/assets/design/cao-toc-long-thanh-dau-giay.webp',
     category: 'Hạ tầng Giao thông'
   },
   {
@@ -56,23 +56,23 @@ export function CustomerStoriesSection() {
     <section className="py-24 bg-viettel-gray relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-          <SectionHeader 
+          <SectionHeader
             title="Dự án Tiêu biểu"
             subtitle="Xi măng Cẩm Phả tự hào đồng hành cùng các công trình trọng điểm quốc gia và quốc tế."
             ghostText="DỰ ÁN TIÊU BIỂU"
             centered={false}
             className="mb-0 flex-grow"
           />
-          
+
           <div className="flex space-x-4">
-            <button 
+            <button
               onClick={() => scroll('left')}
               className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-viettel-dark hover:bg-viettel-red hover:text-white hover:border-viettel-red transition-all duration-300 shadow-sm group"
               aria-label="Previous"
             >
               <ChevronLeft className="w-6 h-6 group-active:-translate-x-1 transition-transform" />
             </button>
-            <button 
+            <button
               onClick={() => scroll('right')}
               className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-viettel-dark hover:bg-viettel-red hover:text-white hover:border-viettel-red transition-all duration-300 shadow-sm group"
               aria-label="Next"
@@ -82,7 +82,7 @@ export function CustomerStoriesSection() {
           </div>
         </div>
 
-        <motion.div 
+        <motion.div
           ref={scrollRef}
           initial="hidden"
           whileInView="visible"
@@ -91,7 +91,7 @@ export function CustomerStoriesSection() {
           className="flex space-x-8 overflow-x-auto hide-scrollbar pb-12 snap-x"
         >
           {STORIES.map((story) => (
-            <motion.div 
+            <motion.div
               key={story.id}
               variants={{
                 hidden: { opacity: 0, x: 20 },
@@ -100,8 +100,8 @@ export function CustomerStoriesSection() {
               className="min-w-[300px] md:min-w-[380px] bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group snap-start flex-shrink-0 customer-story-card"
             >
               <div className="h-56 overflow-hidden">
-                <img 
-                  src={story.image} 
+                <img
+                  src={story.image}
                   alt={story.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
