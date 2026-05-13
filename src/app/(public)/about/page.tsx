@@ -77,8 +77,12 @@ export default function AboutPage() {
       />
 
       {/* Vision & Mission & Core Values */}
-      <section className="py-24 bg-white overflow-hidden">
-        <div className="container mx-auto px-4">
+      <section className="py-24 bg-viettel-dark relative overflow-hidden">
+        {/* Subtle Decorative Elements */}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-viettel-red/5 skew-x-12 transform origin-top-right"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-viettel-red/10 rounded-full blur-[100px]"></div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -87,49 +91,49 @@ export default function AboutPage() {
               transition={{ duration: 0.8 }}
             >
               <div className="text-sm font-bold text-viettel-red uppercase tracking-widest mb-4">Định hướng chiến lược</div>
-              <h2 className="text-3xl md:text-5xl font-bold text-viettel-dark mb-10 leading-tight">Khát vọng vươn tầm và kiến tạo những giá trị bền vững.</h2>
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-10 leading-tight">Khát vọng vươn tầm và kiến tạo những giá trị bền vững.</h2>
               
               <div className="space-y-10">
                 <div className="flex items-start">
-                  <div className="w-12 h-12 rounded-xl bg-red-50 text-viettel-red flex items-center justify-center mr-5 flex-shrink-0 font-bold text-lg shadow-sm">01</div>
+                  <div className="w-12 h-12 rounded-xl bg-white/5 text-viettel-red border border-white/10 flex items-center justify-center mr-5 flex-shrink-0 font-bold text-lg shadow-xl">01</div>
                   <div>
-                    <h3 className="text-xl font-bold mb-3 text-viettel-dark uppercase tracking-tight">Tầm nhìn</h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <h3 className="text-xl font-bold mb-3 text-white uppercase tracking-tight">Tầm nhìn</h3>
+                    <p className="text-gray-300 leading-relaxed">
                       Phấn đấu trở thành thương hiệu xi măng hàng đầu tại Việt Nam và là đơn vị tiên phong trong việc xuất khẩu xi măng Việt Nam ra thị trường thế giới.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-12 h-12 rounded-xl bg-red-50 text-viettel-red flex items-center justify-center mr-5 flex-shrink-0 font-bold text-lg shadow-sm">02</div>
+                  <div className="w-12 h-12 rounded-xl bg-white/5 text-viettel-red border border-white/10 flex items-center justify-center mr-5 flex-shrink-0 font-bold text-lg shadow-xl">02</div>
                   <div>
-                    <h3 className="text-xl font-bold mb-3 text-viettel-dark uppercase tracking-tight">Sứ mệnh</h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <h3 className="text-xl font-bold mb-3 text-white uppercase tracking-tight">Sứ mệnh</h3>
+                    <p className="text-gray-300 leading-relaxed">
                       Trở thành đơn vị uy tín nhất trong lĩnh vực sản xuất xi măng về chất lượng sản phẩm và chất lượng dịch vụ; khẳng định vị thế thương hiệu Việt và nỗ lực đóng góp cho sự phát triển của xã hội.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-12 h-12 rounded-xl bg-red-50 text-viettel-red flex items-center justify-center mr-5 flex-shrink-0 font-bold text-lg shadow-sm">03</div>
+                  <div className="w-12 h-12 rounded-xl bg-white/5 text-viettel-red border border-white/10 flex items-center justify-center mr-5 flex-shrink-0 font-bold text-lg shadow-xl">03</div>
                   <div>
-                    <h3 className="text-xl font-bold mb-3 text-viettel-dark uppercase tracking-tight">Giá trị cốt lõi</h3>
+                    <h3 className="text-xl font-bold mb-3 text-white uppercase tracking-tight">Giá trị cốt lõi</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="flex items-center gap-2">
                         <div className="w-1.5 h-1.5 bg-viettel-red rounded-full"></div>
-                        <span className="text-gray-600 text-sm font-medium">Chất lượng là hàng đầu</span>
+                        <span className="text-gray-300 text-sm font-medium">Chất lượng là hàng đầu</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <div className="w-1.5 h-1.5 bg-viettel-red rounded-full"></div>
-                        <span className="text-gray-600 text-sm font-medium">Tin cậy & Bền vững</span>
+                        <span className="text-gray-300 text-sm font-medium">Tin cậy & Bền vững</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <div className="w-1.5 h-1.5 bg-viettel-red rounded-full"></div>
-                        <span className="text-gray-600 text-sm font-medium">Hợp tác & Đồng hành</span>
+                        <span className="text-gray-300 text-sm font-medium">Hợp tác & Đồng hành</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <div className="w-1.5 h-1.5 bg-viettel-red rounded-full"></div>
-                        <span className="text-gray-600 text-sm font-medium">Tiên phong & Đổi mới</span>
+                        <span className="text-gray-300 text-sm font-medium">Tiên phong & Đổi mới</span>
                       </div>
                     </div>
                   </div>
