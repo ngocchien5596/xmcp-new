@@ -17,8 +17,8 @@ export default function HomePage() {
       <CoreServicesSection />
       <WhyChooseUsSection />
       <CustomerStoriesSection />
-      <ClientLogosSection />
       <NewsSection />
+      <ClientLogosSection />
     </>
   );
 }

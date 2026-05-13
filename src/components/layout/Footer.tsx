@@ -28,7 +28,7 @@ export function Footer() {
                 </span>
               </div>
             </Link>
-            <p className="text-[13px] text-gray-600 leading-relaxed max-w-xs">
+            <p className="text-base text-gray-600 leading-relaxed max-w-xs">
               Xi Măng Cẩm Phả - Chất lượng vượt thời gian. Đơn vị thành viên của Tập đoàn Viettel, tiên phong công nghệ lò quay khô từ Nhật Bản.
             </p>
 
@@ -68,8 +68,8 @@ export function Footer() {
 
           {/* Col 2: Navigation Links (Span 4) */}
           <div className="md:col-span-4">
-            <h3 className="text-sm font-bold text-viettel-dark mb-2">Liên kết nhanh</h3>
-            <ul className="space-y-1.5 text-[13px] font-medium text-gray-600">
+            <h3 className="text-base font-bold text-viettel-dark mb-4">Liên kết nhanh</h3>
+            <ul className="space-y-3 text-base font-medium text-gray-600">
               <li><Link href="/" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Trang chủ</Link></li>
               <li><Link href="/about" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Về chúng tôi</Link></li>
               <li><Link href="/products" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Sản phẩm</Link></li>
@@ -80,8 +80,8 @@ export function Footer() {
 
           {/* Col 3: Contact & Report (Span 4) */}
           <div className="md:col-span-4">
-            <h3 className="text-sm font-bold text-viettel-dark mb-2">Thông tin liên hệ</h3>
-            <ul className="space-y-2 text-[13px] text-gray-600 mb-4">
+            <h3 className="text-base font-bold text-viettel-dark mb-4">Thông tin liên hệ</h3>
+            <ul className="space-y-4 text-base text-gray-600 mb-6">
               <li className="flex items-start">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-viettel-red mr-3 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -114,7 +114,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Copyright & Legal Links */}
-        <div className="pt-4 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-400">
+        <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
           <p>&copy; 2026 Xi măng Cẩm Phả. All rights reserved.</p>
           <div className="space-x-6 mt-4 md:mt-0 font-medium flex">
             <a href="#" className="hover:text-viettel-red transition-colors">Điều khoản sử dụng</a>
