@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
+import Link from 'next/link';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -112,9 +113,9 @@ export function CustomerStoriesSection() {
                 <h3 className="text-lg font-bold text-viettel-dark mb-6 line-clamp-2 leading-tight group-hover:text-viettel-red transition-colors">
                   {story.title}
                 </h3>
-                <a href="#" className="text-sm font-bold text-viettel-red flex items-center hover:gap-2 transition-all">
+                <Link href={`/projects/${story.id}`} className="text-sm font-bold text-viettel-red flex items-center hover:gap-2 transition-all">
                   Xem thêm <ChevronRight className="w-4 h-4 ml-1" />
-                </a>
+                </Link>
               </div>
             </motion.div>
           ))}

@@ -3,8 +3,8 @@ import { fsMagistral, roboto } from "@/lib/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Xi măng Cẩm Phả - Giải pháp Công nghệ thông tin toàn cầu",
-  description: "Cung cấp giải pháp và dịch vụ công nghệ thông tin toàn cầu...",
+  title: "Xi măng Cẩm Phả - Kiến tạo những công trình bền vững",
+  description: "Công ty Cổ phần Xi măng Cẩm Phả - Đơn vị thành viên của Tập đoàn Viettel, chuyên cung cấp các giải pháp xây dựng chất lượng cao, bền vững cho mọi công trình.",
 };
 
 export default function RootLayout({

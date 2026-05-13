@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function Footer() {
   return (
@@ -12,8 +13,20 @@ export function Footer() {
           {/* Col 1: Brand, Social & Badges (Span 4) */}
           <div className="md:col-span-4 flex flex-col space-y-4">
             {/* Logo */}
-            <Link href="/" className="text-2xl font-bold tracking-tight text-viettel-dark logo-text">
-              <span className="text-viettel-red font-bold">XI MĂNG CẨM PHẢ</span>
+            <Link href="/" className="flex items-center gap-3 group mb-2">
+              <div className="relative h-10 w-10 overflow-hidden rounded-lg">
+                <Image 
+                  src="/assets/design/logo.jpg" 
+                  alt="Xi Măng Cẩm Phả Logo" 
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <div className="flex flex-col justify-center">
+                <span className="text-lg font-black tracking-tight text-viettel-red group-hover:brightness-110 transition-all duration-300 whitespace-nowrap uppercase">
+                  Xi măng Cẩm Phả
+                </span>
+              </div>
             </Link>
             <p className="text-[13px] text-gray-600 leading-relaxed max-w-xs">
               Xi Măng Cẩm Phả - Chất lượng vượt thời gian. Đơn vị thành viên của Tập đoàn Viettel, tiên phong công nghệ lò quay khô từ Nhật Bản.

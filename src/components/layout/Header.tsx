@@ -58,12 +58,9 @@ export function Header() {
                 className="object-contain"
               />
             </div>
-            <div className="flex flex-col">
-              <span className="text-lg md:text-xl font-black tracking-tight text-viettel-dark group-hover:text-viettel-red transition-colors duration-300 leading-none">
-                XI MĂNG
-              </span>
-              <span className="text-sm md:text-base font-bold tracking-widest text-viettel-red leading-none mt-0.5">
-                CẨM PHẢ
+            <div className="flex flex-col justify-center">
+              <span className="text-lg md:text-xl font-black tracking-tight text-viettel-red group-hover:brightness-110 transition-all duration-300 whitespace-nowrap uppercase">
+                Xi măng Cẩm Phả
               </span>
             </div>
           </Link>

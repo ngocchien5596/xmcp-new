@@ -8,13 +8,13 @@ const CLIENTS = [
   { name: 'Viettel Group', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/11/Viettel_logo_2021.svg' },
   { name: 'Vingroup', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Logo_Vingroup.png' },
   { name: 'Sun Group', logo: 'https://upload.wikimedia.org/wikipedia/vi/a/a2/Logo_Sun_Group.png' },
-  { name: 'Vinaconex', logo: 'https://vinaconex.com.vn/logo.png' },
+  { name: 'Vinaconex', logo: 'https://upload.wikimedia.org/wikipedia/vi/0/0e/Logo_vinaconex.png' },
   { name: 'Tập đoàn Điện lực Việt Nam (EVN)', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e1/Logo_EVN.svg' },
-  { name: 'Tập đoàn Hòa Bình', logo: 'https://hbcg.vn/img/logo.png' },
-  { name: 'Coteccons', logo: 'https://www.coteccons.vn/wp-content/themes/coteccons/assets/images/logo.png' },
-  { name: 'VEC', logo: 'https://vec.com.vn/assets/images/logo.png' },
+  { name: 'Tập đoàn Hòa Bình', logo: 'https://upload.wikimedia.org/wikipedia/vi/5/52/Logo_Hoa_Binh_Group.png' },
+  { name: 'Coteccons', logo: 'https://upload.wikimedia.org/wikipedia/vi/1/1e/Logo_Coteccons.png' },
+  { name: 'VEC', logo: 'https://placehold.co/200x80/f3f4f6/ed1c24?text=VEC' },
   { name: 'Bộ Quốc phòng', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Logo_Bo_Quoc_phong.svg' },
-  { name: 'QUACERT', logo: 'https://quacert.gov.vn/Content/images/logo.png' },
+  { name: 'QUACERT', logo: 'https://placehold.co/200x80/f3f4f6/ed1c24?text=QUACERT' },
 ];
 
 export function ClientLogosSection() {
