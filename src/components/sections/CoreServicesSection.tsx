@@ -74,8 +74,8 @@ const containerVariants: Variants = {
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: {
       duration: 0.6,
@@ -88,13 +88,13 @@ export function CoreServicesSection() {
   return (
     <section className="py-24 relative overflow-hidden bg-white">
       <div className="container mx-auto px-4 relative z-10">
-        <SectionHeader 
+        <SectionHeader
           title="Sản phẩm tiêu biểu"
           subtitle="Danh mục sản phẩm xi măng chất lượng cao, đáp ứng mọi yêu cầu kỹ thuật khắt khe của các công trình trọng điểm."
-          ghostText="SẢN PHẨM"
+          ghostText="SẢN PHẨM TIÊU BIỂU"
         />
 
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -102,8 +102,8 @@ export function CoreServicesSection() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {SERVICES.map((service, index) => (
-            <motion.div 
-              key={index} 
+            <motion.div
+              key={index}
               variants={cardVariants}
               className="group relative h-[320px] bg-[#EE0000] hover:bg-[#F8F8F8] rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer hover:-translate-y-1 hover:shadow-2xl shadow-sm core-service-card"
             >
@@ -111,7 +111,7 @@ export function CoreServicesSection() {
                 <div className="w-16 h-16 text-white mb-6 transition-all duration-500 group-hover:absolute group-hover:top-1/2 group-hover:left-1/2 group-hover:-translate-x-1/2 group-hover:-translate-y-1/2 group-hover:w-40 group-hover:h-40 group-hover:scale-150 group-hover:opacity-5 group-hover:text-viettel-red group-hover:mb-0">
                   {service.icon}
                 </div>
-                
+
                 <h3 className="text-white group-hover:text-viettel-red text-xl font-bold text-center group-hover:text-left transition-all duration-300 relative font-sans">
                   {service.title}
                   <span className="absolute -bottom-2 left-0 w-10 h-[3px] bg-viettel-red opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>

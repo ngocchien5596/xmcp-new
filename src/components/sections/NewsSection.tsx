@@ -56,8 +56,8 @@ export function NewsSection() {
     <section className="py-24 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <SectionHeader
-          title="Tin tức & Sự kiện"
-          ghostText="TIN TỨC & SỰ KIỆN"
+          title="Tin tức"
+          ghostText="TIN TỨC"
         />
 
         <div className="flex flex-col md:flex-row justify-between items-center mb-12 border-b border-gray-100 gap-6">

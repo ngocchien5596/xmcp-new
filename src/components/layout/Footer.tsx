@@ -15,9 +15,9 @@ export function Footer() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group mb-2">
               <div className="relative h-10 w-10 overflow-hidden rounded-lg">
-                <Image 
-                  src="/assets/design/logo.jpg" 
-                  alt="Xi Măng Cẩm Phả Logo" 
+                <Image
+                  src="/assets/design/logo.jpg"
+                  alt="Xi Măng Cẩm Phả Logo"
                   fill
                   className="object-contain"
                 />
@@ -45,11 +45,24 @@ export function Footer() {
               </a>
             </div>
 
-            {/* Badges (Defense/ISO) */}
-            <div className="flex flex-wrap gap-2 pt-2">
-              <div className="px-3 py-1.5 bg-gray-50 border border-gray-200 text-xs font-semibold text-gray-700 rounded shadow-sm">ISO 9001:2015</div>
-              <div className="px-3 py-1.5 bg-gray-50 border border-gray-200 text-xs font-semibold text-gray-700 rounded shadow-sm">ISO 14001:2015</div>
-              <div className="px-3 py-1.5 bg-gray-50 border border-gray-200 text-xs font-semibold text-gray-700 rounded shadow-sm">VILAS 354</div>
+            {/* Certification Badges */}
+            <div className="flex items-center gap-4 pt-2">
+              <div className="relative h-10 w-28">
+                <Image
+                  src="/assets/design/dathongbao.png"
+                  alt="Đã thông báo Bộ Công Thương"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <div className="relative h-10 w-20">
+                <Image
+                  src="/assets/design/ipv6.png"
+                  alt="IPv6 Ready"
+                  fill
+                  className="object-contain"
+                />
+              </div>
             </div>
           </div>
 
@@ -59,9 +72,8 @@ export function Footer() {
             <ul className="space-y-1.5 text-[13px] font-medium text-gray-600">
               <li><Link href="/" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Trang chủ</Link></li>
               <li><Link href="/about" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Về chúng tôi</Link></li>
-              <li><Link href="/services" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Dịch vụ CNTT</Link></li>
-              <li><Link href="/products" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Sản phẩm & Giải pháp</Link></li>
-              <li><Link href="/news" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Tin tức & Sự kiện</Link></li>
+              <li><Link href="/products" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Sản phẩm</Link></li>
+              <li><Link href="/news" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Tin tức</Link></li>
               <li><Link href="/careers" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Tuyển dụng</Link></li>
             </ul>
           </div>

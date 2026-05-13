@@ -32,9 +32,9 @@ const PRODUCTS_DATA = [
 export default function ProductsPage() {
   return (
     <main className="flex-grow">
-      <InternalHero 
-        title="SẢN PHẨM &" 
-        highlightText="GIẢI PHÁP" 
+      <InternalHero
+        title="SẢN PHẨM &"
+        highlightText="GIÁ TRỊ"
         subtitle="Xi măng Cẩm Phả cung cấp hệ sinh thái vật liệu xây dựng chất lượng cao, đáp ứng mọi tiêu chuẩn kỹ thuật khắt khe nhất."
       />
 
@@ -43,13 +43,13 @@ export default function ProductsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {PRODUCTS_DATA.map((product) => (
               <RevealOnScroll key={product.id} delay={product.delay}>
-                <Link 
+                <Link
                   href={`/products/${product.id}`}
                   className="group block bg-viettel-gray rounded-2xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500"
                 >
                   <div className="h-64 overflow-hidden relative">
-                    <img 
-                      src={product.image} 
+                    <img
+                      src={product.image}
                       alt={product.title}
                       className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                     />
@@ -67,7 +67,7 @@ export default function ProductsPage() {
                       {product.description}
                     </p>
                     <div className="flex items-center text-viettel-red font-bold text-sm">
-                      CHI TIẾT SẢN PHẨM 
+                      CHI TIẾT SẢN PHẨM
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
