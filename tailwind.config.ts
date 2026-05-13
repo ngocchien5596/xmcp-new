@@ -25,7 +25,7 @@ const config = {
       colors: {
         viettel: {
           red: '#ED1C24',
-          dark: '#333333',
+          dark: '#111111',
           gray: '#F8F8F8',
           wave: '#1A1A1A',
         },

@@ -67,11 +67,12 @@ export function Header() {
                 src="/assets/design/logo.jpg" 
                 alt="Xi Măng Cẩm Phả Logo" 
                 fill
+                sizes="(max-width: 768px) 40px, 48px"
                 className="object-contain"
               />
             </div>
             <div className="flex flex-col justify-center">
-              <span className="text-lg md:text-xl font-black tracking-tight text-viettel-red group-hover:brightness-110 transition-all duration-300 whitespace-nowrap uppercase">
+              <span className="text-xl md:text-2xl font-black tracking-tight text-viettel-red group-hover:brightness-110 transition-all duration-300 whitespace-nowrap uppercase">
                 Xi măng Cẩm Phả
               </span>
             </div>
@@ -79,7 +80,7 @@ export function Header() {
         </div>
 
         {/* Col 2: Navigation Links (Center) */}
-        <nav className="hidden md:flex items-center space-x-8 font-medium font-sans">
+        <nav className="hidden md:flex items-center space-x-8 font-bold font-sans">
           {NAV_ITEMS.map((item) => {
             const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
             return (
@@ -87,9 +88,9 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'nav-link transition-colors duration-300 relative py-2 text-sm uppercase tracking-wider',
+                  'nav-link transition-colors duration-300 relative py-2 text-sm uppercase tracking-widest font-bold',
                   'hover:text-viettel-red',
-                  isActive ? 'text-viettel-red font-bold' : 'text-viettel-dark/80'
+                  isActive ? 'text-viettel-red' : 'text-viettel-dark'
                 )}
               >
                 {item.label}
@@ -140,7 +141,7 @@ export function Header() {
           </div>
 
           {/* Language Switcher */}
-          <div className="flex items-center space-x-2 text-sm font-medium font-sans border-l border-gray-200 pl-4 h-6">
+          <div className="flex items-center space-x-2 text-sm font-bold font-sans border-l border-gray-200 pl-4 h-6">
             <button className="nav-link hover:text-viettel-red transition-colors">VN</button>
             <span className="opacity-30 font-light">|</span>
             <button className="nav-link hover:text-viettel-red opacity-60 transition-colors">EN</button>
@@ -169,7 +170,7 @@ export function Header() {
               href={item.href}
               onClick={() => setIsMobileMenuOpen(false)}
               className={cn(
-                'block font-medium hover:text-viettel-red transition-colors',
+                'block font-bold hover:text-viettel-red transition-colors uppercase tracking-widest text-sm',
                 pathname === item.href && 'text-viettel-red'
               )}
             >

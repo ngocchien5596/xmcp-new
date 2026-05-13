@@ -11,9 +11,9 @@ import { motion } from 'framer-motion';
 // Mock data for search
 const SEARCH_DATA = {
   products: [
-    { id: 'xi-mang-pcb40', title: 'Xi măng Cẩm Phả PCB40', type: 'Sản phẩm', category: 'Xi măng' },
+    { id: 'xi-mang-pcb40', title: 'Xi măng PCB40', type: 'Sản phẩm', category: 'Xi măng' },
     { id: 'xi-mang-da-dung', title: 'Xi măng Đa dụng', type: 'Sản phẩm', category: 'Xi măng' },
-    { id: 'clinker', title: 'Clinker Cẩm Phả', type: 'Sản phẩm', category: 'Clinker' },
+    { id: 'clinker', title: 'Clinker', type: 'Sản phẩm', category: 'Clinker' },
   ],
   projects: [
     { id: 'cau-cua-luc', title: 'Cầu Cửa Lục 1', type: 'Dự án', category: 'Hạ tầng' },
@@ -85,7 +85,7 @@ function SearchResults() {
                   {result.category}
                 </div>
 
-                <div className="flex items-center text-viettel-red font-bold text-sm">
+                <div className="flex items-center text-viettel-red font-bold !font-sans text-sm uppercase tracking-widest">
                   XEM CHI TIẾT
                   <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-2 transition-transform duration-300" />
                 </div>
@@ -101,7 +101,7 @@ function SearchResults() {
           <p className="text-viettel-dark font-medium mb-8">Chúng tôi không tìm thấy nội dung phù hợp với từ khóa của bạn.</p>
           <Link 
             href="/"
-            className="inline-flex items-center justify-center px-8 py-3 bg-viettel-red text-white rounded-full font-bold hover:bg-viettel-dark transition-all duration-300 shadow-lg shadow-red-500/20"
+            className="inline-flex items-center justify-center px-8 py-3 bg-viettel-red text-white rounded-full font-bold !font-sans uppercase tracking-widest hover:bg-viettel-dark transition-all duration-300 shadow-lg shadow-red-500/20 text-sm"
           >
             QUAY LẠI TRANG CHỦ
           </Link>

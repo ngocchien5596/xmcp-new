@@ -5,84 +5,7 @@ import { ChevronLeft, CheckCircle2, ShieldCheck, Zap, Factory, ShoppingCart, Mes
 import NextLink from 'next/link';
 
 // Simulated Product Data
-const PRODUCTS_DATA = [
-  {
-    id: '1',
-    title: 'Xi măng Cẩm Phả PCB40',
-    description: 'Sản phẩm chủ lực có cường độ nén cao, tính công tác tốt, phù hợp cho các công trình hạ tầng và dân dụng yêu cầu độ bền vững cao.',
-    image: 'https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?q=80&w=1200&auto=format&fit=crop',
-    longDescription: 'Xi măng Poóc lăng hỗn hợp PCB 40 Cẩm Phả được sản xuất theo tiêu chuẩn Việt Nam TCVN 6260:2020. Đây là loại xi măng phổ biến nhất, được thiết kế tối ưu cho các hạng mục bê tông kết cấu, xây trát trong các công trình dân dụng và công nghiệp.',
-    features: [
-      'Cường độ nén cao và ổn định',
-      'Độ dẻo cao, dễ thi công xây trát',
-      'Khả năng giữ nước tốt, giảm thiểu nứt vỡ',
-      'Phù hợp với nhiều loại phụ gia bê tông'
-    ],
-    specs: [
-      { label: 'Cường độ nén (3 ngày)', value: '≥ 20 MPa' },
-      { label: 'Cường độ nén (28 ngày)', value: '≥ 40 MPa' },
-      { label: 'Thời gian đông kết bắt đầu', value: '≥ 45 phút' },
-      { label: 'Thời gian đông kết kết thúc', value: '≤ 600 phút' },
-      { label: 'Độ ổn định thể tích', value: '≤ 10 mm' }
-    ],
-    applications: [
-      'Đổ bê tông móng, dột, sàn, dầm',
-      'Xây tường, trát tường trong và ngoài',
-      'Láng nền, ốp lát gạch',
-      'Sản xuất bê tông đúc sẵn mác cao'
-    ]
-  },
-  {
-    id: '2',
-    title: 'Xi măng Bền Sunfat (Type II & V)',
-    description: 'Dòng sản phẩm chuyên dụng cho các công trình ven biển, đập thủy điện hoặc môi trường xâm thực, chống ăn mòn hiệu quả.',
-    image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1200&auto=format&fit=crop',
-    longDescription: 'Xi măng Cẩm Phả bền Sunfat được thiết kế đặc biệt để chịu đựng sự tấn công của các ion sunfat trong đất và nước. Sản phẩm đáp ứng tiêu chuẩn ASTM C150 (Type II & V) hoặc TCVN 6067:2018, lý tưởng cho các công trình hạ tầng biển và xử lý nước thải.',
-    features: [
-      'Kháng sunfat vượt trội',
-      'Nhiệt thủy hóa thấp, giảm nứt nhiệt bê tông khối lớn',
-      'Tăng tuổi thọ cho kết cấu bê tông cốt thép',
-      'Độ đặc chắc cao, ngăn chặn thấm và ăn mòn'
-    ],
-    specs: [
-      { label: 'Hàm lượng C3A', value: '≤ 5% (Type V)' },
-      { label: 'Cường độ nén (28 ngày)', value: '≥ 45 MPa' },
-      { label: 'Độ giãn nở Sunfat (6 tháng)', value: '≤ 0.05%' },
-      { label: 'Tỷ diện bề mặt', value: '≥ 3200 cm2/g' }
-    ],
-    applications: [
-      'Công trình ven biển, cầu cảng',
-      'Đập thủy điện, hệ thống tưới tiêu',
-      'Nhà máy xử lý nước thải',
-      'Móng cọc trong vùng đất nhiễm mặn, nhiễm phèn'
-    ]
-  },
-  {
-    id: '3',
-    title: 'Xi măng Cẩm Phả Đa dụng',
-    description: 'Giải pháp tối ưu cho mọi công trình, dễ thi công, giúp tiết kiệm chi phí và đảm bảo tính thẩm mỹ cho bề mặt hoàn thiện.',
-    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=1200&auto=format&fit=crop',
-    longDescription: 'Xi măng Cẩm Phả Đa dụng là dòng sản phẩm linh hoạt, được điều chỉnh để cân bằng giữa tốc độ đông kết và độ dẻo. Sản phẩm giúp nhà thầu dễ dàng kiểm soát quá trình thi công, từ xây trát đến đổ bê tông các hạng mục nhỏ lẻ.',
-    features: [
-      'Tiết kiệm lượng xi măng trên mỗi m3 vữa/bê tông',
-      'Bề mặt hoàn thiện mịn, thẩm mỹ cao',
-      'Dễ thi công, rút ngắn thời gian hoàn thiện',
-      'Giá thành hợp lý, tối ưu chi phí đầu tư'
-    ],
-    specs: [
-      { label: 'Cường độ nén (28 ngày)', value: '≥ 30 MPa' },
-      { label: 'Độ mịn (tỷ diện)', value: '≥ 2800 cm2/g' },
-      { label: 'Độ dẻo tiêu chuẩn', value: 'Rất tốt' },
-      { label: 'Khả năng chống nứt', value: 'Cao' }
-    ],
-    applications: [
-      'Xây, trát, ốp, lát dân dụng',
-      'Bê tông nhà ở thấp tầng',
-      'Sản xuất gạch không nung',
-      'Trang trí nội ngoại thất'
-    ]
-  }
-];
+import { PRODUCTS_DATA } from '@/data/products';
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
@@ -126,24 +49,19 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
               {/* Product Visuals */}
               <div className="lg:col-span-6">
-                <div className="bg-viettel-gray rounded-3xl p-8 sticky top-32">
-                  <div className="rounded-2xl overflow-hidden shadow-2xl bg-white aspect-square mb-8">
-                    <img src={product.image} alt={product.title} className="w-full h-full object-cover" />
-                  </div>
-                  <div className="grid grid-cols-4 gap-4">
-                    {[1, 2, 3, 4].map((i) => (
-                      <div key={i} className="aspect-square bg-white rounded-xl border-2 border-transparent hover:border-viettel-red transition-all cursor-pointer overflow-hidden shadow-sm">
-                        <img src={product.image} alt="Thumbnail" className="w-full h-full object-cover opacity-60 hover:opacity-100" />
-                      </div>
-                    ))}
-                  </div>
+                <div className="rounded-3xl overflow-hidden shadow-2xl bg-viettel-gray aspect-square sticky top-32 flex items-center justify-center p-8">
+                  <img 
+                    src={product.image} 
+                    alt={product.title} 
+                    className="w-full h-full object-contain drop-shadow-2xl" 
+                  />
                 </div>
               </div>
 
               {/* Product Info */}
               <div className="lg:col-span-6">
                 <div className="mb-10">
-                  <h1 className="text-3xl md:text-5xl font-black text-viettel-dark mb-6 leading-tight uppercase tracking-tight">
+                  <h1 className="text-3xl md:text-5xl font-black text-viettel-dark mb-6 leading-tight uppercase tracking-tight detail-title">
                     {product.title}
                   </h1>
                   <p className="text-lg text-gray-600 leading-relaxed italic">

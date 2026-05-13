@@ -19,6 +19,7 @@ export function Footer() {
                   src="/assets/design/logo.jpg"
                   alt="Xi Măng Cẩm Phả Logo"
                   fill
+                  sizes="(max-width: 768px) 40px, 40px"
                   className="object-contain"
                 />
               </div>
@@ -28,7 +29,7 @@ export function Footer() {
                 </span>
               </div>
             </Link>
-            <p className="text-base text-gray-600 leading-relaxed max-w-xs">
+            <p className="text-sm text-gray-600 leading-relaxed max-w-xs">
               Xi Măng Cẩm Phả - Chất lượng vượt thời gian. Đơn vị thành viên của Tập đoàn Viettel, tiên phong công nghệ lò quay khô từ Nhật Bản.
             </p>
 
@@ -51,16 +52,18 @@ export function Footer() {
                 <Image
                   src="/assets/design/dathongbao.png"
                   alt="Đã thông báo Bộ Công Thương"
-                  fill
-                  className="object-contain"
+                   fill
+                   sizes="(max-width: 768px) 112px, 112px"
+                   className="object-contain"
                 />
               </div>
               <div className="relative h-10 w-20">
                 <Image
                   src="/assets/design/ipv6.png"
                   alt="IPv6 Ready"
-                  fill
-                  className="object-contain"
+                   fill
+                   sizes="(max-width: 768px) 80px, 80px"
+                   className="object-contain"
                 />
               </div>
             </div>
@@ -68,11 +71,12 @@ export function Footer() {
 
           {/* Col 2: Navigation Links (Span 4) */}
           <div className="md:col-span-4">
-            <h3 className="text-base font-bold text-viettel-dark mb-4">Liên kết nhanh</h3>
-            <ul className="space-y-3 text-base font-medium text-gray-600">
+            <h3 className="text-sm font-bold !font-sans text-viettel-dark mb-4">Liên kết nhanh</h3>
+            <ul className="space-y-3 text-sm font-medium text-gray-600">
               <li><Link href="/" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Trang chủ</Link></li>
               <li><Link href="/about" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Về chúng tôi</Link></li>
               <li><Link href="/products" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Sản phẩm</Link></li>
+              <li><Link href="/projects" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Dự án</Link></li>
               <li><Link href="/news" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Tin tức</Link></li>
               <li><Link href="/careers" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Tuyển dụng</Link></li>
             </ul>
@@ -80,8 +84,8 @@ export function Footer() {
 
           {/* Col 3: Contact & Report (Span 4) */}
           <div className="md:col-span-4">
-            <h3 className="text-base font-bold text-viettel-dark mb-4">Thông tin liên hệ</h3>
-            <ul className="space-y-4 text-base text-gray-600 mb-6">
+            <h3 className="text-sm font-bold !font-sans text-viettel-dark mb-4">Thông tin liên hệ</h3>
+            <ul className="space-y-4 text-sm text-gray-600 mb-6">
               <li className="flex items-start">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-viettel-red mr-3 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -99,12 +103,12 @@ export function Footer() {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-viettel-red mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <span className="font-semibold text-viettel-dark text-base">(84-203) 372 1995</span>
+                <span className="font-semibold text-viettel-dark text-sm">(84-203) 372 1995</span>
               </li>
             </ul>
 
             {/* Feedback/Report Button */}
-            <button className="flex items-center px-4 py-2 bg-viettel-red text-white rounded font-semibold hover:bg-red-700 transition-colors duration-300 shadow-[0_4px_14px_0_rgba(237,28,36,0.39)] group text-xs">
+            <button className="flex items-center px-4 py-2 bg-viettel-red text-white rounded font-bold !font-sans uppercase tracking-widest hover:bg-red-700 transition-colors duration-300 shadow-[0_4px_14px_0_rgba(237,28,36,0.39)] group text-sm">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 group-hover:-rotate-12 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
               </svg>
@@ -114,7 +118,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Copyright & Legal Links */}
-        <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+        <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
           <p>&copy; 2026 Xi măng Cẩm Phả. All rights reserved.</p>
           <div className="space-x-6 mt-4 md:mt-0 font-medium flex">
             <a href="#" className="hover:text-viettel-red transition-colors">Điều khoản sử dụng</a>

@@ -7,6 +7,9 @@ import { ChevronRight, Filter } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
+import { Pagination } from '@/components/ui/Pagination';
+import { RevealOnScroll } from '@/components/animations/RevealOnScroll';
+
 const CATEGORIES = [
   'Tất cả',
   'Hạ tầng Giao thông',
@@ -31,10 +34,22 @@ interface ProjectsContentProps {
 
 export function ProjectsContent({ projects }: ProjectsContentProps) {
   const [activeCategory, setActiveCategory] = useState('Tất cả');
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 9;
+
+  const handleCategoryChange = (category: string) => {
+    setActiveCategory(category);
+    setCurrentPage(1); // Reset to page 1 on filter change
+  };
 
   const filteredProjects = activeCategory === 'Tất cả' 
     ? projects 
     : projects.filter(p => p.category === activeCategory);
+
+  // Pagination logic
+  const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const paginatedProjects = filteredProjects.slice(startIndex, startIndex + itemsPerPage);
 
   return (
     <main className="flex-grow">
@@ -57,7 +72,7 @@ export function ProjectsContent({ projects }: ProjectsContentProps) {
               {CATEGORIES.map((cat) => (
                 <button
                   key={cat}
-                  onClick={() => setActiveCategory(cat)}
+                  onClick={() => handleCategoryChange(cat)}
                   className={cn(
                     "px-6 py-2.5 rounded-full text-xs font-bold transition-all duration-300 border uppercase tracking-widest",
                     activeCategory === cat 
@@ -81,7 +96,7 @@ export function ProjectsContent({ projects }: ProjectsContentProps) {
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             <AnimatePresence mode="popLayout">
-              {filteredProjects.map((project) => (
+              {paginatedProjects.map((project) => (
                 <motion.div
                   key={project.id}
                   layout
@@ -119,7 +134,7 @@ export function ProjectsContent({ projects }: ProjectsContentProps) {
                     <div className="mt-auto pt-6 border-t border-gray-100">
                       <Link 
                         href={`/projects/${project.id}`}
-                        className="flex items-center text-xs font-bold text-viettel-red group/btn uppercase tracking-widest"
+                        className="flex items-center text-sm font-bold !font-sans text-viettel-red group/btn uppercase tracking-widest hover:text-red-700 transition-colors"
                       >
                         Xem chi tiết 
                         <ChevronRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-2 transition-transform" />
@@ -136,31 +151,32 @@ export function ProjectsContent({ projects }: ProjectsContentProps) {
               <p className="text-gray-400 font-medium italic">Không tìm thấy dự án nào trong danh mục này.</p>
             </div>
           )}
+
+          {/* Pagination */}
+          <RevealOnScroll className="mt-20">
+            <Pagination 
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={setCurrentPage}
+            />
+          </RevealOnScroll>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-viettel-dark relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
-        </div>
-        
+      <section className="py-12 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto bg-viettel-red p-12 md:p-20 rounded-[3rem] shadow-2xl relative overflow-hidden text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-12">
+          <div className="bg-viettel-dark p-12 rounded-3xl text-center text-white relative overflow-hidden shadow-2xl">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-viettel-red opacity-10 rounded-full blur-3xl"></div>
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 uppercase tracking-tight">Cùng kiến tạo những công trình vĩ đại</h2>
-              <p className="text-red-50 text-lg md:text-xl font-medium max-w-xl">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 uppercase tracking-tight">Cùng kiến tạo những công trình vĩ đại</h2>
+              <p className="text-gray-400 mb-8 max-w-2xl mx-auto text-base md:text-lg">
                 Xi măng Cẩm Phả luôn sẵn sàng đồng hành cùng bạn trên mọi hành trình xây dựng niềm tin và sự thịnh vượng.
               </p>
-            </div>
-            <div className="relative z-10 flex-shrink-0">
-              <button className="px-10 py-5 bg-white text-viettel-red font-bold rounded-2xl shadow-xl hover:scale-105 transition-all duration-300 active:scale-95 uppercase tracking-widest text-sm">
+              <button className="px-10 py-4 bg-viettel-red text-white font-bold rounded-xl hover:bg-red-700 transition-all shadow-lg hover:shadow-red-900/20 uppercase tracking-widest text-sm">
                 Liên hệ hợp tác
               </button>
             </div>
-            
-            {/* Background Accent */}
-            <div className="absolute bottom-0 right-0 w-64 h-64 bg-white/10 rounded-full -mb-32 -mr-32"></div>
           </div>
         </div>
       </section>

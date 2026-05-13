@@ -165,16 +165,17 @@ export default function AboutPage() {
       </section>
 
       {/* Milestones Timeline */}
-      <section className="py-24 bg-viettel-gray">
+      <section className="py-16 bg-viettel-gray">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-viettel-dark">Dấu ấn thời gian</h2>
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-viettel-dark uppercase tracking-tight">Dấu ấn thời gian</h2>
+            <div className="w-16 h-0.5 bg-viettel-red mx-auto mt-2"></div>
           </div>
 
           <div className="max-w-4xl mx-auto relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-red-200 hidden md:block"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-red-200/50 hidden md:block"></div>
 
-            <div className="space-y-16 md:space-y-24">
+            <div className="space-y-10 md:space-y-14">
               {MILESTONES.map((item, index) => (
                 <motion.div
                   key={index}
@@ -184,12 +185,12 @@ export default function AboutPage() {
                   transition={{ delay: index * 0.1 }}
                   className={`relative flex flex-col md:flex-row items-center justify-between ${index % 2 === 0 ? '' : 'md:flex-row-reverse'}`}
                 >
-                  <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'} mb-8 md:mb-0`}>
-                    <div className="text-3xl md:text-5xl font-black text-viettel-red/20 mb-2">{item.year}</div>
-                    <h4 className="text-xl font-bold mb-3 text-viettel-dark">{item.title}</h4>
-                    <p className="text-gray-500 leading-relaxed">{item.description}</p>
+                  <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:text-right md:pr-10' : 'md:text-left md:pl-10'} mb-6 md:mb-0`}>
+                    <div className="text-2xl md:text-4xl font-black text-viettel-red/10 mb-1 leading-none">{item.year}</div>
+                    <h4 className="text-lg font-bold mb-2 text-viettel-dark leading-tight">{item.title}</h4>
+                    <p className="text-gray-500 leading-snug text-sm">{item.description}</p>
                   </div>
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-viettel-red rounded-full border-4 border-white shadow-lg z-10 hidden md:block"></div>
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-viettel-red rounded-full border-2 border-white shadow-md z-10 hidden md:block"></div>
                   <div className="w-full md:w-5/12"></div>
                 </motion.div>
               ))}
@@ -231,70 +232,84 @@ export default function AboutPage() {
             <p className="text-gray-500 max-w-2xl mx-auto text-base">Những người dẫn đầu khát vọng kiến tạo tại Xi măng Cẩm Phả, đưa thương hiệu Việt vươn tầm quốc tế.</p>
           </div>
 
-          <div className="space-y-10">
-            {/* General Director - Top Row */}
-            <div className="flex justify-center">
-              {LEADERS.slice(0, 1).map((leader, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="group w-full max-w-[200px] text-center"
-                >
-                  <div className="relative overflow-hidden rounded-xl mb-3 aspect-[3/4] shadow-md bg-gray-50">
-                    <img
-                      src={leader.image}
-                      alt={leader.name}
-                      className="w-full h-full object-cover object-top transition-all duration-700 transform group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-viettel-red/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4 text-left">
-                      <p className="text-white text-[10px] italic font-medium leading-tight">
-                        "{leader.quote}"
-                      </p>
-                    </div>
-                  </div>
-                  <h4 className="text-lg font-bold text-viettel-dark group-hover:text-viettel-red transition-colors mb-0.5 uppercase tracking-tight">
-                    {leader.name}
-                  </h4>
-                  <p className="text-viettel-red font-bold text-base uppercase tracking-widest">
-                    {leader.role}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
+          <div className="relative max-w-4xl mx-auto">
+            {/* Visual Hierarchy Lines (Desktop only) */}
+            {/* Vertical line from General Director down */}
+            <div className="absolute top-[280px] left-1/2 -translate-x-1/2 w-px h-10 bg-gray-300 hidden lg:block"></div>
+            
+            {/* Horizontal bar connecting deputies */}
+            <div className="absolute top-[320px] left-1/2 -translate-x-1/2 w-[66%] h-px bg-gray-300 hidden lg:block"></div>
+            
+            {/* Vertical lines down to each Deputy */}
+            <div className="absolute top-[320px] left-[17%] w-px h-8 bg-gray-300 hidden lg:block"></div>
+            <div className="absolute top-[320px] left-1/2 w-px h-8 bg-gray-300 hidden lg:block"></div>
+            <div className="absolute top-[320px] left-[83%] w-px h-8 bg-gray-300 hidden lg:block"></div>
 
-            {/* Deputy Directors - Bottom Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-2xl mx-auto">
-              {LEADERS.slice(1).map((leader, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group text-center"
-                >
-                  <div className="relative overflow-hidden rounded-lg mb-3 aspect-[3/4] shadow-sm bg-gray-50">
-                    <img
-                      src={leader.image}
-                      alt={leader.name}
-                      className="w-full h-full object-cover object-top transition-all duration-700 transform group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-viettel-red/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-3 text-left">
-                      <p className="text-white text-[9px] italic font-medium leading-tight">
-                        "{leader.quote}"
-                      </p>
+            <div className="space-y-24">
+              {/* General Director - Top Row */}
+              <div className="flex justify-center relative z-10">
+                {LEADERS.slice(0, 1).map((leader, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="group w-full max-w-[160px] text-center"
+                  >
+                    <div className="relative overflow-hidden rounded-xl mb-4 aspect-[3/4] shadow-lg bg-gray-50 border-2 border-viettel-red/10">
+                      <img
+                        src={leader.image}
+                        alt={leader.name}
+                        className="w-full h-full object-cover object-top transition-all duration-700 transform group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-viettel-red/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-3 text-left">
+                        <p className="text-white text-[10px] italic font-medium leading-tight">
+                          "{leader.quote}"
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                  <h4 className="text-base font-bold text-viettel-dark group-hover:text-viettel-red transition-colors mb-0.5 uppercase tracking-tight">
-                    {leader.name}
-                  </h4>
-                  <p className="text-gray-500 font-medium text-base uppercase tracking-widest">
-                    {leader.role}
-                  </p>
-                </motion.div>
-              ))}
+                    <h4 className="text-sm font-bold text-viettel-dark group-hover:text-viettel-red transition-colors mb-0.5 uppercase tracking-tight">
+                      {leader.name}
+                    </h4>
+                    <p className="text-viettel-red font-bold text-xs uppercase tracking-widest">
+                      {leader.role}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Deputy Directors - Bottom Row */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 max-w-3xl mx-auto relative z-10">
+                {LEADERS.slice(1).map((leader, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="group text-center flex flex-col items-center"
+                  >
+                    <div className="relative overflow-hidden rounded-lg mb-3 aspect-[3/4] w-full max-w-[140px] shadow-md bg-gray-50 border border-gray-100">
+                      <img
+                        src={leader.image}
+                        alt={leader.name}
+                        className="w-full h-full object-cover object-top transition-all duration-700 transform group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-viettel-red/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-2.5 text-left">
+                        <p className="text-white text-[9px] italic font-medium leading-tight">
+                          "{leader.quote}"
+                        </p>
+                      </div>
+                    </div>
+                    <h4 className="text-[13px] font-bold text-viettel-dark group-hover:text-viettel-red transition-colors mb-0.5 uppercase tracking-tight">
+                      {leader.name}
+                    </h4>
+                    <p className="text-gray-500 font-bold text-[11px] uppercase tracking-wider">
+                      {leader.role}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -309,7 +324,7 @@ export default function AboutPage() {
             <p className="text-gray-500 max-w-2xl mx-auto text-base">Sự ghi nhận cho những nỗ lực không ngừng nghỉ trong hành trình khẳng định vị thế thương hiệu.</p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto">
             {AWARDS.map((award, index) => (
               <motion.div
                 key={index}
@@ -319,14 +334,14 @@ export default function AboutPage() {
                 transition={{ delay: index * 0.1 }}
                 className="group flex flex-col items-center text-center"
               >
-                <div className="relative w-full aspect-[4/5] md:aspect-[3/4] mb-4 overflow-hidden rounded-xl bg-white shadow-lg border border-gray-100 group-hover:shadow-2xl transition-all duration-500 p-3 md:p-4">
+                <div className="relative w-full aspect-[4/5] md:aspect-[3/4] mb-3 overflow-hidden rounded-xl bg-white shadow-md border border-gray-100 group-hover:shadow-xl transition-all duration-500 p-2 md:p-3">
                   <img
                     src={award.image}
                     alt={award.title}
                     className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <p className="font-sans text-sm md:text-base font-bold text-viettel-dark group-hover:text-viettel-red transition-colors leading-tight px-2">
+                <p className="font-sans text-base font-bold text-viettel-dark group-hover:text-viettel-red transition-colors leading-tight px-1">
                   {award.title}
                 </p>
               </motion.div>

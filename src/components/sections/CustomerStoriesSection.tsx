@@ -113,8 +113,8 @@ export function CustomerStoriesSection() {
                 <h3 className="text-lg font-bold text-viettel-dark mb-6 line-clamp-2 leading-tight group-hover:text-viettel-red transition-colors">
                   {story.title}
                 </h3>
-                <Link href={`/projects/${story.id}`} className="text-sm font-bold text-viettel-red flex items-center hover:gap-2 transition-all">
-                  Xem thêm <ChevronRight className="w-4 h-4 ml-1" />
+                <Link href={`/projects/${story.id}`} className="text-sm font-bold !font-sans text-viettel-red flex items-center uppercase tracking-widest hover:text-red-700 transition-all group/btn">
+                  Xem thêm <ChevronRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-2 transition-transform" />
                 </Link>
               </div>
             </motion.div>

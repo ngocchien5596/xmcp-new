@@ -62,7 +62,7 @@ export function HeroSection() {
           </div>
 
           <div>
-            <Link href="/products" className="inline-block bg-white text-viettel-red px-10 py-3 rounded-md font-bold text-sm uppercase tracking-wider hover:bg-red-50 transition-colors shadow-lg">
+            <Link href="/products" className="inline-block bg-white text-viettel-red px-10 py-4 rounded-xl font-bold !font-sans text-sm uppercase tracking-widest hover:bg-red-50 transition-all shadow-lg hover:shadow-white/20">
               Khám phá sản phẩm
             </Link>
           </div>

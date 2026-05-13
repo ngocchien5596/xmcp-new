@@ -186,7 +186,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-16">
               <NextLink 
                 href="/projects" 
-                className="flex items-center text-sm font-bold text-gray-400 hover:text-viettel-red transition-colors uppercase tracking-widest"
+                className="flex items-center text-sm font-bold !font-sans text-gray-400 hover:text-viettel-red transition-colors uppercase tracking-widest"
               >
                 <ChevronLeft className="w-4 h-4 mr-2" />
                 Dự án tiêu biểu
@@ -207,7 +207,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
               {/* Main Content */}
               <div className="lg:col-span-8">
-                <h1 className="text-3xl md:text-5xl font-black text-viettel-dark mb-10 leading-tight tracking-tight uppercase">
+                <h1 className="text-3xl md:text-5xl font-black text-viettel-dark mb-10 leading-tight tracking-tight uppercase detail-title">
                   {project.title}
                 </h1>
                 
@@ -287,7 +287,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                   {/* Contact CTA */}
                   <div className="bg-viettel-red rounded-3xl p-8 text-white text-center shadow-xl hover:scale-[1.02] transition-transform">
                     <p className="text-xs font-bold uppercase tracking-widest mb-4">Bạn cần tư vấn giải pháp?</p>
-                    <button className="w-full py-4 bg-white text-viettel-red font-black rounded-xl uppercase tracking-widest text-[10px] shadow-lg">
+                    <button className="w-full py-4 bg-white text-viettel-red font-black !font-sans uppercase tracking-widest text-sm shadow-lg hover:bg-gray-50 transition-colors">
                       Liên hệ ngay
                     </button>
                   </div>
@@ -304,7 +304,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center justify-between mb-12">
               <h2 className="text-2xl font-bold text-viettel-dark uppercase tracking-tight">Dự án khác</h2>
-              <NextLink href="/projects" className="text-xs font-bold text-viettel-red flex items-center hover:translate-x-2 transition-transform uppercase tracking-widest">
+              <NextLink href="/projects" className="text-sm font-bold !font-sans text-viettel-red flex items-center hover:translate-x-2 transition-transform uppercase tracking-widest">
                 Tất cả <ArrowRight className="w-4 h-4 ml-2" />
               </NextLink>
             </div>

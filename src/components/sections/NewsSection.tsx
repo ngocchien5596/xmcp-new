@@ -5,52 +5,26 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { RevealOnScroll } from '@/components/animations/RevealOnScroll';
 import { SectionHeader } from '@/components/ui/SectionHeader';
-import { ChevronRight, Calendar } from 'lucide-react';
+import { Calendar, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { NEWS_DATA } from '@/data/news';
 
 const CATEGORIES = [
-  { id: 'all', label: 'TẤT CẢ' },
-  { id: 'news', label: 'TIN TỨC' },
-  { id: 'blog', label: 'BLOG' },
-  { id: 'pr', label: 'BÁO CHÍ' },
-];
-
-const POSTS = [
-  {
-    id: 1,
-    category: 'news',
-    categoryLabel: 'Tin tức',
-    date: 'Thứ Tư 29, 4/2026',
-    title: 'BỨT PHÁ SẢN LƯỢNG VÀ KẾT QUẢ KINH DOANH QUÝ I/2026',
-    description: 'Xi măng Cẩm Phả ghi nhận sự tăng trưởng vượt bậc về sản lượng tiêu thụ tại thị trường nội địa và xuất khẩu trong 3 tháng đầu năm...',
-    image: '/assets/design/image1.webp'
-  },
-  {
-    id: 2,
-    category: 'blog',
-    categoryLabel: 'Sự kiện',
-    date: 'Thứ Hai 27, 4/2026',
-    title: 'HỘI NGHỊ NGƯỜI LAO ĐỘNG 2026: ĐOÀN KẾT - ĐỔI MỚI - THÀNH CÔNG',
-    description: 'Sự kiện thường niên nhằm vinh danh các cá nhân, tập thể xuất sắc và định hướng chiến lược phát triển bền vững cho giai đoạn mới...',
-    image: '/assets/design/hoi-nghi-nguoi-lao-dong.webp'
-  },
-  {
-    id: 3,
-    category: 'pr',
-    categoryLabel: 'Cộng đồng',
-    date: 'Thứ Sáu 24, 4/2026',
-    title: 'HÀNH TRÌNH NHÂN ĐẠO: TRAO GIỌT MÁU HỒNG - GỬI TRỌN YÊU THƯƠNG',
-    description: 'Hàng trăm cán bộ nhân viên XMCP đã tham gia ngày hội hiến máu tình nguyện, thể hiện trách nhiệm của doanh nghiệp với cộng đồng...',
-    image: '/assets/design/hien-mau.webp'
-  }
+  { id: 'all', label: 'Tất cả' },
+  { id: 'news', label: 'Tin tức' },
+  { id: 'knowledge', label: 'Kiến thức ngành' },
+  { id: 'pr', label: 'Báo chí' },
 ];
 
 export function NewsSection() {
   const [activeTab, setActiveTab] = useState('all');
 
   const filteredPosts = activeTab === 'all'
-    ? POSTS
-    : POSTS.filter(post => post.category === activeTab);
+    ? NEWS_DATA.slice(0, 4)
+    : NEWS_DATA.filter(post => post.category === activeTab).slice(0, 4);
+
+  const mainPost = filteredPosts[0];
+  const sidePosts = filteredPosts.slice(1, 4);
 
   return (
     <section className="py-24 bg-white relative overflow-hidden">
@@ -81,72 +55,101 @@ export function NewsSection() {
               </button>
             ))}
           </div>
-          <Link href="/news" className="text-viettel-red text-sm font-bold flex items-center hover:underline group">
+          <Link href="/news" className="text-viettel-red text-sm font-bold !font-sans flex items-center uppercase tracking-widest hover:text-red-700 transition-colors group">
             Xem thêm <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.1
-              }
-            }
-          }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 min-h-[400px]"
-        >
-          <AnimatePresence mode="popLayout" initial={false}>
-            {filteredPosts.map((post) => (
-              <motion.div
-                key={post.id}
-                layout
-                initial="hidden"
-                animate="visible"
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: { duration: 0.5 }
-                  }
-                }}
-                exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
-                className="group cursor-pointer news-card"
-              >
-                <div className="overflow-hidden rounded-2xl mb-6 h-64 shadow-lg">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                </div>
-                <div className="flex items-center space-x-3 mb-4 text-[10px] font-bold uppercase tracking-widest">
-                  <span className="text-viettel-red bg-red-50 px-2 py-1 rounded">
-                    {post.categoryLabel}
-                  </span>
-                  <span className="text-gray-400 flex items-center">
-                    <Calendar className="w-3 h-3 mr-1" /> {post.date}
-                  </span>
-                </div>
-                <h3 className="text-xl font-bold text-viettel-dark mb-3 group-hover:text-viettel-red transition-colors line-clamp-2 leading-tight">
-                  {post.title}
-                </h3>
-                <p className="text-sm text-gray-500 line-clamp-2 mb-4">
-                  {post.description}
-                </p>
-                <span className="text-xs text-viettel-red font-bold uppercase border-b border-transparent group-hover:border-viettel-red transition-all">
-                  Xem chi tiết
-                </span>
-              </motion.div>
-            ))}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 min-h-[500px]">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.4 }}
+              className="lg:col-span-3 grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12"
+            >
+              {/* Main Post - Left (2/3) */}
+              {mainPost && (
+                <motion.div
+                  key={`main-${mainPost.id}`}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="lg:col-span-2 group cursor-pointer"
+                >
+                  <Link href={`/news/${mainPost.id}`} className="block">
+                    <div className="overflow-hidden rounded-3xl mb-6 h-[300px] md:h-[450px] shadow-xl relative">
+                      <img
+                        src={mainPost.image}
+                        alt={mainPost.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                      />
+                      <div className="absolute top-6 left-6">
+                        <span className="px-4 py-2 bg-viettel-red text-white text-[10px] font-bold rounded-lg shadow-lg uppercase tracking-widest">
+                          Tin nổi bật
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-4 mb-4 text-[10px] font-bold uppercase tracking-widest">
+                      <span className="text-viettel-red">{mainPost.categoryLabel}</span>
+                      <span className="text-gray-400 flex items-center">
+                        <Calendar className="w-3.5 h-3.5 mr-2" /> {mainPost.date}
+                      </span>
+                    </div>
+                    <h3 className="text-xl md:text-3xl font-bold !font-sans text-viettel-dark mb-4 group-hover:text-viettel-red transition-colors leading-[1.2] tracking-tight uppercase">
+                      {mainPost.title}
+                    </h3>
+                    <p className="text-gray-500 text-sm md:text-base leading-relaxed line-clamp-2 mb-6">
+                      {mainPost.description}
+                    </p>
+                    <div className="flex items-center text-viettel-red font-bold !font-sans text-sm uppercase tracking-widest group-hover:translate-x-2 transition-transform">
+                      Đọc tiếp <ChevronRight className="w-4 h-4 ml-2" />
+                    </div>
+                  </Link>
+                </motion.div>
+              )}
+
+              {/* Side Posts - Right (1/3) */}
+              <div className="lg:col-span-1 flex flex-col gap-8">
+                {sidePosts.map((post, index) => (
+                  <motion.div
+                    key={post.id}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="relative"
+                  >
+                    <Link href={`/news/${post.id}`} className="flex gap-5 group items-start">
+                      <div className="w-24 h-24 md:w-28 md:h-28 flex-shrink-0 overflow-hidden rounded-2xl shadow-sm">
+                        <img
+                          src={post.image}
+                          alt={post.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                      </div>
+                      <div className="flex flex-col py-1">
+                        <div className="text-[10px] font-bold text-viettel-red uppercase tracking-widest mb-2">
+                          {post.categoryLabel}
+                        </div>
+                        <h4 className="text-sm font-bold !font-sans text-viettel-dark group-hover:text-viettel-red transition-colors line-clamp-3 leading-snug mb-2">
+                          {post.title}
+                        </h4>
+                        <div className="text-[10px] text-gray-400 font-medium">
+                          {post.date}
+                        </div>
+                      </div>
+                    </Link>
+                    {index < sidePosts.length - 1 && (
+                      <div className="mt-8 border-b border-gray-100"></div>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </AnimatePresence>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
