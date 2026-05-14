@@ -125,9 +125,11 @@ export function ProjectsContent({ projects }: ProjectsContentProps) {
                   </div>
 
                   <div className="p-10 flex flex-col flex-grow">
-                    <h3 className="text-xl font-bold text-viettel-dark mb-4 group-hover:text-viettel-red transition-colors line-clamp-2 leading-snug">
-                      {project.title}
-                    </h3>
+                    <Link href={`/projects/${project.id}`}>
+                      <h3 className="text-xl font-bold text-viettel-dark mb-4 group-hover:text-viettel-red transition-colors line-clamp-2 leading-snug">
+                        {project.title}
+                      </h3>
+                    </Link>
                     <p className="text-gray-500 text-sm leading-relaxed mb-8 line-clamp-3">
                       {project.description}
                     </p>

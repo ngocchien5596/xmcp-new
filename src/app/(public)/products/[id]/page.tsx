@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { InternalHero } from '@/components/sections/InternalHero';
 import { ChevronLeft, CheckCircle2, ShieldCheck, Zap, Factory, ShoppingCart, MessageSquare } from 'lucide-react';
 import NextLink from 'next/link';
+import { RelatedProducts } from '@/components/sections/RelatedProducts';
 
 // Simulated Product Data
 import { PRODUCTS_DATA } from '@/data/products';
@@ -179,6 +180,9 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           </div>
         </div>
       </section>
+
+      {/* Related Products Section */}
+      <RelatedProducts currentProductId={product.id} products={PRODUCTS_DATA} />
     </main>
   );
 }
