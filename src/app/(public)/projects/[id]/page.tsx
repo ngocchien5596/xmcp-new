@@ -94,7 +94,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                 <div className="bg-viettel-gray rounded-3xl p-10 md:p-16 mb-16">
                   <h3 className="text-2xl font-black text-viettel-dark mb-12 text-center uppercase tracking-tight">Điểm nhấn kỹ thuật</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {project.highlights.map((item, i) => (
+                    {project.highlights?.map((item, i) => (
                       <div key={i} className="flex items-start bg-white p-6 rounded-2xl shadow-sm border border-transparent hover:border-red-100 transition-all">
                         <div className="w-10 h-10 bg-red-50 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
                           <ShieldCheck className="w-5 h-5 text-viettel-red" />
@@ -136,7 +136,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                   <div className="bg-white rounded-3xl border border-gray-100 p-8 shadow-sm">
                     <h3 className="text-sm font-bold text-viettel-dark mb-6 uppercase tracking-widest border-l-4 border-viettel-red pl-4">Thông số dự án</h3>
                     <div className="space-y-4">
-                      {project.stats.map((stat, i) => (
+                      {project.stats?.map((stat, i) => (
                         <div key={i} className="flex justify-between items-center py-4 border-b border-gray-50 last:border-0">
                           <span className="text-xs text-gray-400 font-medium uppercase tracking-tight">{stat.label}</span>
                           <span className="text-xs font-bold text-viettel-dark text-right">{stat.value}</span>
