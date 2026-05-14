@@ -26,7 +26,7 @@ export default function DistributionPage() {
         subtitle="Mạng lưới nhà phân phối và đại lý rộng khắp cả nước, sẵn sàng đáp ứng nhu cầu xi măng chất lượng cao."
       />
 
-      <section className="bg-slate-50 py-12">
+      <section className="bg-slate-50 py-12 font-sans">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
@@ -75,7 +75,7 @@ export default function DistributionPage() {
                         : "bg-gray-50 border-transparent hover:bg-white hover:border-gray-200"
                     )}
                   >
-                    <h4 className="font-bold text-viettel-dark text-sm group-hover:text-viettel-red transition-colors mb-1 uppercase tracking-tight">
+                    <h4 className="font-bold font-sans text-viettel-dark text-sm group-hover:text-viettel-red transition-colors mb-1 uppercase tracking-tight">
                       {dist.name}
                     </h4>
                     <div className="flex items-start text-[12px] text-gray-500 mb-2">
@@ -99,7 +99,7 @@ export default function DistributionPage() {
             <div className="bg-viettel-dark text-white rounded-2xl p-6 shadow-xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-viettel-red opacity-10 blur-3xl -mr-16 -mt-16 group-hover:opacity-20 transition-opacity"></div>
               <Building2 className="w-10 h-10 text-viettel-red mb-4" />
-              <h3 className="text-xl font-bold mb-2 uppercase tracking-tighter">Trở thành đối tác</h3>
+              <h3 className="text-xl font-bold font-sans mb-2 uppercase tracking-tighter">Trở thành đối tác</h3>
               <p className="text-gray-400 text-sm mb-6 leading-relaxed">
                 Hợp tác cùng Xi măng Cẩm Phả để mang đến những sản phẩm chất lượng cao nhất cho thị trường.
               </p>
@@ -138,7 +138,7 @@ export default function DistributionPage() {
                       <div className="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-viettel-red flex-shrink-0">
                         <Building2 className="w-5 h-5" />
                       </div>
-                      <h3 className="font-bold text-viettel-dark leading-tight uppercase text-xs">{hoveredDistributor.name}</h3>
+                      <h3 className="font-bold font-sans text-viettel-dark leading-tight uppercase text-xs">{hoveredDistributor.name}</h3>
                     </div>
                     <div className="space-y-2 text-[11px] text-gray-600 font-sans">
                       <div className="flex items-start">

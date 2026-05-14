@@ -11,7 +11,7 @@ export interface Distributor {
 export const DISTRIBUTORS: Distributor[] = [
   {
     id: '1',
-    name: 'Công ty CP Xi măng Cẩm Phả - Trụ sở chính',
+    name: 'Trụ sở chính - Công ty CP Xi măng Cẩm Phả',
     address: 'Km6, Quốc lộ 18A, Phường Quang Hanh, TP. Cẩm Phả, Tỉnh Quảng Ninh',
     phone: '(84-203) 372 1995',
     lat: 100, // Y
