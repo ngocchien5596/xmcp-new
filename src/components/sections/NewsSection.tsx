@@ -27,7 +27,16 @@ export function NewsSection() {
   const sidePosts = filteredPosts.slice(1, 4);
 
   return (
-    <section className="py-24 bg-slate-50 relative overflow-hidden">
+    <section 
+      className="py-24 relative overflow-hidden"
+      style={{
+        backgroundImage: 'url(/assets/design/baocao-bg.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
+    >
+      {/* Background Overlay */}
+      <div className="absolute inset-0 bg-slate-50/60 backdrop-blur-[2px]"></div>
       <div className="container mx-auto px-4 relative z-10">
         <SectionHeader
           title="Tin tức"
