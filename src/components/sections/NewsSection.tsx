@@ -34,7 +34,7 @@ export function NewsSection() {
           ghostText="TIN TỨC"
         />
 
-        <div className="flex flex-col md:flex-row justify-between items-center mb-12 border-b-2 border-gray-200 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-12 border-b-2 border-gray-300 gap-6">
           <div className="flex space-x-8 text-sm font-bold uppercase tracking-widest text-gray-400 overflow-x-auto hide-scrollbar w-full md:w-auto">
             {CATEGORIES.map((cat) => (
               <button
@@ -112,7 +112,7 @@ export function NewsSection() {
               )}
 
               {/* Side Posts - Right (1/3) */}
-              <div className="lg:col-span-1 flex flex-col gap-8 lg:border-l lg:border-gray-200 lg:pl-8">
+              <div className="lg:col-span-1 flex flex-col gap-8">
                 {sidePosts.map((post, index) => (
                   <motion.div
                     key={post.id}
@@ -122,7 +122,7 @@ export function NewsSection() {
                     className="relative"
                   >
                     <Link href={`/news/${post.id}`} className="flex gap-5 group items-start">
-                      <div className="w-24 h-24 md:w-28 md:h-28 flex-shrink-0 overflow-hidden rounded-2xl shadow-sm">
+                      <div className="w-36 h-32 md:w-52 md:h-36 flex-shrink-0 overflow-hidden rounded-2xl shadow-sm">
                         <img
                           src={post.image}
                           alt={post.title}
@@ -142,7 +142,7 @@ export function NewsSection() {
                       </div>
                     </Link>
                     {index < sidePosts.length - 1 && (
-                      <div className="mt-8 border-b border-gray-200 border-dashed"></div>
+                      <div className="mt-8 border-b border-gray-300"></div>
                     )}
                   </motion.div>
                 ))}
