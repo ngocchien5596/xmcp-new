@@ -44,14 +44,10 @@ export function RelatedProjects({ currentProjectId, projects }: RelatedProjectsP
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-            <div>
-              <span className="text-viettel-red font-bold text-xs uppercase tracking-[0.2em] mb-3 block">Khám phá thêm</span>
-              <h2 className="text-3xl md:text-4xl font-black text-viettel-dark uppercase tracking-tight">Dự án khác</h2>
-              <div className="w-16 h-1 bg-viettel-red mt-6"></div>
-            </div>
+          <div className="flex items-center justify-between mb-12">
+            <h2 className="text-2xl font-bold text-viettel-dark uppercase tracking-tight">Dự án khác</h2>
 
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center gap-6">
               <Link
                 href="/projects"
                 className="text-sm font-bold !font-sans text-viettel-red flex items-center hover:translate-x-2 transition-all uppercase tracking-widest group"
