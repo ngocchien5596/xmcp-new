@@ -4,6 +4,7 @@ import { InternalHero } from '@/components/sections/InternalHero';
 import { ChevronLeft, Calendar, User, Share2, Globe, Send, Link as LinkIcon } from 'lucide-react';
 import NextLink from 'next/link';
 import { NEWS_DATA } from '@/data/news';
+import { RelatedNews } from '@/components/sections/RelatedNews';
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
@@ -103,26 +104,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ id:
         </div>
       </article>
 
-      {/* Related News Placeholder */}
-      <section className="py-24 bg-viettel-gray">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-viettel-dark mb-12 uppercase tracking-tight">Bài viết liên quan</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {NEWS_DATA.filter(n => n.id !== news.id).slice(0, 2).map(item => (
-                <NextLink key={item.id} href={`/news/${item.id}`} className="group bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-transparent hover:border-red-50">
-                  <div className="h-48 rounded-xl overflow-hidden mb-6">
-                    <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  </div>
-                  <span className="text-[10px] font-bold text-viettel-red uppercase tracking-widest mb-3 block">{item.categoryLabel}</span>
-                  <h3 className="text-lg font-bold text-viettel-dark group-hover:text-viettel-red transition-colors line-clamp-2 uppercase leading-tight mb-4">{item.title}</h3>
-                  <div className="text-xs text-gray-400">{item.date}</div>
-                </NextLink>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <RelatedNews currentNewsId={news.id} newsItems={NEWS_DATA} />
     </main>
   );
 }

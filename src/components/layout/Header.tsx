@@ -73,7 +73,7 @@ export function Header() {
               />
             </div>
             <div className="flex flex-col justify-center">
-              <span className="text-xl md:text-2xl font-black tracking-tight text-viettel-red group-hover:brightness-110 transition-all duration-300 whitespace-nowrap uppercase">
+              <span className="text-xl md:text-2xl font-bold font-display tracking-tight text-viettel-red group-hover:brightness-110 transition-all duration-300 whitespace-nowrap uppercase">
                 Xi măng Cẩm Phả
               </span>
             </div>

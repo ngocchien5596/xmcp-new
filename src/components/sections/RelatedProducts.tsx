@@ -97,7 +97,7 @@ export function RelatedProducts({ currentProductId, products }: RelatedProductsP
                 
                 <div className="p-8 flex flex-col flex-grow">
                   <Link href={`/products/${product.id}`}>
-                    <h3 className="text-xl font-bold text-viettel-dark mb-4 group-hover:text-viettel-red transition-colors leading-tight uppercase tracking-tight line-clamp-2 min-h-[3.5rem]">
+                    <h3 className="text-xl font-bold !font-sans text-viettel-dark mb-4 group-hover:text-viettel-red transition-colors leading-tight uppercase tracking-tight line-clamp-2 min-h-[3.5rem]">
                       {product.title}
                     </h3>
                   </Link>

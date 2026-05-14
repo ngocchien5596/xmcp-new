@@ -25,7 +25,7 @@ export const NEWS_DATA: NewsItem[] = [
       <h3>Đánh giá kết quả năm 2025</h3>
       <p>Năm 2025 ghi nhận những nỗ lực vượt bậc của tập thể XMCP trong bối cảnh thị trường vật liệu xây dựng có nhiều biến động. Công ty đã hoàn thành và vượt mức các chỉ tiêu về sản lượng, doanh thu và lợi nhuận, đảm bảo thu nhập và đời sống cho người lao động.</p>
       
-      <img src="public\assets\design\hoi-nghi-nguoi-lao-dong.webp" />
+      <img src="/assets/design/toan-canh-nld.webp" />
       <p class="caption">Toàn cảnh Hội nghị Người lao động năm 2026</p>
       
       <h3>Phương hướng năm 2026</h3>

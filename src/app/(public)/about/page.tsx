@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { InternalHero } from '@/components/sections/InternalHero';
+import { CountUp } from '@/components/ui/CountUp';
+import ElectricBorder from '@/components/ui/ElectricBorder';
 
 const MILESTONES = [
   {
@@ -18,6 +20,16 @@ const MILESTONES = [
     year: '2013',
     title: 'Gia nhập Tập đoàn Viettel',
     description: 'Chuyển giao về Tập đoàn Công nghiệp – Viễn thông Quân đội (Viettel), mở ra kỷ nguyên mới về quản trị và chuyển đổi số.'
+  },
+  {
+    year: '2018',
+    title: 'Kỷ niệm 10 năm thành lập',
+    description: 'Đánh dấu cột mốc 10 năm chính thức đi vào hoạt động, tự hào khẳng định vị thế và chất lượng trên thị trường vật liệu xây dựng.'
+  },
+  {
+    year: '2020',
+    title: 'Thay đổi nhận diện thương hiệu',
+    description: 'Ra mắt hình ảnh thương hiệu mới thông qua chương trình Roadshow, tổ chức thành công Đại hội Đảng bộ lần thứ III và vinh dự nhận giải thưởng "Doanh nghiệp chuyển đổi số xuất sắc" (Vietnam Digital Awards).'
   }
 ];
 
@@ -155,9 +167,23 @@ export default function AboutPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="absolute -bottom-6 -right-6 w-32 h-32 md:w-40 md:h-40 bg-viettel-red flex items-center justify-center text-white font-bold p-6 text-center text-sm md:text-base leading-tight rounded-2xl shadow-xl z-20"
+                className="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10 w-36 h-36 md:w-48 md:h-48 z-20"
               >
-                18+ Năm Kinh nghiệm
+                <ElectricBorder
+                  color="#EE0434"
+                  speed={1.5}
+                  chaos={0.08}
+                  borderRadius={24}
+                  className="w-full h-full"
+                >
+                  <div className="w-full h-full bg-gradient-to-br from-viettel-red to-[#b30022] flex flex-col items-center justify-center text-white p-4 md:p-6 text-center rounded-[inherit] shadow-2xl shadow-viettel-red/40 border border-white/20 backdrop-blur-sm">
+                    <div className="flex flex-col items-center gap-1 md:gap-2">
+                      <span className="text-4xl md:text-5xl font-black tracking-tighter drop-shadow-md"><CountUp end={18} suffix="+" duration={2} /></span>
+                      <div className="w-8 h-1 bg-white/40 rounded-full mt-1 mb-1"></div>
+                      <span className="text-xs md:text-sm font-bold uppercase tracking-wider leading-tight opacity-95 drop-shadow-sm">Năm<br/>Kinh nghiệm</span>
+                    </div>
+                  </div>
+                </ElectricBorder>
               </motion.div>
             </motion.div>
           </div>
@@ -234,16 +260,22 @@ export default function AboutPage() {
 
           <div className="relative max-w-4xl mx-auto">
             {/* Visual Hierarchy Lines (Desktop only) */}
-            {/* Vertical line from General Director down */}
-            <div className="absolute top-[280px] left-1/2 -translate-x-1/2 w-px h-10 bg-gray-300 hidden lg:block"></div>
-            
-            {/* Horizontal bar connecting deputies */}
-            <div className="absolute top-[320px] left-1/2 -translate-x-1/2 w-[66%] h-px bg-gray-300 hidden lg:block"></div>
-            
-            {/* Vertical lines down to each Deputy */}
-            <div className="absolute top-[320px] left-[17%] w-px h-8 bg-gray-300 hidden lg:block"></div>
-            <div className="absolute top-[320px] left-1/2 w-px h-8 bg-gray-300 hidden lg:block"></div>
-            <div className="absolute top-[320px] left-[83%] w-px h-8 bg-gray-300 hidden lg:block"></div>
+            <div className="absolute top-[280px] left-1/2 -translate-x-1/2 w-full max-w-3xl hidden lg:block pointer-events-none z-0">
+              {/* Vertical line from General Director down */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[2px] h-10 bg-black"></div>
+              
+              {/* Horizontal bar connecting deputies */}
+              <div className="absolute top-[40px] left-0 w-full px-[calc((100%-4rem)/6)]">
+                <div className="w-full h-[2px] bg-black"></div>
+              </div>
+              
+              {/* Vertical lines down to each Deputy */}
+              <div className="absolute top-[40px] left-0 w-full grid grid-cols-3 gap-x-8">
+                <div className="flex justify-center"><div className="w-[2px] h-8 bg-black"></div></div>
+                <div className="flex justify-center"><div className="w-[2px] h-8 bg-black"></div></div>
+                <div className="flex justify-center"><div className="w-[2px] h-8 bg-black"></div></div>
+              </div>
+            </div>
 
             <div className="space-y-24">
               {/* General Director - Top Row */}
@@ -268,10 +300,10 @@ export default function AboutPage() {
                         </p>
                       </div>
                     </div>
-                    <h4 className="text-sm font-bold text-viettel-dark group-hover:text-viettel-red transition-colors mb-0.5 uppercase tracking-tight">
+                    <h4 className="text-sm font-bold !font-sans text-viettel-dark group-hover:text-viettel-red transition-colors mb-0.5 uppercase tracking-tight">
                       {leader.name}
                     </h4>
-                    <p className="text-viettel-red font-bold text-xs uppercase tracking-widest">
+                    <p className="text-viettel-red font-bold !font-sans text-xs uppercase tracking-widest">
                       {leader.role}
                     </p>
                   </motion.div>
@@ -301,10 +333,10 @@ export default function AboutPage() {
                         </p>
                       </div>
                     </div>
-                    <h4 className="text-[13px] font-bold text-viettel-dark group-hover:text-viettel-red transition-colors mb-0.5 uppercase tracking-tight">
+                    <h4 className="text-[13px] font-bold !font-sans text-viettel-dark group-hover:text-viettel-red transition-colors mb-0.5 uppercase tracking-tight">
                       {leader.name}
                     </h4>
-                    <p className="text-gray-500 font-bold text-[11px] uppercase tracking-wider">
+                    <p className="text-gray-500 font-bold !font-sans text-[11px] uppercase tracking-wider">
                       {leader.role}
                     </p>
                   </motion.div>
