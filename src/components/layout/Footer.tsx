@@ -75,9 +75,10 @@ export function Footer() {
             <ul className="space-y-3 text-sm font-medium text-gray-600">
               <li><Link href="/" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Trang chủ</Link></li>
               <li><Link href="/about" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Về chúng tôi</Link></li>
-              <li><Link href="/products" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Sản phẩm</Link></li>
-              <li><Link href="/projects" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Dự án</Link></li>
-              <li><Link href="/news" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Tin tức</Link></li>
+               <li><Link href="/products" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Sản phẩm</Link></li>
+               <li><Link href="/projects" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Dự án</Link></li>
+               <li><Link href="/distribution" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Hệ thống phân phối</Link></li>
+               <li><Link href="/news" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Tin tức</Link></li>
               <li><Link href="/careers" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Tuyển dụng</Link></li>
             </ul>
           </div>

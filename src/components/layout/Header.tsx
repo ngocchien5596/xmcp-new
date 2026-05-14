@@ -13,6 +13,7 @@ export const NAV_ITEMS = [
   { href: '/about', label: 'Về chúng tôi' },
   { href: '/products', label: 'Sản phẩm' },
   { href: '/projects', label: 'Dự án' },
+  { href: '/distribution', label: 'Hệ thống phân phối' },
   { href: '/news', label: 'Tin tức' },
   { href: '/careers', label: 'Tuyển dụng' },
 ] as const;
@@ -80,7 +81,7 @@ export function Header() {
         </div>
 
         {/* Col 2: Navigation Links (Center) */}
-        <nav className="hidden md:flex items-center space-x-8 font-bold font-sans">
+        <nav className="hidden md:flex items-center space-x-6 font-bold font-sans">
           {NAV_ITEMS.map((item) => {
             const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
             return (
@@ -88,7 +89,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'nav-link transition-colors duration-300 relative py-2 text-sm uppercase tracking-widest font-bold',
+                  'nav-link transition-colors duration-300 relative py-2 text-[13px] uppercase tracking-widest font-bold whitespace-nowrap',
                   'hover:text-viettel-red',
                   isActive ? 'text-viettel-red' : 'text-viettel-dark'
                 )}
@@ -114,7 +115,7 @@ export function Header() {
               onSubmit={handleSearch}
               className={cn(
                 "flex items-center bg-gray-100 rounded-full transition-all duration-300 ease-in-out overflow-hidden border border-transparent focus-within:border-viettel-red/30 focus-within:bg-white focus-within:shadow-sm",
-                isSearchOpen ? "w-64 px-4 py-1.5 opacity-100" : "w-0 px-0 py-0 opacity-0"
+                isSearchOpen ? "w-48 px-4 py-1.5 opacity-100" : "w-0 px-0 py-0 opacity-0"
               )}
             >
               <input
@@ -170,7 +171,7 @@ export function Header() {
               href={item.href}
               onClick={() => setIsMobileMenuOpen(false)}
               className={cn(
-                'block font-bold hover:text-viettel-red transition-colors uppercase tracking-widest text-sm',
+                'block font-bold hover:text-viettel-red transition-colors uppercase tracking-widest text-[13px]',
                 pathname === item.href && 'text-viettel-red'
               )}
             >
