@@ -40,7 +40,7 @@ export function CoreServicesSection() {
     <section 
       className="py-24 relative overflow-hidden"
       style={{
-        backgroundImage: 'url(/assets/design/news-bg.jpg)',
+        backgroundImage: 'url(/assets/design/baocao-bg.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center'
       }}
