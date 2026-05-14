@@ -11,6 +11,7 @@ interface ElectricBorderProps {
   borderRadius?: number;
   className?: string;
   style?: React.CSSProperties;
+  outwardOffset?: number;
 }
 
 const ElectricBorder = ({
@@ -19,6 +20,7 @@ const ElectricBorder = ({
   speed = 1,
   chaos = 0.12,
   borderRadius = 24,
+  outwardOffset = 0,
   className,
   style
 }: ElectricBorderProps) => {
@@ -204,12 +206,12 @@ const ElectricBorder = ({
       ctx.lineJoin = 'round';
 
       const scale = displacement;
-      const left = borderOffset;
-      const top = borderOffset;
-      const borderWidth = width - 2 * borderOffset;
-      const borderHeight = height - 2 * borderOffset;
+      const left = borderOffset - outwardOffset;
+      const top = borderOffset - outwardOffset;
+      const borderWidth = width - 2 * borderOffset + outwardOffset * 2;
+      const borderHeight = height - 2 * borderOffset + outwardOffset * 2;
       const maxRadius = Math.min(borderWidth, borderHeight) / 2;
-      const radius = Math.min(borderRadius, maxRadius);
+      const radius = Math.min(borderRadius + outwardOffset, maxRadius);
 
       const approximatePerimeter = 2 * (borderWidth + borderHeight) + 2 * Math.PI * radius;
       const sampleCount = Math.floor(approximatePerimeter / 2);
@@ -278,7 +280,7 @@ const ElectricBorder = ({
       }
       resizeObserver.disconnect();
     };
-  }, [color, speed, chaos, borderRadius, octavedNoise, getRoundedRectPoint]);
+  }, [color, speed, chaos, borderRadius, outwardOffset, octavedNoise, getRoundedRectPoint]);
 
   const vars = {
     '--electric-border-color': color,

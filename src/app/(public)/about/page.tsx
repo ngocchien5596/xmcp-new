@@ -174,6 +174,7 @@ export default function AboutPage() {
                   speed={1.5}
                   chaos={0.08}
                   borderRadius={24}
+                  outwardOffset={6}
                   className="w-full h-full"
                 >
                   <div className="w-full h-full bg-gradient-to-br from-viettel-red to-[#b30022] flex flex-col items-center justify-center text-white p-4 md:p-6 text-center rounded-[inherit] shadow-2xl shadow-viettel-red/40 border border-white/20 backdrop-blur-sm">
