@@ -52,13 +52,13 @@ export function RelatedProjects({ currentProjectId, projects }: RelatedProjectsP
             </div>
 
             <div className="flex items-center space-x-6">
-              <Link 
-                href="/projects" 
+              <Link
+                href="/projects"
                 className="text-sm font-bold !font-sans text-viettel-red flex items-center hover:translate-x-2 transition-all uppercase tracking-widest group"
               >
                 Tất cả <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
-              
+
               <div className="flex space-x-3">
                 <button
                   onClick={() => scroll('left')}
@@ -94,45 +94,45 @@ export function RelatedProjects({ currentProjectId, projects }: RelatedProjectsP
                 }}
                 className="w-[calc(100%-2rem)] md:w-[calc((100%-2rem)/2)] lg:w-[calc((100%-4rem)/3)] bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 group snap-start flex-shrink-0 border border-gray-100 flex flex-col"
               >
-              <div className="relative h-64 overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
-                />
-                <div className="absolute top-6 left-6">
-                  <span className="px-4 py-2 bg-viettel-red/90 backdrop-blur-md text-white text-[10px] font-bold rounded-lg uppercase tracking-widest">
-                    {project.category}
-                  </span>
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                  />
+                  <div className="absolute top-6 left-6">
+                    <span className="px-4 py-2 bg-viettel-red/90 backdrop-blur-md text-white text-[10px] font-bold rounded-lg uppercase tracking-widest">
+                      {project.category}
+                    </span>
+                  </div>
+                  <div className="absolute bottom-6 right-6">
+                    <span className="px-4 py-2 bg-white/90 backdrop-blur-sm text-viettel-dark text-[10px] font-bold rounded-lg shadow-sm">
+                      Năm {project.year}
+                    </span>
+                  </div>
                 </div>
-                <div className="absolute bottom-6 right-6">
-                  <span className="px-4 py-2 bg-white/90 backdrop-blur-sm text-viettel-dark text-[10px] font-bold rounded-lg shadow-sm">
-                    Năm {project.year}
-                  </span>
-                </div>
-              </div>
 
-              <div className="p-10 flex flex-col flex-grow">
-                <Link href={`/projects/${project.id}`}>
-                  <h3 className="text-xl font-bold text-viettel-dark mb-4 group-hover:text-viettel-red transition-colors line-clamp-2 leading-snug min-h-[3.5rem]">
-                    {project.title}
-                  </h3>
-                </Link>
-                <p className="text-gray-500 text-sm leading-relaxed mb-8 line-clamp-3">
-                  {project.description}
-                </p>
-                <div className="mt-auto pt-6 border-t border-gray-100">
-                  <Link 
-                    href={`/projects/${project.id}`}
-                    className="flex items-center text-sm font-bold !font-sans text-viettel-red group/btn uppercase tracking-widest hover:text-red-700 transition-colors"
-                  >
-                    Xem chi tiết 
-                    <ChevronRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-2 transition-transform" />
+                <div className="p-10 flex flex-col flex-grow">
+                  <Link href={`/projects/${project.id}`}>
+                    <h3 className="text-xl font-bold text-viettel-dark mb-4 group-hover:text-viettel-red transition-colors line-clamp-2 leading-snug min-h-[3.5rem]">
+                      {project.title}
+                    </h3>
                   </Link>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-8 line-clamp-3">
+                    {project.description}
+                  </p>
+                  <div className="mt-auto pt-6 border-t border-gray-100">
+                    <Link
+                      href={`/projects/${project.id}`}
+                      className="flex items-center text-sm font-bold !font-sans text-viettel-red group/btn uppercase tracking-widest hover:text-red-700 transition-colors"
+                    >
+                      Xem chi tiết
+                      <ChevronRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-2 transition-transform" />
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </div>

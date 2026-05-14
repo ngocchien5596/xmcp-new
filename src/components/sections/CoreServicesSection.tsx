@@ -37,7 +37,17 @@ const cardVariants: Variants = {
 
 export function CoreServicesSection() {
   return (
-    <section className="py-24 relative overflow-hidden bg-slate-50">
+    <section 
+      className="py-24 relative overflow-hidden"
+      style={{
+        backgroundImage: 'url(/assets/design/news-bg.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
+    >
+      {/* Background Overlay */}
+      <div className="absolute inset-0 bg-slate-50/60 backdrop-blur-[2px]"></div>
+
       <div className="container mx-auto px-4 relative z-10">
         <SectionHeader
           title="Sản phẩm tiêu biểu"
