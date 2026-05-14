@@ -160,7 +160,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
       </section>
 
       {/* Other Projects Section */}
-      <RelatedProjects currentProductId={project.id} projects={PROJECTS_DATA} />
+      <RelatedProjects currentProjectId={project.id} projects={PROJECTS_DATA} />
     </main>
   );
 }
