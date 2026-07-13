@@ -35,30 +35,30 @@ export function HeroSection() {
           <div className="grid grid-cols-3 gap-8 border-t border-red-500/30 pt-10 mb-12">
             <div>
               <div className="text-2xl md:text-3xl font-display font-medium tracking-widest mb-2">
-                <CountUp end={3.8} decimals={1} suffix="M" />
+                <CountUp end={2.3} decimals={1} suffix="M" />
               </div>
-              <div className="text-xl text-red-200">Tấn / năm</div>
+              <div className="text-xl text-red-200">tấn PCB40/ năm</div>
             </div>
             <div>
               <div className="text-2xl md:text-3xl font-display font-medium tracking-widest mb-2">
-                <CountUp end={20} suffix="+" />
+                <CountUp end={10} suffix="+" />
               </div>
               <div className="text-xl text-red-200">Quốc gia xuất khẩu</div>
             </div>
             <div>
               <div className="text-2xl md:text-3xl font-display font-medium tracking-widest mb-2">
-                <CountUp end={150} suffix="+" />
+                <CountUp end={100} suffix="+" />
               </div>
-              <div className="text-xl text-red-200">Đối tác toàn cầu</div>
+              <div className="text-xl text-red-200">NPP trong nước</div>
             </div>
           </div>
 
           {/* Certifications Section */}
           <div className="mb-12">
             <div className="text-2xl md:text-3xl font-display font-medium tracking-widest mb-2">
-              ISO 9001, ISO 14001, VILAS 354
+              ISO 14001/2015
             </div>
-            <div className="text-xl text-red-200">Hệ thống tiêu chuẩn quốc tế</div>
+            <div className="text-xl text-red-200">Hệ thống quản lý tiêu chuẩn môi trường</div>
           </div>
 
           <div>
