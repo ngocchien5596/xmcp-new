@@ -146,6 +146,7 @@ const QUICK_QUESTIONS = [
 export function ChatBubble() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
+  const [conversationId, setConversationId] = useState("");
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -156,6 +157,14 @@ export function ChatBubble() {
   // Chỉ chạy trên Client (tránh lỗi Hydration Next.js)
   useEffect(() => {
     setIsMounted(true);
+    const savedConversationId = localStorage.getItem("campha_chat_conversation_id");
+    if (savedConversationId) {
+      setConversationId(savedConversationId);
+    } else {
+      const nextConversationId = crypto.randomUUID();
+      localStorage.setItem("campha_chat_conversation_id", nextConversationId);
+      setConversationId(nextConversationId);
+    }
     const saved = localStorage.getItem("campha_chat_history");
     if (saved) {
       try {
@@ -223,6 +232,7 @@ export function ChatBubble() {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
+          conversation_id: conversationId,
           messages: [...messages, userMessage].map(msg => ({
             role: msg.role,
             content: msg.content
@@ -329,7 +339,10 @@ export function ChatBubble() {
 
   const handleClearHistory = () => {
     if (window.confirm("Bạn có chắc chắn muốn xóa lịch sử cuộc trò chuyện này không?")) {
+      const nextConversationId = crypto.randomUUID();
       localStorage.removeItem("campha_chat_history");
+      localStorage.setItem("campha_chat_conversation_id", nextConversationId);
+      setConversationId(nextConversationId);
       setMessages([
         {
           id: "welcome",

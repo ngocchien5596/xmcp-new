@@ -10,30 +10,22 @@ interface SectionHeaderProps {
   light?: boolean;
 }
 
-export function SectionHeader({
-  title,
-  subtitle,
-  ghostText,
-  centered = true,
-  className,
-  light = false
-}: SectionHeaderProps) {
+export function SectionHeader(props: SectionHeaderProps) {
+  const {
+    title,
+    subtitle,
+    centered = true,
+    className,
+    light = false
+  } = props;
+
   return (
     <div className={cn(
       "mb-16 relative",
       centered ? "text-center" : "text-left",
       className
     )}>
-      {ghostText && (
-        <RevealOnScroll>
-          <h2 className={cn(
-            "text-viettel-red text-3xl md:text-5xl font-extrabold uppercase mb-2 opacity-20 leading-none",
-            !centered && "text-left"
-          )}>
-            {ghostText}
-          </h2>
-        </RevealOnScroll>
-      )}
+
       
       <RevealOnScroll className="relative z-10">
         <h2 className={cn(

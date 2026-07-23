@@ -6,7 +6,7 @@ export const runtime = "nodejs";
 
 export async function POST(req: NextRequest) {
   try {
-    const { messages } = await req.json();
+    const { messages, conversation_id: conversationId } = await req.json();
 
     const apiUrl = process.env.AI_API_URL || "http://127.0.0.1:8000/api/chat";
     const apiKey = process.env.AI_API_KEY || "";
@@ -163,7 +163,7 @@ export async function POST(req: NextRequest) {
           "giam don", "them vao don", "vao don cu", "vao don hien tai",
           "vao don vua dat", "cong vao don", "gop vao don", "doi san pham",
           "doi dia diem", "sua dia chi", "doi ngay", "lui ngay", "chuyen ngay",
-          "sua so dien thoai", "bo sung thong tin", "them hang vao don",
+          "sua so dien thoai", "them hang vao don",
         ])
       ) {
         return "modify";
@@ -270,9 +270,33 @@ export async function POST(req: NextRequest) {
         );
     };
 
+    const isNonOrderTopicQuery = () => {
+      if (/[?？]/.test(lastMessage)) return true;
+      return [
+        "gioi thieu", "thong tin cong ty", "tong giam doc", "giam doc",
+        "san pham tieu bieu", "cac san pham", "danh sach san pham",
+        "chi tiet san pham", "econs", "pcb la gi", "pcb40 la gi", "pcb30 la gi",
+        "tuyen dung", "tuyen nhan vien", "vi tri tuyen", "tin tuc",
+        "chinh sach moi truong", "chinh sach chat luong", "thanh tuu",
+        "khach hang", "nha phan phoi", "van phong", "dia chi cong ty",
+        "lien he cong ty", "he thong phan phoi", "la gi", "nhu the nao",
+        "co nhung", "gom nhung", "bao gom",
+      ].some((marker) => cleanKey.includes(marker));
+    };
+
+    const isConfirmationOnly = () => {
+      const value = cleanKey.replace(/[:.,!\-\s]+$/g, "").trim();
+      return [
+        "dung", "dung roi", "ok", "oke", "okay", "vang", "phai", "chinh xac",
+        "xac nhan", "co", "uh", "um", "duoc", "dong y",
+      ].includes(value);
+    };
+
     const extractOrderRequest = () => {
       if (["modify", "clarify", "negated"].includes(orderIntent)) return null;
+      if (isConfirmationOnly()) return null;
       if (!hasOrderContext() && !isOrderingQuestion) return null;
+      if (hasOrderContext() && !orderIntent && isNonOrderTopicQuery()) return null;
 
       const phoneMatch = lastMessage.match(/(?:\+?84|0)(?:[\s.-]?\d){8,10}\b/);
       let phone = phoneMatch ? phoneMatch[0].replace(/\D/g, "") : "";
@@ -320,10 +344,15 @@ export async function POST(req: NextRequest) {
       if (!deliveryLocation && hasOrderContext() && neededTime) {
         deliveryLocation = lastMessage
           .replace(neededTime, "")
-          .replace(/\b(?:địa điểm nhận|dia diem nhan|địa điểm|dia diem|thời gian cần hàng|thoi gian can hang|thời gian|thoi gian|bổ sung|bo sung|cho đơn hàng|cho don hang|về đơn hàng|ve don hang|là|la)\b/gi, " ")
+          .replace(/\b(?:tôi|minh|thông tin|thong tin|nhé|nhe|địa điểm nhận|dia diem nhan|địa điểm|dia diem|thời gian cần hàng|thoi gian can hang|thời gian|thoi gian|bổ sung|bo sung|cho đơn hàng|cho don hang|về đơn hàng|ve don hang|là|la)\b/gi, " ")
           .replace(/\s+/g, " ")
           .trim()
-          .replace(/^[,.\-\s]+|[,.\-\s]+$/g, "");
+          .replace(/^[,:.\-\s]+|[,:.\-\s]+$/g, "");
+        if (!deliveryLocation || [
+          "toi", "minh", "nhe", "toi nhe", "minh nhe", "thong tin", "toi thong tin nhe",
+        ].includes(removeAccents(cleanQuery(deliveryLocation)))) {
+          deliveryLocation = "";
+        }
       }
       const normalizedDeliveryLocation = removeAccents(cleanQuery(deliveryLocation));
       if (
@@ -372,6 +401,7 @@ export async function POST(req: NextRequest) {
       return {
         created_at: new Date().toISOString(),
         source: "next-api",
+        conversation_id: typeof conversationId === "string" ? conversationId : "",
         product,
         quantity,
         delivery_location: deliveryLocation,
@@ -395,9 +425,11 @@ export async function POST(req: NextRequest) {
       }
       let savedRequest = orderRequest;
       const fields = ["product", "quantity", "delivery_location", "needed_time", "phone"];
+      const currentConversationId = typeof orderRequest.conversation_id === "string" ? orderRequest.conversation_id : "";
       for (let index = currentData.length - 1; index >= 0; index -= 1) {
         const existing = currentData[index];
         if (!Array.isArray(existing.missing_fields) || existing.missing_fields.length === 0) continue;
+        if (currentConversationId && existing.conversation_id !== currentConversationId) continue;
         let updated = false;
         for (const field of fields) {
           if (!existing[field] && orderRequest[field]) {
@@ -520,6 +552,7 @@ export async function POST(req: NextRequest) {
         "X-API-Key": apiKey,
       },
       body: JSON.stringify({
+        conversation_id: conversationId,
         messages: messages.slice(-4).map((message: { role?: string; content?: string }) => ({
           role: message.role,
           content: typeof message.content === "string"
