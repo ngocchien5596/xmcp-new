@@ -35,7 +35,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ id:
 
       <article className="py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             {/* Breadcrumbs & Back */}
             <div className="flex items-center justify-between mb-12">
               <NextLink 
@@ -76,10 +76,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ id:
               </div>
             </header>
 
-            {/* Featured Image */}
-            <div className="rounded-3xl overflow-hidden mb-16 shadow-2xl aspect-[16/9]">
-              <img src={news.image} alt={news.title} className="w-full h-full object-cover" />
-            </div>
+
 
             {/* Content Body */}
             <div

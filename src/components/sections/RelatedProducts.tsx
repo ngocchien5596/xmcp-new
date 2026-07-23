@@ -80,7 +80,7 @@ export function RelatedProducts({ currentProductId, products }: RelatedProductsP
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0 }
                 }}
-                className="w-[calc(100%-2rem)] md:w-[calc((100%-2rem)/2)] lg:w-[calc((100%-4rem)/3)] bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-500 group snap-start flex-shrink-0 flex flex-col"
+                className="w-[calc(100%-2rem)] md:w-[calc((100%-2rem)/2)] lg:w-[calc((100%-4rem)/3)] bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-500 group snap-start flex-shrink-0 flex flex-col product-card"
               >
                 <div className="h-64 overflow-hidden relative p-8 bg-viettel-gray/30">
                   <img

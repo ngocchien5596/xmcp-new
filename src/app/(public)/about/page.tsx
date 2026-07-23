@@ -297,7 +297,7 @@ export default function AboutPage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-viettel-red/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-3 text-left">
                         <p className="text-white text-[10px] italic font-medium leading-tight">
-                          "{leader.quote}"
+                          &ldquo;{leader.quote}&rdquo;
                         </p>
                       </div>
                     </div>
@@ -330,7 +330,7 @@ export default function AboutPage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-viettel-red/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-2.5 text-left">
                         <p className="text-white text-[9px] italic font-medium leading-tight">
-                          "{leader.quote}"
+                          &ldquo;{leader.quote}&rdquo;
                         </p>
                       </div>
                     </div>

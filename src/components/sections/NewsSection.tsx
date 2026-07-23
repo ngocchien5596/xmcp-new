@@ -20,11 +20,11 @@ export function NewsSection() {
   const [activeTab, setActiveTab] = useState('all');
 
   const filteredPosts = activeTab === 'all'
-    ? NEWS_DATA.slice(0, 4)
-    : NEWS_DATA.filter(post => post.category === activeTab).slice(0, 4);
+    ? NEWS_DATA.slice(0, 5)
+    : NEWS_DATA.filter(post => post.category === activeTab).slice(0, 5);
 
   const mainPost = filteredPosts[0];
-  const sidePosts = filteredPosts.slice(1, 4);
+  const sidePosts = filteredPosts.slice(1, 5);
 
   return (
     <section 
@@ -86,10 +86,10 @@ export function NewsSection() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="lg:col-span-2 group cursor-pointer"
+                  className="lg:col-span-2 group cursor-pointer flex"
                 >
-                  <Link href={`/news/${mainPost.id}`} className="block">
-                    <div className="overflow-hidden rounded-3xl mb-6 h-[300px] md:h-[450px] shadow-xl relative">
+                  <Link href={`/news/${mainPost.id}`} className="flex flex-col bg-white rounded-3xl overflow-hidden border border-gray-100 p-6 lg:p-8 transition-all duration-500 news-card w-full h-full">
+                    <div className="overflow-hidden rounded-2xl mb-6 h-[250px] md:h-[350px] shadow-xl relative flex-shrink-0">
                       <img
                         src={mainPost.image}
                         alt={mainPost.title}
@@ -101,48 +101,50 @@ export function NewsSection() {
                         </span>
                       </div>
                     </div>
-                    <div className="flex items-center space-x-4 mb-4 text-[10px] font-bold uppercase tracking-widest">
-                      <span className="text-viettel-red">{mainPost.categoryLabel}</span>
-                      <span className="text-gray-400 flex items-center">
-                        <Calendar className="w-3.5 h-3.5 mr-2" /> {mainPost.date}
-                      </span>
-                    </div>
-                    <h3 className="text-xl md:text-3xl font-bold !font-sans text-viettel-dark mb-4 group-hover:text-viettel-red transition-colors leading-[1.2] tracking-tight uppercase">
-                      {mainPost.title}
-                    </h3>
-                    <p className="text-gray-500 text-sm md:text-base leading-relaxed line-clamp-2 mb-6">
-                      {mainPost.description}
-                    </p>
-                    <div className="flex items-center text-viettel-red font-bold !font-sans text-sm uppercase tracking-widest group-hover:translate-x-2 transition-transform">
-                      Đọc tiếp <ChevronRight className="w-4 h-4 ml-2" />
+                    <div className="flex flex-col flex-grow">
+                      <div className="flex items-center space-x-4 mb-4 text-[10px] font-bold uppercase tracking-widest">
+                        <span className="text-viettel-red">{mainPost.categoryLabel}</span>
+                        <span className="text-gray-400 flex items-center">
+                          <Calendar className="w-3.5 h-3.5 mr-2" /> {mainPost.date}
+                        </span>
+                      </div>
+                      <h3 className="text-xl md:text-2xl font-bold !font-sans text-viettel-dark mb-4 group-hover:text-viettel-red transition-colors leading-[1.2] tracking-tight uppercase line-clamp-2">
+                        {mainPost.title}
+                      </h3>
+                      <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 mb-6">
+                        {mainPost.description}
+                      </p>
+                      <div className="flex items-center text-viettel-red font-bold !font-sans text-sm uppercase tracking-widest group-hover:translate-x-2 transition-transform mt-auto">
+                        Đọc tiếp <ChevronRight className="w-4 h-4 ml-2" />
+                      </div>
                     </div>
                   </Link>
                 </motion.div>
               )}
 
               {/* Side Posts - Right (1/3) */}
-              <div className="lg:col-span-1 flex flex-col gap-8">
+              <div className="lg:col-span-1 flex flex-col gap-6">
                 {sidePosts.map((post, index) => (
                   <motion.div
                     key={post.id}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="relative"
+                    className="relative flex"
                   >
-                    <Link href={`/news/${post.id}`} className="flex gap-5 group items-start">
-                      <div className="w-36 h-32 md:w-52 md:h-36 flex-shrink-0 overflow-hidden rounded-2xl shadow-sm">
+                    <Link href={`/news/${post.id}`} className="flex gap-4 lg:gap-5 group items-center bg-white rounded-2xl overflow-hidden border border-gray-100 p-4 transition-all duration-500 news-card w-full">
+                      <div className="w-24 h-24 md:w-32 md:h-28 flex-shrink-0 overflow-hidden rounded-xl shadow-sm">
                         <img
                           src={post.image}
                           alt={post.title}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                         />
                       </div>
-                      <div className="flex flex-col py-1">
-                        <div className="text-[10px] font-bold text-viettel-red uppercase tracking-widest mb-2">
+                      <div className="flex flex-col flex-grow py-1">
+                        <div className="text-[10px] font-bold text-viettel-red uppercase tracking-widest mb-1.5">
                           {post.categoryLabel}
                         </div>
-                        <h4 className="text-sm font-bold !font-sans text-viettel-dark group-hover:text-viettel-red transition-colors line-clamp-3 leading-snug mb-2">
+                        <h4 className="text-xs md:text-sm font-bold !font-sans text-viettel-dark group-hover:text-viettel-red transition-colors line-clamp-2 leading-snug mb-1.5">
                           {post.title}
                         </h4>
                         <div className="text-[10px] text-gray-400 font-medium">
@@ -150,9 +152,6 @@ export function NewsSection() {
                         </div>
                       </div>
                     </Link>
-                    {index < sidePosts.length - 1 && (
-                      <div className="mt-8 border-b border-gray-300"></div>
-                    )}
                   </motion.div>
                 ))}
               </div>

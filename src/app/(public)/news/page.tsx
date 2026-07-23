@@ -91,8 +91,8 @@ export default function NewsPage() {
                 className="mb-20"
               >
                 <RevealOnScroll>
-                  <Link href={`/news/${NEWS_DATA[0].id}`} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center group">
-                    <div className="overflow-hidden rounded-2xl h-[400px] relative">
+                  <Link href={`/news/${NEWS_DATA[0].id}`} className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center bg-white rounded-3xl overflow-hidden border border-gray-100 p-6 lg:p-10 transition-all duration-500 group news-card">
+                    <div className="overflow-hidden rounded-2xl h-[300px] lg:h-[400px] relative">
                       <img
                         src={NEWS_DATA[0].image}
                         alt={NEWS_DATA[0].title}
@@ -103,10 +103,10 @@ export default function NewsPage() {
                       <span className="inline-block px-3 py-1 bg-red-50 text-viettel-red text-xs font-bold rounded mb-4 tracking-wider">
                         TIN NỔI BẬT
                       </span>
-                      <h2 className="text-3xl md:text-4xl font-bold !font-sans text-viettel-dark mb-6 group-hover:text-viettel-red transition-colors leading-tight">
+                      <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold !font-sans text-viettel-dark mb-4 lg:mb-6 group-hover:text-viettel-red transition-colors leading-tight">
                         {NEWS_DATA[0].title}
                       </h2>
-                      <p className="text-gray-600 mb-8 leading-relaxed text-lg">
+                      <p className="text-gray-600 mb-6 lg:mb-8 leading-relaxed text-sm lg:text-lg">
                         {NEWS_DATA[0].description}
                       </p>
                       <div className="flex items-center text-sm text-gray-400">
@@ -136,24 +136,26 @@ export default function NewsPage() {
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Link href={`/news/${item.id}`} className="group block">
-                    <div className="overflow-hidden rounded-xl mb-6 h-64 relative">
+                  <Link href={`/news/${item.id}`} className="group block bg-white rounded-2xl overflow-hidden border border-gray-100 transition-all duration-500 flex flex-col h-full news-card">
+                    <div className="overflow-hidden h-56 relative">
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                     </div>
-                    <span className="text-xs font-bold text-viettel-red mb-3 block uppercase tracking-widest">
-                      {item.categoryLabel}
-                    </span>
-                    <h3 className="text-xl font-bold !font-sans text-viettel-dark mb-3 group-hover:text-viettel-red transition-colors line-clamp-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm text-gray-500 line-clamp-2 mb-4 leading-relaxed">
-                      {item.description}
-                    </p>
-                    <span className="text-xs text-gray-400 font-medium">{item.date}</span>
+                    <div className="p-6 flex flex-col flex-grow">
+                      <span className="text-xs font-bold text-viettel-red mb-3 block uppercase tracking-widest">
+                        {item.categoryLabel}
+                      </span>
+                      <h3 className="text-lg font-bold !font-sans text-viettel-dark mb-3 group-hover:text-viettel-red transition-colors line-clamp-2 leading-tight">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-gray-500 line-clamp-2 mb-4 leading-relaxed flex-grow">
+                        {item.description}
+                      </p>
+                      <span className="text-xs text-gray-400 font-medium block mt-auto">{item.date}</span>
+                    </div>
                   </Link>
                 </motion.div>
               ))}

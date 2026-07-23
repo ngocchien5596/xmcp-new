@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { fsMagistral, roboto } from "@/lib/fonts";
+import { ChatBubble } from "@/components/layout/ChatBubble";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -17,7 +18,10 @@ export default function RootLayout({
       lang="vi"
       className={`${roboto.variable} ${fsMagistral.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <ChatBubble />
+      </body>
     </html>
   );
 }

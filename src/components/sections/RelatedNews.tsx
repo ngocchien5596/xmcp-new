@@ -88,7 +88,7 @@ export function RelatedNews({ currentNewsId, newsItems }: RelatedNewsProps) {
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0 }
                 }}
-                className="w-[calc(100%-2rem)] md:w-[calc((100%-2rem)/2)] lg:w-[calc((100%-4rem)/3)] bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 group snap-start flex-shrink-0 border border-gray-100 flex flex-col"
+                className="w-[calc(100%-2rem)] md:w-[calc((100%-2rem)/2)] lg:w-[calc((100%-4rem)/3)] bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 group snap-start flex-shrink-0 border border-gray-100 flex flex-col news-card"
               >
                 <div className="relative h-64 overflow-hidden">
                   <img

@@ -88,7 +88,7 @@ export default function ProductsPage() {
                 >
                   <Link
                     href={`/products/${product.id}`}
-                    className="group block bg-white h-full rounded-2xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500"
+                    className="group block bg-white h-full rounded-2xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500 product-card"
                   >
                     <div className="h-64 overflow-hidden relative p-8 bg-viettel-gray/30">
                       <img

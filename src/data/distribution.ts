@@ -12,7 +12,7 @@ export const DISTRIBUTORS: Distributor[] = [
   {
     id: '1',
     name: 'Trụ sở chính - Công ty CP Xi măng Cẩm Phả',
-    address: 'Km6, Quốc lộ 18A, Phường Quang Hanh, TP. Cẩm Phả, Tỉnh Quảng Ninh',
+    address: 'Km6, Quốc lộ 18A, Phường Quang Hanh, Tỉnh Quảng Ninh',
     phone: '(84-203) 372 1995',
     lat: 100, // Y
     lng: 300, // X
@@ -20,8 +20,8 @@ export const DISTRIBUTORS: Distributor[] = [
   },
   {
     id: '2',
-    name: 'Chi nhánh Hà Nội',
-    address: 'Số 1, Phố Giang Văn Minh, Quận Ba Đình, Hà Nội',
+    name: 'Văn phòng Đại diện tại Hà Nội',
+    address: 'Tầng 4, tòa nhà TCC Tower, số 19 Duy Tân, quận Cầu Giấy, thành phố Hà Nội',
     phone: '(84-24) 6265 7118',
     lat: 115,
     lng: 225,
@@ -75,7 +75,7 @@ export const DISTRIBUTORS: Distributor[] = [
   {
     id: '8',
     name: 'Chi nhánh Phía Nam - Công ty Cổ phần Xi măng Cẩm Phả',
-    address: 'Khu Công Nghiệp Mỹ Xuân A, Phường Phú Mỹ, TP. Hồ Chí Minh',
+    address: 'Khu Công Nghiệp Mỹ Xuân, Phường Phú Mỹ, TP. Hồ Chí Minh',
     phone: '0254 3899 630',
     lat: 620,
     lng: 310,

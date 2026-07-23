@@ -83,9 +83,20 @@
   .core-service-card h3,
   .customer-story-card h3,
   .news-card h3,
-  .news-content-body h3,
+  .news-content-body h3 {
+    font-family: var(--font-roboto), sans-serif !important;
+  }
+
   .detail-title {
     font-family: var(--font-roboto), sans-serif !important;
+    font-size: 1.375rem !important; /* 22px (~30% reduction from 30px) */
+    line-height: 1.25 !important;
+  }
+
+  @media (min-width: 768px) {
+    .detail-title {
+      font-size: 2.125rem !important; /* 34px (~30% reduction from 48px) */
+    }
   }
 
   .news-content-body h3 {
@@ -93,6 +104,37 @@
     line-height: 1.3 !important;
     margin-top: 2.5rem !important;
     margin-bottom: 1.25rem !important;
+  }
+
+  .news-content-body p {
+    margin-bottom: 1.5rem !important;
+    text-align: justify !important;
+    line-height: 1.75 !important;
+    color: #4b5563 !important; /* gray-600 */
+  }
+
+  .news-content-body img {
+    margin-top: 2rem !important;
+    margin-bottom: 0.5rem !important;
+    border-radius: 1rem !important;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+  }
+
+  .news-content-body ul {
+    list-style-type: disc !important;
+    padding-left: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .news-content-body ol {
+    list-style-type: decimal !important;
+    padding-left: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .news-content-body li {
+    margin-bottom: 0.5rem !important;
+    color: #4b5563 !important;
   }
 
   .news-content-body .caption,
@@ -105,6 +147,28 @@
     font-size: 0.875rem !important;
     margin-top: 1rem !important;
     margin-bottom: 2.5rem !important;
+  }
+
+  /* Enhance visual depth of all cards */
+  .product-card,
+  .news-card,
+  .project-card,
+  .customer-story-card,
+  .core-service-card {
+    background-color: #FFFFFF !important;
+    border: 1px solid rgba(229, 231, 235, 0.6) !important; /* border-gray-200/60 */
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 8px 12px -6px rgba(0, 0, 0, 0.04) !important;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s !important;
+  }
+
+  .product-card:hover,
+  .news-card:hover,
+  .project-card:hover,
+  .customer-story-card:hover,
+  .core-service-card:hover {
+    transform: translateY(-6px) !important; /* Smooth float up */
+    box-shadow: 0 25px 50px -12px rgba(17, 17, 17, 0.12) !important; /* Deeper shadow on hover */
+    border-color: rgba(238, 4, 52, 0.2) !important; /* Subtle viettel red highlight */
   }
 }
 

@@ -48,7 +48,7 @@ export default function DistributionPage() {
                 {['All', 'North', 'Central', 'South'].map((region) => (
                   <button
                     key={region}
-                    onClick={() => setSelectedRegion(region as any)}
+                    onClick={() => setSelectedRegion(region as 'All' | 'North' | 'Central' | 'South')}
                     className={cn(
                       "px-4 py-1.5 rounded-full text-xs font-bold transition-all uppercase tracking-wider",
                       selectedRegion === region
