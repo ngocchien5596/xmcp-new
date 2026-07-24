@@ -15,6 +15,7 @@ export const NAV_ITEMS = [
   { href: '/projects', label: 'Dự án' },
   { href: '/distribution', label: 'Hệ thống phân phối' },
   { href: '/news', label: 'Tin tức' },
+  { href: '/notifications', label: 'Thông báo' },
   { href: '/careers', label: 'Tuyển dụng' },
 ] as const;
 
