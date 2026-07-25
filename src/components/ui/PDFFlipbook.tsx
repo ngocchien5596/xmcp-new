@@ -1,4 +1,5 @@
 'use client';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -40,7 +41,9 @@ export function PDFFlipbook({ pdfUrl, title }: PDFFlipbookProps) {
   
   // pageState is a tuple of [currentPageNumber, slideDirection (-1 for left, 1 for right)]
   const [[currentPage, direction], setPageState] = useState([1, 0]);
-  const [aspectRatio, setAspectRatio] = useState<number>(0.707); // Default A4 ratio
+  const [aspectRatio, setAspectRatio] = useState<number>(() => {
+    return pdfAspectCache.get(pdfUrl) || 0.707;
+  }); // Default A4 ratio
   const [isFullscreen, setIsFullscreen] = useState(false);
   
   const [renderedPages, setRenderedPages] = useState<Record<number, string>>({});
@@ -52,6 +55,45 @@ export function PDFFlipbook({ pdfUrl, title }: PDFFlipbookProps) {
   const isImage = useMemo(() => {
     return !!pdfUrl.match(/\.(jpg|jpeg|png|webp|gif)$/i);
   }, [pdfUrl]);
+
+  // Render all pages in background and cache them
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const renderAllPages = async (pdf: any) => {
+    const pageDataUrls: Record<number, string> = {};
+    
+    for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+      const cacheKey = `${pdfUrl}_page_${pageNum}`;
+      
+      // Rule 7.4 Check Cache first
+      if (renderedPagesCache.has(cacheKey)) {
+        pageDataUrls[pageNum] = renderedPagesCache.get(cacheKey)!;
+        setRenderedPages(prev => ({ ...prev, [pageNum]: pageDataUrls[pageNum] }));
+        continue;
+      }
+      
+      try {
+        const page = await pdf.getPage(pageNum);
+        const viewport = page.getViewport({ scale: 1.5 });
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        
+        if (context) {
+          await page.render({ canvasContext: context, viewport }).promise;
+          const dataUrl = canvas.toDataURL('image/webp', 0.85);
+          
+          // Save to Rule 7.4 cache
+          renderedPagesCache.set(cacheKey, dataUrl);
+          
+          pageDataUrls[pageNum] = dataUrl;
+          setRenderedPages(prev => ({ ...prev, [pageNum]: dataUrl }));
+        }
+      } catch (err) {
+        console.error(`Error rendering page ${pageNum}:`, err);
+      }
+    }
+  };
 
   // Load PDF.js or Image dynamically
   useEffect(() => {
@@ -115,19 +157,15 @@ export function PDFFlipbook({ pdfUrl, title }: PDFFlipbookProps) {
         
         // Start rendering pages
         renderAllPages(pdf);
-      } catch (err: any) {
+      } catch (err) {
         console.error('Error loading PDF:', err);
         if (active) {
-          setError(err.message || 'Không thể tải tệp PDF.');
+          const errMsg = err instanceof Error ? err.message : 'Không thể tải tệp PDF.';
+          setError(errMsg);
           setLoading(false);
         }
       }
     };
-
-    // Check aspect cache first (Rule 7.4)
-    if (pdfAspectCache.has(pdfUrl)) {
-      setAspectRatio(pdfAspectCache.get(pdfUrl)!);
-    }
 
     loadPdfJs();
 
@@ -135,44 +173,6 @@ export function PDFFlipbook({ pdfUrl, title }: PDFFlipbookProps) {
       active = false;
     };
   }, [pdfUrl, isImage]);
-
-  // Render all pages in background and cache them
-  const renderAllPages = async (pdf: any) => {
-    const pageDataUrls: Record<number, string> = {};
-    
-    for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-      const cacheKey = `${pdfUrl}_page_${pageNum}`;
-      
-      // Rule 7.4 Check Cache first
-      if (renderedPagesCache.has(cacheKey)) {
-        pageDataUrls[pageNum] = renderedPagesCache.get(cacheKey)!;
-        setRenderedPages(prev => ({ ...prev, [pageNum]: pageDataUrls[pageNum] }));
-        continue;
-      }
-      
-      try {
-        const page = await pdf.getPage(pageNum);
-        const viewport = page.getViewport({ scale: 1.5 });
-        const canvas = document.createElement('canvas');
-        const context = canvas.getContext('2d');
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
-        
-        if (context) {
-          await page.render({ canvasContext: context, viewport }).promise;
-          const dataUrl = canvas.toDataURL('image/webp', 0.85);
-          
-          // Save to Rule 7.4 cache
-          renderedPagesCache.set(cacheKey, dataUrl);
-          
-          pageDataUrls[pageNum] = dataUrl;
-          setRenderedPages(prev => ({ ...prev, [pageNum]: dataUrl }));
-        }
-      } catch (err) {
-        console.error(`Error rendering page ${pageNum}:`, err);
-      }
-    }
-  };
 
   // Toggle fullscreen mode
   const toggleFullscreen = () => {

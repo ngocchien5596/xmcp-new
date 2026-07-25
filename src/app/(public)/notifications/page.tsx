@@ -39,7 +39,7 @@ function getBadgeClass(category: string): string {
       classes += "bg-amber-50 text-amber-600 border border-amber-100";
       break;
     case 'general':
-      classes += "bg-purple-50 text-purple-600 border border-purple-100";
+      classes += "bg-teal-50 text-teal-600 border border-teal-100";
       break;
     default:
       classes += "bg-gray-50 text-gray-600 border border-gray-100";
@@ -97,7 +97,7 @@ export default function NotificationsPage() {
             {/* Filter Tabs */}
             <div className="flex items-center gap-2 overflow-x-auto w-full lg:w-auto pb-2 lg:pb-0 hide-scrollbar">
               <span className="flex items-center text-viettel-dark font-bold text-xs uppercase tracking-widest mr-2 whitespace-nowrap">
-                <Filter className="w-4 h-4 mr-2 text-viettel-red" /> Lọc theo:
+                <Filter className="w-4 h-4 mr-2 text-viettel-red" /> Lọc thông báo:
               </span>
               <div className="flex gap-2">
                 {CATEGORIES.map((cat) => (

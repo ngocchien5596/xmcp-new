@@ -6,7 +6,7 @@ import { InternalHero } from '@/components/sections/InternalHero';
 import { RevealOnScroll } from '@/components/animations/RevealOnScroll';
 import Link from 'next/link';
 
-import { Filter } from 'lucide-react';
+import { Filter, Search, FileText } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Pagination } from '@/components/ui/Pagination';
 import { NEWS_DATA } from '@/data/news';
@@ -20,6 +20,7 @@ const CATEGORIES = [
 
 export default function NewsPage() {
   const [activeTab, setActiveTab] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9;
 
@@ -28,15 +29,28 @@ export default function NewsPage() {
     setCurrentPage(1); // Reset to page 1 on filter change
   };
 
-  const filteredNews = NEWS_DATA.filter(item =>
-    activeTab === 'all' || item.category === activeTab
-  );
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+    setCurrentPage(1); // Reset to page 1 on search change
+  };
+
+  const filteredNews = NEWS_DATA.filter(item => {
+    const matchesCategory = activeTab === 'all' || item.category === activeTab;
+    const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          item.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
+  // If we are searching, or not on page 1, or not in 'all'/'news' tab, we don't show the featured banner.
+  const showFeatured = !searchQuery && (activeTab === 'all' || activeTab === 'news') && currentPage === 1;
 
   // Pagination logic
   // If 'all' or 'news', we show featured item separately, so we exclude it from the grid items
-  const gridItems = filteredNews.filter(item => !item.featured || activeTab !== 'all');
-  const totalPages = Math.ceil(gridItems.length / itemsPerPage);
+  const gridItems = showFeatured
+    ? filteredNews.filter(item => !item.featured)
+    : filteredNews;
 
+  const totalPages = Math.ceil(gridItems.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const paginatedItems = gridItems.slice(startIndex, startIndex + itemsPerPage);
 
@@ -49,30 +63,45 @@ export default function NewsPage() {
       />
 
       {/* News Filters */}
-      <section className="py-4 bg-white border-b border-gray-100 sticky top-16 z-30 shadow-sm backdrop-blur-md bg-white/90">
+      <section className="py-6 bg-white border-b border-gray-100 sticky top-16 z-30 shadow-sm backdrop-blur-md bg-white/90">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center text-viettel-dark font-bold">
-              <Filter className="w-5 h-5 mr-3 text-viettel-red" />
-              LỌC TIN TỨC
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+            
+            {/* Filter Tabs */}
+            <div className="flex items-center gap-2 overflow-x-auto w-full lg:w-auto pb-2 lg:pb-0 hide-scrollbar">
+              <span className="flex items-center text-viettel-dark font-bold text-xs uppercase tracking-widest mr-2 whitespace-nowrap">
+                <Filter className="w-4 h-4 mr-2 text-viettel-red" /> Lọc tin tức:
+              </span>
+              <div className="flex gap-2">
+                {CATEGORIES.map((cat) => (
+                  <button
+                    key={cat.id}
+                    onClick={() => handleTabChange(cat.id)}
+                    className={cn(
+                      "px-5 py-2 rounded-full text-[11px] font-bold transition-all duration-300 border uppercase tracking-wider whitespace-nowrap",
+                      activeTab === cat.id
+                        ? "bg-viettel-red text-white border-viettel-red shadow-md"
+                        : "bg-white text-gray-500 border-gray-200 hover:border-viettel-red hover:text-viettel-red"
+                    )}
+                  >
+                    {cat.label}
+                  </button>
+                ))}
+              </div>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-3">
-              {CATEGORIES.map((cat) => (
-                <button
-                  key={cat.id}
-                  onClick={() => handleTabChange(cat.id)}
-                  className={cn(
-                    "px-6 py-2.5 rounded-full text-xs font-bold transition-all duration-300 border uppercase tracking-widest",
-                    activeTab === cat.id
-                      ? "bg-viettel-red text-white border-viettel-red shadow-lg shadow-red-500/20"
-                      : "bg-white text-gray-500 border-gray-200 hover:border-viettel-red hover:text-viettel-red"
-                  )}
-                >
-                  {cat.label}
-                </button>
-              ))}
+            {/* Search Input */}
+            <div className="relative w-full lg:w-80 flex-shrink-0">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Tìm kiếm tin tức..."
+                value={searchQuery}
+                onChange={handleSearchChange}
+                className="w-full pl-11 pr-4 py-2.5 bg-slate-50 border border-gray-200 rounded-full text-xs font-medium focus:outline-none focus:border-viettel-red focus:bg-white transition-all"
+              />
             </div>
+            
           </div>
         </div>
       </section>
@@ -80,96 +109,109 @@ export default function NewsPage() {
       <section className="py-20 bg-viettel-gray/30">
         <div className="container mx-auto px-4">
 
-          {/* Featured News (Only if tab is 'all' or 'news' and on first page) */}
-          <AnimatePresence mode="wait">
-            {(activeTab === 'all' || activeTab === 'news') && currentPage === 1 && (
-              <motion.div
-                key="featured"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                className="mb-20"
-              >
-                <RevealOnScroll>
-                  <Link href={`/news/${NEWS_DATA[0].id}`} className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center bg-white rounded-3xl overflow-hidden border border-gray-100 p-6 lg:p-10 transition-all duration-500 group news-card">
-                    <div className="overflow-hidden rounded-2xl h-[300px] lg:h-[400px] relative">
-                      <img
-                        src={NEWS_DATA[0].image}
-                        alt={NEWS_DATA[0].title}
-                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                      />
-                    </div>
-                    <div>
-                      <span className="inline-block px-3 py-1 bg-red-50 text-viettel-red text-xs font-bold rounded mb-4 tracking-wider">
-                        TIN NỔI BẬT
-                      </span>
-                      <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold !font-sans text-viettel-dark mb-4 lg:mb-6 group-hover:text-viettel-red transition-colors leading-tight">
-                        {NEWS_DATA[0].title}
-                      </h2>
-                      <p className="text-gray-600 mb-6 lg:mb-8 leading-relaxed text-sm lg:text-lg">
-                        {NEWS_DATA[0].description}
-                      </p>
-                      <div className="flex items-center text-sm text-gray-400">
-                        <span className="font-semibold text-viettel-dark">{NEWS_DATA[0].author}</span>
-                        <span className="mx-3 text-gray-300">|</span>
-                        <span>{NEWS_DATA[0].date}</span>
-                      </div>
-                    </div>
-                  </Link>
-                </RevealOnScroll>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          {paginatedItems.length === 0 && !showFeatured ? (
+            <div className="bg-white border border-gray-100 rounded-3xl p-12 text-center shadow-sm max-w-2xl mx-auto">
+              <FileText className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+              <p className="text-gray-500 font-medium">Không tìm thấy tin tức nào phù hợp với bộ lọc hiện tại.</p>
+            </div>
+          ) : (
+            <>
+              {/* Featured News (Only if tab is 'all' or 'news' and on first page) */}
+              <AnimatePresence mode="wait">
+                {showFeatured && (
+                  <motion.div
+                    key="featured"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    className="mb-20"
+                  >
+                    <RevealOnScroll>
+                      <Link href={`/news/${NEWS_DATA[0].id}`} className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center bg-white rounded-3xl overflow-hidden border border-gray-100 p-6 lg:p-10 transition-all duration-500 group news-card">
+                        <div className="overflow-hidden rounded-2xl h-[300px] lg:h-[400px] relative">
+                          <img
+                            src={NEWS_DATA[0].image}
+                            alt={NEWS_DATA[0].title}
+                            className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                          />
+                        </div>
+                        <div>
+                          <span className="inline-block px-3 py-1 bg-red-50 text-viettel-red text-xs font-bold rounded mb-4 tracking-wider">
+                            TIN NỔI BẬT
+                          </span>
+                          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold !font-sans text-viettel-dark mb-4 lg:mb-6 group-hover:text-viettel-red transition-colors leading-tight">
+                            {NEWS_DATA[0].title}
+                          </h2>
+                          <p className="text-gray-600 mb-6 lg:mb-8 leading-relaxed text-sm lg:text-lg">
+                            {NEWS_DATA[0].description}
+                          </p>
+                          <div className="flex items-center text-sm text-gray-400">
+                            <span className="font-semibold text-viettel-dark">{NEWS_DATA[0].author}</span>
+                            <span className="mx-3 text-gray-300">|</span>
+                            <span>{NEWS_DATA[0].date}</span>
+                          </div>
+                        </div>
+                      </Link>
+                    </RevealOnScroll>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
-          {/* News Grid */}
-          <motion.div
-            layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
-          >
-            <AnimatePresence mode="popLayout">
-              {paginatedItems.map((item) => (
+              {/* News Grid */}
+              {paginatedItems.length > 0 && (
                 <motion.div
-                  key={item.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
                 >
-                  <Link href={`/news/${item.id}`} className="group block bg-white rounded-2xl overflow-hidden border border-gray-100 transition-all duration-500 flex flex-col h-full news-card">
-                    <div className="overflow-hidden h-56 relative">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      />
-                    </div>
-                    <div className="p-6 flex flex-col flex-grow">
-                      <span className="text-xs font-bold text-viettel-red mb-3 block uppercase tracking-widest">
-                        {item.categoryLabel}
-                      </span>
-                      <h3 className="text-lg font-bold !font-sans text-viettel-dark mb-3 group-hover:text-viettel-red transition-colors line-clamp-2 leading-tight">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm text-gray-500 line-clamp-2 mb-4 leading-relaxed flex-grow">
-                        {item.description}
-                      </p>
-                      <span className="text-xs text-gray-400 font-medium block mt-auto">{item.date}</span>
-                    </div>
-                  </Link>
+                  <AnimatePresence mode="popLayout">
+                    {paginatedItems.map((item) => (
+                      <motion.div
+                        key={item.id}
+                        layout
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Link href={`/news/${item.id}`} className="group block bg-white rounded-2xl overflow-hidden border border-gray-100 transition-all duration-500 flex flex-col h-full news-card">
+                          <div className="overflow-hidden h-56 relative">
+                            <img
+                              src={item.image}
+                              alt={item.title}
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            />
+                          </div>
+                          <div className="p-6 flex flex-col flex-grow">
+                            <span className="text-xs font-bold text-viettel-red mb-3 block uppercase tracking-widest">
+                              {item.categoryLabel}
+                            </span>
+                            <h3 className="text-lg font-bold !font-sans text-viettel-dark mb-3 group-hover:text-viettel-red transition-colors line-clamp-2 leading-tight">
+                              {item.title}
+                            </h3>
+                            <p className="text-sm text-gray-500 line-clamp-2 mb-4 leading-relaxed flex-grow">
+                              {item.description}
+                            </p>
+                            <span className="text-xs text-gray-400 font-medium block mt-auto">{item.date}</span>
+                          </div>
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </AnimatePresence>
                 </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
+              )}
 
-          {/* Pagination */}
-          <RevealOnScroll className="mt-20">
-            <Pagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={setCurrentPage}
-            />
-          </RevealOnScroll>
+              {/* Pagination */}
+              {totalPages > 1 && (
+                <RevealOnScroll className="mt-20">
+                  <Pagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={setCurrentPage}
+                  />
+                </RevealOnScroll>
+              )}
+            </>
+          )}
 
         </div>
       </section>

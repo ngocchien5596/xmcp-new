@@ -78,21 +78,36 @@ export default async function NotificationDetailPage({ params }: { params: Promi
               </div>
             </header>
 
-            {/* Main PDF Flipbook Reader */}
-            <div className="mb-16">
-              <div className="mb-4 flex items-center justify-between">
-                <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 flex items-center gap-2">
-                  <FileText className="w-4 h-4 text-viettel-red" />
-                  Nội dung tài liệu
-                </h2>
+            {/* Main PDF Flipbook Reader or HTML Content */}
+            {notification.pdfUrl ? (
+              <div className="mb-16">
+                <div className="mb-4 flex items-center justify-between">
+                  <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 flex items-center gap-2">
+                    <FileText className="w-4 h-4 text-viettel-red" />
+                    Nội dung tài liệu
+                  </h2>
+                </div>
+                
+                {/* HTML5 Flipbook Component */}
+                <PDFFlipbook 
+                  pdfUrl={notification.pdfUrl} 
+                  title={notification.title} 
+                />
               </div>
-              
-              {/* HTML5 Flipbook Component */}
-              <PDFFlipbook 
-                pdfUrl={notification.pdfUrl} 
-                title={notification.title} 
-              />
-            </div>
+            ) : notification.content ? (
+              <div className="mb-16 bg-slate-50 border border-slate-100 rounded-3xl p-8">
+                <div className="mb-4 flex items-center justify-between border-b border-slate-200/60 pb-3">
+                  <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 flex items-center gap-2">
+                    <FileText className="w-4 h-4 text-viettel-red" />
+                    Nội dung thông báo
+                  </h2>
+                </div>
+                <div 
+                  className="text-xs text-gray-600 leading-relaxed space-y-4 font-sans markdown-content"
+                  dangerouslySetInnerHTML={{ __html: notification.content }} 
+                />
+              </div>
+            ) : null}
 
             {/* Document Description */}
             <div className="bg-slate-50 border border-slate-100 rounded-3xl p-8 mb-16">
