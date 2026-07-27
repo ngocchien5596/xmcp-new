@@ -52,18 +52,18 @@ export function Footer() {
                 <Image
                   src="/assets/design/dathongbao.png"
                   alt="Đã thông báo Bộ Công Thương"
-                   fill
-                   sizes="(max-width: 768px) 112px, 112px"
-                   className="object-contain"
+                  fill
+                  sizes="(max-width: 768px) 112px, 112px"
+                  className="object-contain"
                 />
               </div>
               <div className="relative h-10 w-20">
                 <Image
                   src="/assets/design/ipv6.png"
                   alt="IPv6 Ready"
-                   fill
-                   sizes="(max-width: 768px) 80px, 80px"
-                   className="object-contain"
+                  fill
+                  sizes="(max-width: 768px) 80px, 80px"
+                  className="object-contain"
                 />
               </div>
             </div>
@@ -75,10 +75,10 @@ export function Footer() {
             <ul className="space-y-3 text-sm font-medium text-gray-600">
               <li><Link href="/" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Trang chủ</Link></li>
               <li><Link href="/about" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Về chúng tôi</Link></li>
-               <li><Link href="/products" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Sản phẩm</Link></li>
-               <li><Link href="/projects" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Dự án</Link></li>
-               <li><Link href="/distribution" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Hệ thống phân phối</Link></li>
-               <li><Link href="/news" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Tin tức</Link></li>
+              <li><Link href="/products" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Sản phẩm</Link></li>
+              <li><Link href="/projects" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Dự án</Link></li>
+              <li><Link href="/distribution" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Hệ thống phân phối</Link></li>
+              <li><Link href="/news" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Tin tức</Link></li>
               <li><Link href="/careers" className="inline-block transition-all duration-300 hover:text-viettel-red hover:translate-x-1">Tuyển dụng</Link></li>
             </ul>
           </div>
@@ -92,7 +92,7 @@ export function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="leading-relaxed">Km6, Quốc lộ 18A, Phường Quang Hanh,<br />TP. Cẩm Phả, Tỉnh Quảng Ninh.</span>
+                <span className="leading-relaxed">Km6, Quốc lộ 18A, Phường Quang Hanh, Tỉnh Quảng Ninh.</span>
               </li>
               <li className="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-viettel-red mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
