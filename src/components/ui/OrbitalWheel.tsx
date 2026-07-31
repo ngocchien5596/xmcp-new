@@ -10,7 +10,7 @@ const WHEEL_ITEMS = [
     id: 'why-1',
     icon: <Globe />,
     title: 'Mạng lưới Toàn cầu',
-    description: 'Tự hào xuất khẩu xi măng tới hơn 20 quốc gia và vùng lãnh thổ, khẳng định vị thế và chất lượng sản phẩm Việt Nam trên bản đồ xây dựng thế giới.'
+    description: 'Tự hào xuất khẩu xi măng tới hơn 10 quốc gia và vùng lãnh thổ, khẳng định vị thế và chất lượng sản phẩm Việt Nam trên bản đồ xây dựng thế giới.'
   },
   {
     id: 'why-2',
@@ -22,13 +22,13 @@ const WHEEL_ITEMS = [
     id: 'why-3',
     icon: <Zap />,
     title: 'Công nghệ Nhật Bản',
-    description: 'Ứng dụng dây chuyền lò quay khô hiện đại nhất từ Nhật Bản, tối ưu hóa nhiệt năng (< 730 Kcal/kg clinker) và giảm thiểu tối đa phát thải môi trường.'
+    description: 'Ứng dụng dây chuyền lò quay khô hiện đại nhất từ Nhật Bản, tối ưu hóa nhiệt năng và giảm thiểu tối đa phát thải môi trường.'
   },
   {
     id: 'why-4',
     icon: <Shield />,
     title: 'Tiêu chuẩn Quốc tế',
-    description: 'Hệ thống quản lý đạt chuẩn ISO 9001, ISO 14001 và phòng thí nghiệm VILAS 354, đảm bảo chất lượng đồng nhất trong từng lô sản phẩm.'
+    description: 'Hệ thống quản lý đạt chuẩn ISO 14001/2015, đảm bảo chất lượng đồng nhất trong từng lô sản phẩm.'
   },
   {
     id: 'why-5',

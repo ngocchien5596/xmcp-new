@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { InternalHero } from '@/components/sections/InternalHero';
-import { ChevronLeft, CheckCircle2, ShieldCheck, Zap, Factory, ShoppingCart, MessageSquare } from 'lucide-react';
+import { ChevronLeft, CheckCircle2, ShoppingCart, MessageSquare } from 'lucide-react';
 import NextLink from 'next/link';
 import { RelatedProducts } from '@/components/sections/RelatedProducts';
 
@@ -68,21 +68,6 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                   <p className="text-lg text-gray-600 leading-relaxed italic">
                     {product.description}
                   </p>
-                </div>
-
-                <div className="flex flex-wrap gap-4 mb-12">
-                  <div className="flex items-center px-4 py-2 bg-red-50 text-viettel-red rounded-lg text-xs font-bold uppercase tracking-widest border border-red-100">
-                    <ShieldCheck className="w-4 h-4 mr-2" />
-                    Đạt chuẩn ISO/IEC
-                  </div>
-                  <div className="flex items-center px-4 py-2 bg-viettel-gray text-viettel-dark rounded-lg text-xs font-bold uppercase tracking-widest border border-gray-200">
-                    <Zap className="w-4 h-4 mr-2" />
-                    Cường độ cao
-                  </div>
-                  <div className="flex items-center px-4 py-2 bg-viettel-gray text-viettel-dark rounded-lg text-xs font-bold uppercase tracking-widest border border-gray-200">
-                    <Factory className="w-4 h-4 mr-2" />
-                    Công nghệ Nhật Bản
-                  </div>
                 </div>
 
                 <div className="space-y-12">
