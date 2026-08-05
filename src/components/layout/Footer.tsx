@@ -30,7 +30,11 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-sm text-gray-600 leading-relaxed max-w-xs">
-              Xi Măng Cẩm Phả - Chất lượng vượt thời gian. Đơn vị thành viên của Tập đoàn Viettel, tiên phong công nghệ lò quay khô từ Nhật Bản.
+              Xi Măng Cẩm Phả - Niềm tin, chất lượng của mọi công trình.
+              <br />
+              Đơn vị thành viên của Tập đoàn Viettel, tiên phong công nghệ lò quay khô từ Nhật Bản.
+              <br />
+              Chịu trách nhiệm nội dung: Ông Nguyễn Ngọc Tân.
             </p>
 
             {/* Social Icons */}

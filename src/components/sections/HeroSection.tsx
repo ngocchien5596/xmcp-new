@@ -24,10 +24,13 @@ export function HeroSection() {
       ></div>
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center pt-24 md:pt-0">
         <RevealOnScroll className="text-white">
+          {/* <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-medium leading-tight mb-8 uppercase text-center">
+            Xi Măng Cẩm Phả
+          </h1> */}
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-medium leading-tight mb-8 uppercase">
-            Xi Măng Cẩm Phả - Chất lượng Vượt thời gian
+            "Niềm tin, chất lượng của mọi công trình"
           </h1>
-          <p className="text-xl md:text-xl font-sans font-normal leading-relaxed mb-1 text-red-100">
+          <p className="text-lg md:text-lg font-sans font-normal leading-relaxed mb-1 text-red-100">
             Đơn vị thành viên của Tập đoàn Viettel. Tiên phong ứng dụng công nghệ lò quay khô hiện đại nhất từ Nhật Bản cho các công trình trọng điểm quốc gia và quốc tế.
           </p>
 
@@ -90,6 +93,6 @@ export function HeroSection() {
           </motion.div>
         </RevealOnScroll>
       </div>
-    </section>
+    </section >
   );
 }
